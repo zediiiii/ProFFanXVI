@@ -2,7 +2,11 @@
 
 A tool to detect and mute profanity in Final Fantasy XVI's voice/dialogue audio, for players who own the game on Steam and want a cleaner audio pass.
 
-## Status: feasibility confirmed
+## Status: confirmed working end-to-end, including in-game
+
+Muted the game's actual opening line ("It was Moss the Chronicler who said...") via the full pipeline (extract → mute → repack → Reloaded-II) and confirmed in-game: the line played silent, the next line was unaffected (no bleed, no desync).
+
+## Feasibility findings
 
 - **Detection**: FFXVI's `.pzd` dialogue files carry the exact subtitle text (`Line:`) *and* the exact relative audio path (`VoiceSoundPath:`) for every voice line. Profanity detection is a deterministic text search — no ASR/Whisper transcription needed for the ~41,820 standalone dialogue/bark files in `0024.en.pac`.
 - **Audio format**: `.sab` (Square Enix "SEAD" engine) is a documented container — verified byte-for-byte against vgmstream's open-source parser (`src/meta/sqex_sead.c`) — wrapping a CRI HCA stream.
