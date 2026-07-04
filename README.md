@@ -42,6 +42,12 @@ First run against base game + DLC2 + DLC3 text (6,127 `.pzd` files, 27,818 indiv
 
 The generated edit-list itself (which necessarily contains real game dialogue quotes) is **not committed to this repo** — same "don't redistribute copyrighted content" principle as the audio. Run the scanner yourself against your own extracted files to regenerate it locally.
 
+### Full batch pipeline
+
+`scripts/batch_mute_pipeline.py` ties everything together: takes the scanner's edit-list, and for every match extracts the real `.sab`, finds the flagged word's precise timing (faster-whisper word timestamps + energy-envelope refinement, bounded by the neighboring word's own ASR boundary so it can't bleed across a word with no pause between them — a real bug caught and fixed during testing, see commit history), mutes just that word, and assembles a ready-to-use Reloaded-II mod folder.
+
+Every result is tagged `word_level` or `whole_line_fallback` (with a reason) so nothing gets a guessed boundary it can't back up — low ASR confidence, or a line whose text implies trailing words that ASR didn't detect at all, falls back to the safe, fully-verified whole-line mute instead.
+
 ## Architecture decision: local tool, not redistributed assets
 
 This project does **not** ship modified Square Enix audio/pack files. It ships:
@@ -52,10 +58,35 @@ This avoids redistributing Square Enix's copyrighted audio while still being a o
 
 ## Requirements
 - FFXVI on Steam (PC)
-- [Reloaded-II](https://github.com/Reloaded-Project/Reloaded-II) + [ff16.utility.modloader](https://github.com/Nenkai/ff16.utility.modloader) (Nenkai)
+- .NET runtime (8, 9, or 10 -- set `DOTNET_ROLL_FORWARD=LatestMajor` if you only have one that isn't exactly 9)
+- Python 3.10+, `pip install faster-whisper pyyaml`
+- [Reloaded-II](https://github.com/Reloaded-Project/Reloaded-II) + [ff16.utility.modloader](https://github.com/Nenkai/ff16.utility.modloader) (Nenkai) -- portable install; mods go directly in `<ReloadedII>/Mods/<modid>/`, drag-and-drop onto the app window doesn't do anything
 - [FF16Tools](https://github.com/Nenkai/FF16Tools) (Nenkai)
-- [vgmstream](https://github.com/vgmstream/vgmstream)
-- [VGAudio](https://github.com/Thealexbarney/VGAudio) (VGAudioCli, for HCA encode)
+- [vgmstream](https://github.com/vgmstream/vgmstream) (`vgmstream-cli.exe`)
+- [VGAudio](https://github.com/Thealexbarney/VGAudio) (`VGAudioCli.exe`, for HCA encode)
+
+## Usage
+
+1. Extract and convert all dialogue text:
+   ```
+   python scripts/extract_dialogue_text.py --game-data "<Steam>/FINAL FANTASY XVI/data" --ff16-cli "<path>/FF16Tools.CLI.exe" --out extracted
+   ```
+2. Scan for profanity:
+   ```
+   python scripts/scan_profanity.py extracted -o profanity_editlist.json
+   ```
+3. Run the batch pipeline (set the env vars below to match where you put things, or edit the defaults in the script):
+   ```
+   set FF16_CLI=<path>\FF16Tools.CLI.exe
+   set VGAUDIOCLI=<path>\VGAudioCli.exe
+   set VGMSTREAM_CLI=<path>\vgmstream-cli.exe
+   set FFXVI_DATA_DIR=<Steam>\FINAL FANTASY XVI\data
+   set MOD_OUTPUT_DIR=<ReloadedII>\Mods\ff16.audio.profanity-filter\FFXVI\data
+   python scripts/batch_mute_pipeline.py profanity_editlist.json
+   ```
+4. Add a `ModConfig.json` next to the mod's `FFXVI/` folder (see `scripts/` for reference), enable it in Reloaded-II alongside `ff16.utility.modloader`, and launch.
+
+Cutscene (`.bk2`) audio isn't covered by this pipeline yet -- see the Bink findings above.
 
 ## Credits
 Format documentation and tooling built on the [FFXVI Modding](https://nenkai.github.io/ffxvi-modding/) community project by Nenkai.

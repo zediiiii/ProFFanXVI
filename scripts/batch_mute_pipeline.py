@@ -20,16 +20,24 @@ import wave
 import array
 from pathlib import Path
 
+# All paths below can be overridden with environment variables so this script
+# isn't tied to one machine's exact folder layout.
 TOOLS_DIR = Path(__file__).parent
-FF16_CLI = TOOLS_DIR / "FF16Tools" / "win-x64" / "FF16Tools.CLI.exe"
-VGAUDIOCLI = TOOLS_DIR / "VGAudioCli.exe"
-VGMSTREAM_CLI = TOOLS_DIR / "vgmstream" / "vgmstream-cli.exe"
-SAB_MUTE = TOOLS_DIR / "sab_mute.py"
+FF16_CLI = Path(os.environ.get("FF16_CLI", TOOLS_DIR / "FF16Tools" / "win-x64" / "FF16Tools.CLI.exe"))
+VGAUDIOCLI = Path(os.environ.get("VGAUDIOCLI", TOOLS_DIR / "VGAudioCli.exe"))
+VGMSTREAM_CLI = Path(os.environ.get("VGMSTREAM_CLI", TOOLS_DIR / "vgmstream" / "vgmstream-cli.exe"))
+SAB_MUTE = Path(os.environ.get("SAB_MUTE_SCRIPT", TOOLS_DIR / "sab_mute.py"))
 
-DATA_DIR = Path(r"C:\Program Files (x86)\Steam\steamapps\common\FINAL FANTASY XVI\data")
+DATA_DIR = Path(os.environ.get(
+    "FFXVI_DATA_DIR",
+    r"C:\Program Files (x86)\Steam\steamapps\common\FINAL FANTASY XVI\data",
+))
 
-EXTRACT_DIR = TOOLS_DIR / "batch_extracted"
-MOD_DIR = TOOLS_DIR / "ReloadedII" / "Mods" / "ff16.audio.profanity-filter" / "FFXVI" / "data"
+EXTRACT_DIR = Path(os.environ.get("BATCH_EXTRACT_DIR", TOOLS_DIR / "batch_extracted"))
+MOD_DIR = Path(os.environ.get(
+    "MOD_OUTPUT_DIR",
+    TOOLS_DIR / "ReloadedII" / "Mods" / "ff16.audio.profanity-filter" / "FFXVI" / "data",
+))
 
 ENV = dict(os.environ)
 ENV["DOTNET_ROLL_FORWARD"] = "LatestMajor"
