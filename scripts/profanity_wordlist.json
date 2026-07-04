@@ -1,0 +1,22 @@
+{
+  "_comment": "Word-boundary matched, case-insensitive. Severity is just a filtering knob for the scanner output, not a moral judgment -- edit freely.",
+  "severe": [
+    "fuck", "fucking", "fucked", "fucker", "motherfucker",
+    "cunt", "cocksucker"
+  ],
+  "moderate": [
+    "shit", "shitting", "shitted", "bullshit",
+    "bitch", "bitches",
+    "asshole", "ass hole",
+    "dick", "dickhead",
+    "bastard",
+    "goddamn", "god damn"
+  ],
+  "mild": [
+    "damn", "damned",
+    "hell",
+    "piss", "pissed",
+    "crap",
+    "ass"
+  ]
+}

@@ -31,6 +31,17 @@ Sample count identical before/after (166,357). `scripts/sab_mute.py` now accepts
   - vgmstream parses the patched file cleanly with identical metadata (sample rate, channels, bitrate).
 - **Cutscenes**: story movies are Bink2 (`.bk2`), audio baked into video — 105 files total (95 base + 10 DLC), confirmed via pack index. Extracted files start with a clean, unwrapped `KB2n` magic (no disguising header needed here, unlike the older FFXV-era trick). However, revision `n` is newer than what any open-source tool currently parses — checked ffmpeg's own bink demuxer source (`libavformat/bink.c`, latest master as of 2026-07): it only recognizes revisions `i`/`j`/`k`. That means audio-track replacement for cutscenes genuinely needs RAD's own official Video Tools (the actual creators of the codec), not a reverse-engineered path — and that tool is GUI-driven (its self-extracting installer wouldn't launch cleanly in an unattended/scripted context). **This step needs to be run by a human with hands on the keyboard**, not automated further.
 
+### Profanity scanner
+
+`scripts/scan_profanity.py` + `scripts/profanity_wordlist.json`: scans every extracted `.pzd`→`.yaml` dialogue file's `Line:` text against a word-boundary-matched, severity-tiered wordlist, and emits an edit-list (line ID, matched word(s), severity, exact `VoiceSoundPath`) — no audio decoding needed for detection at all.
+
+First run against base game + DLC2 + DLC3 text (6,127 dialogue lines total):
+- 395 matches, all with a valid, actionable `VoiceSoundPath`.
+- Breakdown: 103 severe, 87 moderate, 211 mild (wordlist severity tiers are just a filtering knob, edit freely).
+- Spot-checked for false positives, including the highest-risk word ("ass", prone to matching inside "class"/"grass"/"assassin") — word-boundary regex correctly returned only 1 genuine hit, no substring contamination.
+
+The generated edit-list itself (which necessarily contains real game dialogue quotes) is **not committed to this repo** — same "don't redistribute copyrighted content" principle as the audio. Run the scanner yourself against your own extracted files to regenerate it locally.
+
 ## Architecture decision: local tool, not redistributed assets
 
 This project does **not** ship modified Square Enix audio/pack files. It ships:

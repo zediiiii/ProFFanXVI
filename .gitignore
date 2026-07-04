@@ -3,3 +3,8 @@ __pycache__/
 _sabwork/
 *.wav
 *.hca
+*.sab
+*.pzd
+*.yaml
+profanity_editlist*.json
+extracted/
