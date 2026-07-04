@@ -29,7 +29,7 @@ Sample count identical before/after (166,357). `scripts/sab_mute.py` now accepts
   - Original: 27,468 samples, peak amplitude 21,573, RMS 4,791.
   - Muted: 27,468 samples (**identical duration**), peak 0, RMS 0.0.
   - vgmstream parses the patched file cleanly with identical metadata (sample rate, channels, bitrate).
-- **Cutscenes**: story movies are Bink2 (`.bk2`), audio baked into video — 105 files total (95 base + 10 DLC), confirmed via pack index. Separate handling needed (RAD Video Tools audio-track swap), not yet round-trip tested.
+- **Cutscenes**: story movies are Bink2 (`.bk2`), audio baked into video — 105 files total (95 base + 10 DLC), confirmed via pack index. Extracted files start with a clean, unwrapped `KB2n` magic (no disguising header needed here, unlike the older FFXV-era trick). However, revision `n` is newer than what any open-source tool currently parses — checked ffmpeg's own bink demuxer source (`libavformat/bink.c`, latest master as of 2026-07): it only recognizes revisions `i`/`j`/`k`. That means audio-track replacement for cutscenes genuinely needs RAD's own official Video Tools (the actual creators of the codec), not a reverse-engineered path — and that tool is GUI-driven (its self-extracting installer wouldn't launch cleanly in an unattended/scripted context). **This step needs to be run by a human with hands on the keyboard**, not automated further.
 
 ## Architecture decision: local tool, not redistributed assets
 
