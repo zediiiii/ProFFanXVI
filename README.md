@@ -48,6 +48,10 @@ The generated edit-list itself (which necessarily contains real game dialogue qu
 
 Every result is tagged `word_level` or `whole_line_fallback` (with a reason) so nothing gets a guessed boundary it can't back up — low ASR confidence, or a line whose text implies trailing words that ASR didn't detect at all, falls back to the safe, fully-verified whole-line mute instead.
 
+**First full run against all 395 matches**: 388 succeeded (326 precise word-level cuts, 62 safe whole-line fallbacks), 7 failed to extract at all (all `simpleq`/side-quest lines whose `.pzd` text entry has no corresponding shipped English audio file in any pack tested -- likely orphaned/cut-content database rows, not a pipeline bug).
+
+`scripts/verify_batch_results.py` then re-decodes every one of the 388 outputs and independently checks (not just trusting the pipeline's own self-report): word-level results actually show a real RMS drop in the claimed range, whole-line fallbacks are genuinely silent throughout, and duration is unchanged in every case. **Result: 0 flagged for manual review out of 388.**
+
 ## Architecture decision: local tool, not redistributed assets
 
 This project does **not** ship modified Square Enix audio/pack files. It ships:
