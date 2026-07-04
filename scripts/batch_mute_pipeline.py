@@ -210,6 +210,18 @@ def process_match(model, match, work_dir):
             span = None
             untrustworthy_tail = True
 
+    # ASR word timestamps can collapse to near-zero width when words run together
+    # in fast speech (seen in practice: a word's own reported start == end while
+    # colliding with both neighbors at the same instant). A degenerate span like
+    # that produces a mute range too short to actually silence anything, so treat
+    # it the same as no match at all.
+    degenerate_span = False
+    if span is not None:
+        w_start, w_end, _, _, _ = span
+        if (w_end - w_start) < 0.05:
+            span = None
+            degenerate_span = True
+
     if span and span[2] >= 0.15:  # some confidence floor; low-confidence ASR still gets a boundary attempt
         w_start, w_end, conf, prev_end, next_start = span
         envelope = rms_envelope(str(wav_path))
@@ -225,7 +237,12 @@ def process_match(model, match, work_dir):
     else:
         subprocess.run([sys.executable, str(SAB_MUTE), str(sab_src), str(dest)],
                        capture_output=True, text=True, check=True)
-        reason = "untrustworthy_tail_no_next_word" if untrustworthy_tail else "no_confident_asr_match"
+        if untrustworthy_tail:
+            reason = "untrustworthy_tail_no_next_word"
+        elif degenerate_span:
+            reason = "degenerate_zero_width_asr_span"
+        else:
+            reason = "no_confident_asr_match"
         result.update(method="whole_line_fallback", reason=reason)
 
     return result

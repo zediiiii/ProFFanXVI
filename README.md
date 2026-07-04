@@ -35,28 +35,28 @@ Sample count identical before/after (166,357). `scripts/sab_mute.py` now accepts
 
 `scripts/scan_profanity.py` + `scripts/profanity_wordlist.json`: scans every extracted `.pzd`→`.yaml` dialogue file's `Line:` text against a word-boundary-matched, severity-tiered wordlist, and emits an edit-list (line ID, matched word(s), severity, exact `VoiceSoundPath`) — no audio decoding needed for detection at all.
 
-First run against base game + DLC2 + DLC3 text (6,127 `.pzd` files, 27,818 individual dialogue lines total):
-- 395 matches, all with a valid, actionable `VoiceSoundPath`.
-- Breakdown: 103 severe, 87 moderate, 211 mild (wordlist severity tiers are just a filtering knob, edit freely).
-- Spot-checked for false positives, including the highest-risk word ("ass", prone to matching inside "class"/"grass"/"assassin") — word-boundary regex correctly returned only 1 genuine hit, no substring contamination.
+First run against base game + DLC2 + DLC3 text (6,127 `.pzd` files, 27,818 individual dialogue lines total): 395 matches. Spot-checked for false positives, including the highest-risk word ("ass", prone to matching inside "class"/"grass"/"assassin") — word-boundary regex correctly returned only 1 genuine hit, no substring contamination.
 
-Added "bloody" to the mild tier after noticing it appears standalone (not just in "bloody hell") in 216 dialogue files — FFXVI's dialogue is notably British in style. That brought the total to 487 matches (103 severe, 87 moderate, 306 mild).
+Iterated on the wordlist twice based on actual usage data from the scan:
+- Added "bloody" to the mild tier after noticing it appears standalone (not just in "bloody hell") in 216 dialogue files — FFXVI's dialogue is notably British in style. Brought the total to 487.
+- Then removed "bloody", "hell", "piss", "pissed", and "crap" entirely after review (kept "damn"/"damned"/"ass") — these are common, mild British-English intensifiers that came back much more often than anything else flagged and didn't need muting. **Current total: 294 matches** (103 severe, 87 moderate, 104 mild).
 
 The generated edit-list itself (which necessarily contains real game dialogue quotes) is **not committed to this repo** — same "don't redistribute copyrighted content" principle as the audio. Run the scanner yourself against your own extracted files to regenerate it locally.
 
 ### Full batch pipeline
 
-`scripts/batch_mute_pipeline.py` ties everything together: takes the scanner's edit-list, and for every match extracts the real `.sab`, finds the flagged word's precise timing (faster-whisper word timestamps + energy-envelope refinement, bounded by the neighboring word's own ASR boundary so it can't bleed across a word with no pause between them — a real bug caught and fixed during testing, see commit history), mutes just that word, and assembles a ready-to-use Reloaded-II mod folder.
+`scripts/batch_mute_pipeline.py` ties everything together: takes the scanner's edit-list, and for every match extracts the real `.sab`, finds the flagged word's precise timing (faster-whisper word timestamps + energy-envelope refinement, bounded by the neighboring word's own ASR boundary so it can't bleed across a word with no pause between them), mutes just that word, and assembles a ready-to-use Reloaded-II mod folder.
 
-Every result is tagged `word_level` or `whole_line_fallback` (with a reason) so nothing gets a guessed boundary it can't back up — low ASR confidence, or a line whose text implies trailing words that ASR didn't detect at all, falls back to the safe, fully-verified whole-line mute instead.
+Every result is tagged `word_level` or `whole_line_fallback` (with a reason) so nothing gets a guessed boundary it can't back up: low ASR confidence, a line whose text implies trailing words that ASR didn't detect at all, or (see below) a degenerate zero-width ASR timestamp all fall back to the safe, fully-verified whole-line mute instead.
 
-**First full run against all 395 matches**: 388 succeeded (326 precise word-level cuts, 62 safe whole-line fallbacks), 7 failed to extract at all (all `simpleq`/side-quest lines whose `.pzd` text entry has no corresponding shipped English audio file in any pack tested -- likely orphaned/cut-content database rows, not a pipeline bug).
+**Final state after processing the full 294-match wordlist** (across the original run, a "bloody"-expansion delta, then reconciling back down after excluding those 5 words — see commit history for the blow-by-blow): 290 of 294 matches have a muted file in the mod folder; the other 4 are the same `simpleq`/side-quest lines whose `.pzd` text entry has no corresponding shipped English audio in any pack tested (consistent ~1-6% rate across multiple runs — orphaned cut-content database rows, not a pipeline bug).
 
-`scripts/verify_batch_results.py` then re-decodes every one of the 388 outputs and independently checks (not just trusting the pipeline's own self-report): word-level results actually show a real RMS drop in the claimed range, whole-line fallbacks are genuinely silent throughout, and duration is unchanged in every case. **Result: 0 flagged for manual review out of 388.**
+Three real bugs were caught and fixed by actually verifying output rather than trusting the pipeline's self-report:
+1. **Boundary bleed** — with no pause between words ("Fucking dog!"), the energy-based refinement search had no cap and bled 0.8s into the neighboring word. Fixed by bounding the search at the next/previous word's own ASR timestamp.
+2. **Missing `ModConfig.json`** — the pipeline was producing muted files but not the config Reloaded-II needs to recognize the folder as a mod at all.
+3. **Degenerate zero-width ASR spans** — Whisper occasionally reports a word's start == end (seen in practice: three consecutive words colliding at the same instant in fast speech), which produces a mute range too short to silence anything. The pipeline now treats a sub-50ms ASR span as untrustworthy and falls back to whole-line muting. Caught by an independent RMS re-verification pass that specifically checks for *any* genuinely silenced region in the clip (not a whole-clip average, which dilutes a single muted word into meaninglessness across a multi-second line — an earlier, cruder version of the check falsely flagged 82/290 files before this was corrected).
 
-**Second run, wordlist expanded with "bloody"** (see below -- 92 additional matches not in the original 395): 86 succeeded (78 word-level, 8 fallback), same 6-ish% `simpleq` extraction-failure pattern as the first run (consistent with orphaned entries, not randomness). Also 0 flagged by the independent QA pass. This delta merged into the *same* mod folder as the main run by default -- if "bloody" (much milder/more frequent than everything else flagged) turns out to be more than you want muted, regenerate the wordlist without it and re-run rather than hand-picking files out of the mod folder.
-
-(Note: the pipeline originally wrote its report to a fixed filename, so running it twice against different edit-lists silently overwrote the first run's detailed JSON -- fixed now, the report name defaults to the edit-list's own name. The actual muted audio files were never at risk, only the report metadata.)
+After all three fixes, an independent re-verification (re-decoding every output and checking for a real silenced region, not trusting self-reports) passed **290/290**.
 
 ## Architecture decision: local tool, not redistributed assets
 
