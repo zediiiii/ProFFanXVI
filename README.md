@@ -35,7 +35,7 @@ Sample count identical before/after (166,357). `scripts/sab_mute.py` now accepts
 
 `scripts/scan_profanity.py` + `scripts/profanity_wordlist.json`: scans every extracted `.pzd`→`.yaml` dialogue file's `Line:` text against a word-boundary-matched, severity-tiered wordlist, and emits an edit-list (line ID, matched word(s), severity, exact `VoiceSoundPath`) — no audio decoding needed for detection at all.
 
-First run against base game + DLC2 + DLC3 text (6,127 dialogue lines total):
+First run against base game + DLC2 + DLC3 text (6,127 `.pzd` files, 27,818 individual dialogue lines total):
 - 395 matches, all with a valid, actionable `VoiceSoundPath`.
 - Breakdown: 103 severe, 87 moderate, 211 mild (wordlist severity tiers are just a filtering knob, edit freely).
 - Spot-checked for false positives, including the highest-risk word ("ass", prone to matching inside "class"/"grass"/"assassin") — word-boundary regex correctly returned only 1 genuine hit, no substring contamination.

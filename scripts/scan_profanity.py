@@ -45,6 +45,7 @@ def clean_line(text):
 
 def scan(yaml_paths, words, pattern):
     matches = []
+    total_entries = 0
     for yp in yaml_paths:
         try:
             entries = yaml.safe_load(yp.read_text(encoding="utf-8"))
@@ -53,6 +54,7 @@ def scan(yaml_paths, words, pattern):
             continue
         if not entries:
             continue
+        total_entries += len(entries)
         for entry in entries:
             line = clean_line(entry.get("Line"))
             if not line:
@@ -69,7 +71,7 @@ def scan(yaml_paths, words, pattern):
                 "voice_sound_path": voice_path,
                 "source_yaml": str(yp),
             })
-    return matches
+    return matches, total_entries
 
 
 def main():
@@ -87,7 +89,7 @@ def main():
         yaml_paths.extend(Path(root).rglob("*.yaml"))
     print(f"Scanning {len(yaml_paths)} dialogue files against {len(words)} wordlist entries...")
 
-    matches = scan(yaml_paths, words, pattern)
+    matches, total_entries = scan(yaml_paths, words, pattern)
 
     by_severity = {}
     for m in matches:
@@ -95,7 +97,8 @@ def main():
             by_severity[s] = by_severity.get(s, 0) + 1
 
     result = {
-        "total_lines_scanned": len(yaml_paths),
+        "total_files_scanned": len(yaml_paths),
+        "total_dialogue_lines_scanned": total_entries,
         "total_matches": len(matches),
         "matches_by_severity": by_severity,
         "matches": matches,
