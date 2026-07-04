@@ -264,6 +264,11 @@ def write_mod_config():
 def main():
     editlist_path = sys.argv[1] if len(sys.argv) > 1 else "profanity_editlist.json"
     limit = int(sys.argv[2]) if len(sys.argv) > 2 else None
+    # default report name is derived from the editlist name so running against
+    # a different editlist (e.g. a delta) can't silently clobber a previous
+    # run's report
+    default_report_name = f"batch_pipeline_report_{Path(editlist_path).stem}.json"
+    report_path = Path(sys.argv[3]) if len(sys.argv) > 3 else TOOLS_DIR / default_report_name
 
     from faster_whisper import WhisperModel
     print("Loading whisper model (small.en, CPU)...")
@@ -302,7 +307,6 @@ def main():
         "results": results,
         "errors": errors,
     }
-    report_path = TOOLS_DIR / "batch_pipeline_report.json"
     report_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
     print(f"\nDone. {word_level} word-level cuts, {fallback} whole-line fallbacks, {len(errors)} errors.")
     print(f"Report: {report_path}")

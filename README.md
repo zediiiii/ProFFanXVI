@@ -40,6 +40,8 @@ First run against base game + DLC2 + DLC3 text (6,127 `.pzd` files, 27,818 indiv
 - Breakdown: 103 severe, 87 moderate, 211 mild (wordlist severity tiers are just a filtering knob, edit freely).
 - Spot-checked for false positives, including the highest-risk word ("ass", prone to matching inside "class"/"grass"/"assassin") — word-boundary regex correctly returned only 1 genuine hit, no substring contamination.
 
+Added "bloody" to the mild tier after noticing it appears standalone (not just in "bloody hell") in 216 dialogue files — FFXVI's dialogue is notably British in style. That brought the total to 487 matches (103 severe, 87 moderate, 306 mild).
+
 The generated edit-list itself (which necessarily contains real game dialogue quotes) is **not committed to this repo** — same "don't redistribute copyrighted content" principle as the audio. Run the scanner yourself against your own extracted files to regenerate it locally.
 
 ### Full batch pipeline
@@ -51,6 +53,10 @@ Every result is tagged `word_level` or `whole_line_fallback` (with a reason) so 
 **First full run against all 395 matches**: 388 succeeded (326 precise word-level cuts, 62 safe whole-line fallbacks), 7 failed to extract at all (all `simpleq`/side-quest lines whose `.pzd` text entry has no corresponding shipped English audio file in any pack tested -- likely orphaned/cut-content database rows, not a pipeline bug).
 
 `scripts/verify_batch_results.py` then re-decodes every one of the 388 outputs and independently checks (not just trusting the pipeline's own self-report): word-level results actually show a real RMS drop in the claimed range, whole-line fallbacks are genuinely silent throughout, and duration is unchanged in every case. **Result: 0 flagged for manual review out of 388.**
+
+**Second run, wordlist expanded with "bloody"** (see below -- 92 additional matches not in the original 395): 86 succeeded (78 word-level, 8 fallback), same 6-ish% `simpleq` extraction-failure pattern as the first run (consistent with orphaned entries, not randomness). Also 0 flagged by the independent QA pass. This delta merged into the *same* mod folder as the main run by default -- if "bloody" (much milder/more frequent than everything else flagged) turns out to be more than you want muted, regenerate the wordlist without it and re-run rather than hand-picking files out of the mod folder.
+
+(Note: the pipeline originally wrote its report to a fixed filename, so running it twice against different edit-lists silently overwrote the first run's detailed JSON -- fixed now, the report name defaults to the edit-list's own name. The actual muted audio files were never at risk, only the report metadata.)
 
 ## Architecture decision: local tool, not redistributed assets
 
