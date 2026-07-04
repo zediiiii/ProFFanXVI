@@ -2,6 +2,7 @@ import struct
 import sys
 import subprocess
 import wave
+import array
 import os
 
 def u8(b, o): return b[o]
@@ -93,6 +94,32 @@ def mute_wav_fully(wav_path):
         w.writeframes(silence)
 
 
+def mute_wav_range(wav_path, start_sec, end_sec):
+    """Zero out samples in [start_sec, end_sec), preserving everything else and
+    the total length exactly."""
+    with wave.open(wav_path, 'rb') as w:
+        params = w.getparams()
+        n_frames = w.getnframes()
+        frames = w.readframes(n_frames)
+
+    sw = params.sampwidth
+    ch = params.nchannels
+    sr = params.framerate
+    typecode = {2: 'h', 4: 'f'}[sw]
+
+    arr = array.array(typecode)
+    arr.frombytes(frames)
+
+    start_sample = max(0, int(start_sec * sr)) * ch
+    end_sample = min(len(arr), int(end_sec * sr) * ch)
+    for i in range(start_sample, end_sample):
+        arr[i] = 0
+
+    with wave.open(wav_path, 'wb') as w:
+        w.setparams(params)
+        w.writeframes(arr.tobytes())
+
+
 def main():
     tools_dir = os.path.dirname(os.path.abspath(__file__))
     vgaudiocli = os.path.join(tools_dir, "VGAudioCli.exe")
@@ -100,6 +127,8 @@ def main():
 
     in_path = sys.argv[1]
     out_path = sys.argv[2]
+    mute_start = float(sys.argv[3]) if len(sys.argv) > 3 else None
+    mute_end = float(sys.argv[4]) if len(sys.argv) > 4 else None
 
     data = bytearray(open(in_path, 'rb').read())
     info = parse_sab(data)
@@ -123,8 +152,12 @@ def main():
     print("Decoding HCA -> WAV via VGAudioCli...")
     run(vgaudiocli, hca_in, wav_path)
 
-    print("Muting entire clip...")
-    mute_wav_fully(wav_path)
+    if mute_start is not None and mute_end is not None:
+        print(f"Muting range {mute_start:.3f} - {mute_end:.3f}...")
+        mute_wav_range(wav_path, mute_start, mute_end)
+    else:
+        print("Muting entire clip...")
+        mute_wav_fully(wav_path)
 
     print("Re-encoding WAV -> HCA via VGAudioCli (matching original bitrate)...")
     # 88000 bps observed for our 44.1kHz mono sample via vgmstream -m
