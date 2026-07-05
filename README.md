@@ -38,7 +38,7 @@ Because the stakes for this kind of filter are "one missed word ruins it," detec
 - `scripts/verify_coverage.py` is a **zero-leak self-test**: it independently re-scans the corpus and asserts that *every* occurrence of *every* enabled token appears in the edit-list. If anything could slip through, it fails loudly.
 - Matching is exact-token with word boundaries, so it never touches innocent substrings (`pass`, `assist`, `class`, `shattered`, "a chink in the armor").
 
-Only ~300 voice files (combat barks like `vo_bh###.sab`) have no subtitle text; these are checked separately by transcribing them directly (see `scripts/` / the report), since a text scan can't reach them.
+**Combat vocalizations** don't have subtitles and a text scan can't reach them. The `sound/voice/battle/*.sab` files turned out to be multi-subsong *banks* — 306 banks holding **27,498 individual grunts/callouts** total. Every one is transcribed (`scripts/transcribe_banks_full.py`, a parallel first pass; `scripts/verify_and_mute_banks.py`, large-v3 verification of hits) and any that actually contain enabled profanity are surgically silenced with `scripts/mute_bank_subsongs.py` — which mutes just the one offending clip inside a bank and leaves every other grunt bit-identical (verified: all subsongs still parse, target silent, untouched ones unchanged).
 
 ## Muting modes
 
