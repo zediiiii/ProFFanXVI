@@ -42,6 +42,15 @@ MOD_DIR = Path(os.environ.get(
 ENV = dict(os.environ)
 ENV["DOTNET_ROLL_FORWARD"] = "LatestMajor"
 
+# Model / mode configuration (env-overridable so the GUI can drive it).
+WHISPER_MODEL = os.environ.get("WHISPER_MODEL", "large-v3")
+WHISPER_DEVICE = os.environ.get("WHISPER_DEVICE", "cpu")
+WHISPER_COMPUTE = os.environ.get("WHISPER_COMPUTE", "int8")
+# "whole_line" = mute the whole line for every match (bulletproof, no ASR needed).
+# "word_level" = precise word cut, self-verified, auto-escalating to whole-line
+#                whenever the word can't be located OR is still audible after the cut.
+SAFE_MODE = os.environ.get("SAFE_MODE", "word_level")
+
 
 def pack_for_path(voice_sound_path):
     if voice_sound_path.startswith("sound/voice/dlc2"):
@@ -125,12 +134,17 @@ def rms_envelope(path, win_sec=0.005):
 
 
 def refine_end(envelope, whisper_end, hard_cap=None, noise_floor=60.0, sustain_sec=0.08, win_sec=0.005):
-    """Walk forward looking for sustained silence, but never search past
-    hard_cap (the next word's own start time, if whisper detected one) --
-    otherwise a target word with no pause after it lets the search run into
-    the neighboring word's silence instead."""
+    """Find where the target word truly ends. Walk forward from the ASR end
+    marker looking for the first sustained silence (that's the real end of the
+    word's acoustic tail, which routinely extends past ASR's timestamp). Never
+    search past hard_cap (the next word's own start) so we don't eat a
+    neighbor. If no silence is found before the limit, the word's sound runs
+    right up to that limit, so we must cut all the way TO the limit -- returning
+    the ASR end here would leave the word's tail audible (a real leak seen with
+    single-word clips like 'SHIT!' where the tail ran to the clip end)."""
+    clip_end = envelope[-1][0] if envelope else whisper_end
     sustain_windows = max(1, int(sustain_sec / win_sec))
-    search_limit = whisper_end + 1.0
+    search_limit = min(whisper_end + 1.0, clip_end)
     if hard_cap is not None:
         search_limit = min(search_limit, hard_cap)
     idx_start = next((i for i, (t, _) in enumerate(envelope) if t >= whisper_end - 0.05), 0)
@@ -139,9 +153,9 @@ def refine_end(envelope, whisper_end, hard_cap=None, noise_floor=60.0, sustain_s
         window = envelope[i:i + sustain_windows]
         if all(rms < noise_floor for _, rms in window):
             return envelope[i][0]
-    # no clear silence found before the cap -- safest is to stop right at the cap
-    # (or at whisper_end if there's no next word to bound us)
-    return search_limit if hard_cap is not None else whisper_end
+    # no clean silence before the limit -> the word is still sounding there;
+    # cut all the way to the limit (next word start, or clip end).
+    return search_limit
 
 
 def refine_start(envelope, whisper_start, hard_cap=None, noise_floor=60.0, lookback_sec=0.15):
@@ -175,33 +189,66 @@ def phrase_is_last_in_line(line_text, phrase):
     return tokens[-len(target):] == target
 
 
+def mute_whole_line(sab_src, dest):
+    subprocess.run([sys.executable, str(SAB_MUTE), str(sab_src), str(dest)],
+                   capture_output=True, text=True, check=True)
+
+
+def word_still_audible(model, dest_sab, tokens, work_dir):
+    """Re-decode the just-muted file and re-transcribe it. If any target token
+    is still recognized by ASR, the cut failed to remove the word -> True.
+    This is the zero-tolerance guarantee: we don't trust that the cut landed,
+    we prove the word is no longer machine-audible."""
+    verify_wav = work_dir / "verify.wav"
+    try:
+        decode_to_wav(dest_sab, verify_wav)
+    except Exception:
+        return True  # if we can't verify, assume the worst and escalate
+    segments, _ = model.transcribe(str(verify_wav), word_timestamps=False, language="en")
+    heard = " ".join(s.text for s in segments).lower()
+    heard_norm = re.sub(r"[^a-z' ]", " ", heard)
+    for tok in tokens:
+        t = normalize_word(tok)
+        if not t:
+            continue
+        if re.search(r"\b" + re.escape(t) + r"\b", heard_norm):
+            return True
+    return False
+
+
 def process_match(model, match, work_dir):
     voice_path = match["voice_sound_path"]
-    result = {"id": match["id"], "voice_sound_path": voice_path, "matched_words": match["matched_words"]}
+    tokens = match["matched_words"]
+    result = {"id": match["id"], "voice_sound_path": voice_path, "matched_words": tokens}
 
     sab_src = extract_sab(voice_path)
+    dest = mod_dest_for(voice_path)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+
+    # Bulletproof mode: mute the whole line, no ASR, no chance the word survives.
+    if SAFE_MODE == "whole_line":
+        mute_whole_line(sab_src, dest)
+        result.update(method="whole_line", reason="safe_mode")
+        return result
+
     wav_path = work_dir / "clip.wav"
     decode_to_wav(sab_src, wav_path)
 
-    segments, info = model.transcribe(str(wav_path), word_timestamps=True)
+    segments, info = model.transcribe(str(wav_path), word_timestamps=True, language="en")
     all_words = []
     for seg in segments:
         all_words.extend(seg.words)
 
     span = None
     matched_phrase = None
-    for phrase in match["matched_words"]:
+    for phrase in tokens:
         span = find_phrase_span(all_words, phrase)
         if span:
             matched_phrase = phrase
             break
 
-    dest = mod_dest_for(voice_path)
-    dest.parent.mkdir(parents=True, exist_ok=True)
-
     # if the line's text implies more words follow the target, but ASR found none at
-    # all after it, that's a sign ASR may have failed on the clip's tail -- treat the
-    # boundary as untrustworthy rather than let an uncapped silence search run wild.
+    # all after it, that's a sign ASR may have failed on the clip's tail.
     untrustworthy_tail = False
     if span is not None:
         _, _, _, _, next_start = span
@@ -210,11 +257,7 @@ def process_match(model, match, work_dir):
             span = None
             untrustworthy_tail = True
 
-    # ASR word timestamps can collapse to near-zero width when words run together
-    # in fast speech (seen in practice: a word's own reported start == end while
-    # colliding with both neighbors at the same instant). A degenerate span like
-    # that produces a mute range too short to actually silence anything, so treat
-    # it the same as no match at all.
+    # near-zero-width ASR spans (words colliding in fast speech) can't silence anything.
     degenerate_span = False
     if span is not None:
         w_start, w_end, _, _, _ = span
@@ -222,7 +265,7 @@ def process_match(model, match, work_dir):
             span = None
             degenerate_span = True
 
-    if span and span[2] >= 0.15:  # some confidence floor; low-confidence ASR still gets a boundary attempt
+    if span and span[2] >= 0.15:
         w_start, w_end, conf, prev_end, next_start = span
         envelope = rms_envelope(str(wav_path))
         r_start = refine_start(envelope, w_start, hard_cap=prev_end)
@@ -232,11 +275,19 @@ def process_match(model, match, work_dir):
         r_start = max(0.0, r_start - 0.02)
         subprocess.run([sys.executable, str(SAB_MUTE), str(sab_src), str(dest), f"{r_start:.3f}", f"{r_end:.3f}"],
                        capture_output=True, text=True, check=True)
-        result.update(method="word_level", start=r_start, end=r_end, asr_confidence=conf,
-                       bounded_by_next_word=next_start is not None)
+
+        # SELF-VERIFY: re-transcribe the muted output; if the word is still there,
+        # the cut missed -- escalate to a whole-line mute so nothing slips through.
+        if word_still_audible(model, dest, tokens, work_dir):
+            mute_whole_line(sab_src, dest)
+            result.update(method="word_level_escalated_to_whole_line",
+                          reason="word_still_audible_after_cut",
+                          attempted_start=r_start, attempted_end=r_end, asr_confidence=conf)
+        else:
+            result.update(method="word_level", start=r_start, end=r_end, asr_confidence=conf,
+                          bounded_by_next_word=next_start is not None, self_verified=True)
     else:
-        subprocess.run([sys.executable, str(SAB_MUTE), str(sab_src), str(dest)],
-                       capture_output=True, text=True, check=True)
+        mute_whole_line(sab_src, dest)
         if untrustworthy_tail:
             reason = "untrustworthy_tail_no_next_word"
         elif degenerate_span:
@@ -280,16 +331,20 @@ def write_mod_config():
 
 def main():
     editlist_path = sys.argv[1] if len(sys.argv) > 1 else "profanity_editlist.json"
-    limit = int(sys.argv[2]) if len(sys.argv) > 2 else None
+    limit = int(sys.argv[2]) if len(sys.argv) > 2 and sys.argv[2].strip() else None
     # default report name is derived from the editlist name so running against
     # a different editlist (e.g. a delta) can't silently clobber a previous
     # run's report
     default_report_name = f"batch_pipeline_report_{Path(editlist_path).stem}.json"
     report_path = Path(sys.argv[3]) if len(sys.argv) > 3 else TOOLS_DIR / default_report_name
 
-    from faster_whisper import WhisperModel
-    print("Loading whisper model (small.en, CPU)...")
-    model = WhisperModel("small.en", device="cpu", compute_type="int8")
+    model = None
+    if SAFE_MODE != "whole_line":
+        from faster_whisper import WhisperModel
+        print(f"Loading whisper model '{WHISPER_MODEL}' ({WHISPER_DEVICE}/{WHISPER_COMPUTE})...")
+        model = WhisperModel(WHISPER_MODEL, device=WHISPER_DEVICE, compute_type=WHISPER_COMPUTE)
+    else:
+        print("SAFE_MODE=whole_line: muting entire lines, no ASR needed.")
 
     data = json.loads(Path(editlist_path).read_text(encoding="utf-8"))
     matches = data["matches"]
@@ -312,20 +367,22 @@ def main():
             errors.append({"id": match["id"], "voice_sound_path": match["voice_sound_path"], "error": str(e)})
             print(f"[{i+1}/{len(matches)}] ERROR: {match['voice_sound_path']}: {e}")
 
-    word_level = sum(1 for r in results if r["method"] == "word_level")
-    fallback = sum(1 for r in results if r["method"] == "whole_line_fallback")
+    by_method = {}
+    for r in results:
+        by_method[r["method"]] = by_method.get(r["method"], 0) + 1
 
     report = {
         "total_matches": len(matches),
         "succeeded": len(results),
         "failed": len(errors),
-        "word_level_cuts": word_level,
-        "whole_line_fallbacks": fallback,
+        "safe_mode": SAFE_MODE,
+        "whisper_model": WHISPER_MODEL if SAFE_MODE != "whole_line" else None,
+        "by_method": by_method,
         "results": results,
         "errors": errors,
     }
     report_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
-    print(f"\nDone. {word_level} word-level cuts, {fallback} whole-line fallbacks, {len(errors)} errors.")
+    print(f"\nDone. Methods: {by_method}. Errors: {len(errors)}.")
     print(f"Report: {report_path}")
     print(f"Mod folder: {MOD_DIR}")
 

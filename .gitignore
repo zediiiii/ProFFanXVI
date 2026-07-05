@@ -7,4 +7,10 @@ _sabwork/
 *.pzd
 *.yaml
 profanity_editlist*.json
+editlist*.json
 extracted/
+_gui_work/
+gui_config.json
+listen_kit/
+batch_pipeline_report*.json
+*.log

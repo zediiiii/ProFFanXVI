@@ -1,10 +1,13 @@
 """
-Scans all extracted FFXVI .pzd->.yaml dialogue files for profanity and emits
-an edit-list JSON: which lines matched, which word(s), and the exact
-VoiceSoundPath to the .sab file that needs muting.
+Scans extracted FFXVI .pzd->.yaml dialogue for profanity and emits an edit-list:
+which lines matched, which concept/word, and the exact VoiceSoundPath to mute.
 
-This is metadata only -- it does not read or write any copyrighted game
-audio itself. Safe to publish/share.
+Detection is exact-token with word boundaries (no substring false positives).
+The wordlist is concept-based: each concept enumerates every inflected form that
+actually appears in the game, so enabling a concept catches all of them (this is
+what fixes the classic 'bastard' matching but missing 'bastards' bug).
+
+Metadata only -- reads no game audio. Safe to publish.
 """
 import argparse
 import json
@@ -18,23 +21,44 @@ except ImportError:
     sys.exit("PyYAML required: pip install pyyaml")
 
 
-def load_wordlist(path):
+def load_concepts(path):
     data = json.loads(Path(path).read_text(encoding="utf-8"))
-    words = {}
-    for severity, terms in data.items():
-        if severity.startswith("_"):
+    if "concepts" in data:
+        return data["concepts"]
+    # backward-compat: old flat {severity: [words]} format -> one concept per word
+    concepts = []
+    for sev, terms in data.items():
+        if sev.startswith("_"):
             continue
-        for term in terms:
-            words[term.lower()] = severity
-    return words
+        for t in terms:
+            concepts.append({"id": t, "label": t, "category": sev, "default": True, "tokens": [t]})
+    return concepts
 
 
-def build_pattern(words):
-    # longest-first so multi-word phrases match before their substrings
-    escaped = sorted((re.escape(w) for w in words), key=len, reverse=True)
-    # allow flexible whitespace within phrases (e.g. "god damn")
-    escaped = [w.replace(r"\ ", r"\s+") for w in escaped]
-    return re.compile(r"\b(" + "|".join(escaped) + r")\b", re.IGNORECASE)
+def token_regex(tok):
+    """Wrap a literal token with word boundaries only on the sides that end in a
+    word char (so trailing/leading apostrophes like bleedin' still match)."""
+    esc = re.escape(tok).replace(r"\ ", r"\s+")
+    left = r"\b" if tok[:1].isalnum() else ""
+    right = r"\b" if tok[-1:].isalnum() else ""
+    return left + esc + right
+
+
+def build_matcher(concepts, enabled_ids):
+    token_to_concept = {}
+    patterns = []
+    for c in concepts:
+        if enabled_ids is not None and c["id"] not in enabled_ids:
+            continue
+        for tok in c["tokens"]:
+            token_to_concept[tok.lower()] = c["id"]
+    # longest tokens first so multi-word / longer forms win
+    for tok in sorted(token_to_concept, key=len, reverse=True):
+        patterns.append(token_regex(tok))
+    if not patterns:
+        return None, token_to_concept
+    pattern = re.compile("(" + "|".join(patterns) + ")", re.IGNORECASE)
+    return pattern, token_to_concept
 
 
 def clean_line(text):
@@ -43,7 +67,7 @@ def clean_line(text):
     return re.sub(r"<[^>]+>", " ", text)
 
 
-def scan(yaml_paths, words, pattern):
+def scan(yaml_paths, pattern, token_to_concept):
     matches = []
     total_entries = 0
     for yp in yaml_paths:
@@ -62,13 +86,14 @@ def scan(yaml_paths, words, pattern):
             found = pattern.findall(line)
             if not found:
                 continue
-            voice_path = entry.get("VoiceSoundPath") or ""
+            found_lower = sorted(set(f.lower() for f in found))
+            concepts_hit = sorted(set(token_to_concept.get(f, "?") for f in found_lower))
             matches.append({
                 "id": entry.get("Id"),
                 "line": line,
-                "matched_words": sorted(set(w.lower() for w in found)),
-                "severities": sorted(set(words.get(w.lower(), "unknown") for w in found)),
-                "voice_sound_path": voice_path,
+                "matched_words": found_lower,
+                "concepts": concepts_hit,
+                "voice_sound_path": entry.get("VoiceSoundPath") or "",
                 "source_yaml": str(yp),
             })
     return matches, total_entries
@@ -76,36 +101,49 @@ def scan(yaml_paths, words, pattern):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("roots", nargs="+", help="Root directories to search for .yaml files (converted from .pzd)")
+    ap.add_argument("roots", nargs="+", help="Directories to search for .yaml dialogue")
     ap.add_argument("-w", "--wordlist", default=str(Path(__file__).parent / "profanity_wordlist.json"))
     ap.add_argument("-o", "--output", default="profanity_editlist.json")
+    ap.add_argument("--enable", help="Comma-separated concept ids to enable (default: concepts with default=true)")
+    ap.add_argument("--all", action="store_true", help="Enable every concept regardless of default")
     args = ap.parse_args()
 
-    words = load_wordlist(args.wordlist)
-    pattern = build_pattern(words)
+    concepts = load_concepts(args.wordlist)
+    if args.all:
+        enabled = None
+    elif args.enable:
+        enabled = set(x.strip() for x in args.enable.split(",") if x.strip())
+    else:
+        enabled = set(c["id"] for c in concepts if c.get("default"))
+
+    pattern, token_to_concept = build_matcher(concepts, enabled)
+    if pattern is None:
+        sys.exit("No concepts enabled -- nothing to scan for.")
 
     yaml_paths = []
     for root in args.roots:
         yaml_paths.extend(Path(root).rglob("*.yaml"))
-    print(f"Scanning {len(yaml_paths)} dialogue files against {len(words)} wordlist entries...")
+    enabled_label = "ALL" if enabled is None else ", ".join(sorted(enabled))
+    print(f"Scanning {len(yaml_paths)} dialogue files; enabled concepts: {enabled_label}")
 
-    matches, total_entries = scan(yaml_paths, words, pattern)
+    matches, total_entries = scan(yaml_paths, pattern, token_to_concept)
 
-    by_severity = {}
+    by_concept = {}
     for m in matches:
-        for s in m["severities"]:
-            by_severity[s] = by_severity.get(s, 0) + 1
+        for c in m["concepts"]:
+            by_concept[c] = by_concept.get(c, 0) + 1
 
     result = {
         "total_files_scanned": len(yaml_paths),
         "total_dialogue_lines_scanned": total_entries,
         "total_matches": len(matches),
-        "matches_by_severity": by_severity,
+        "enabled_concepts": sorted(enabled) if enabled else "all",
+        "matches_by_concept": dict(sorted(by_concept.items(), key=lambda x: -x[1])),
         "matches": matches,
     }
     Path(args.output).write_text(json.dumps(result, indent=2), encoding="utf-8")
     print(f"Wrote {len(matches)} matches to {args.output}")
-    print(f"By severity: {by_severity}")
+    print(f"By concept: {result['matches_by_concept']}")
 
 
 if __name__ == "__main__":

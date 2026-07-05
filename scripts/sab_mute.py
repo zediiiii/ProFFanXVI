@@ -122,8 +122,10 @@ def mute_wav_range(wav_path, start_sec, end_sec):
 
 def main():
     tools_dir = os.path.dirname(os.path.abspath(__file__))
-    vgaudiocli = os.path.join(tools_dir, "VGAudioCli.exe")
-    vgmstream_cli = os.path.join(tools_dir, "vgmstream", "vgmstream-cli.exe")
+    # tool locations: env override first (set by the pipeline/GUI), else look
+    # next to this script (works when the script lives inside the tools folder).
+    vgaudiocli = os.environ.get("VGAUDIOCLI") or os.path.join(tools_dir, "VGAudioCli.exe")
+    vgmstream_cli = os.environ.get("VGMSTREAM_CLI") or os.path.join(tools_dir, "vgmstream", "vgmstream-cli.exe")
 
     in_path = sys.argv[1]
     out_path = sys.argv[2]

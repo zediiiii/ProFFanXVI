@@ -1,102 +1,97 @@
-# ProFFanXVI Mod
+# ProFFanXVI
 
-A tool to detect and mute profanity in Final Fantasy XVI's voice/dialogue audio, for players who own the game on Steam and want a cleaner audio pass.
+Mute profanity in **Final Fantasy XVI**'s spoken dialogue, for players who own the game on Steam and want a cleaner audio pass. You pick exactly which words to filter; the tool builds a [Reloaded-II](https://github.com/Reloaded-Project/Reloaded-II) mod that silences them in-game.
 
-## Status: confirmed working end-to-end, including in-game
+It does **not** redistribute any game audio. It runs against *your own* legally-owned install and produces the mod locally.
 
-Muted the game's actual opening line ("It was Moss the Chronicler who said...") via the full pipeline (extract → mute → repack → Reloaded-II) and confirmed in-game: the line played silent, the next line was unaffected (no bleed, no desync).
+---
 
-### Word-level muting confirmed (not just whole-line)
+## Quick start (GUI)
 
-Whisper's word timestamps aren't trustworthy as-is — on this exact clip it reported "Moss" spanning 0.68s-1.96s at 6% confidence, but the real energy envelope shows the word ends around 1.05-1.1s followed by a genuine dramatic pause before "the chronicler". `scripts/word_align.py` anchors off the ASR timestamp then refines the boundary against the actual RMS energy envelope (walks forward/backward to the true silence crossing, requiring a sustained quiet window so it doesn't stop on a brief consonant dip).
+```
+pip install -r requirements.txt
+python proffanxvi_gui.py
+```
 
-Muting just the refined "Moss" range (0.68s-1.19s) instead of the whole clip, verified by RMS comparison against the original:
+1. **Paths tab** – click *Auto-detect* (finds a Steam FFXVI install and bundled `./tools`), or point each field at the matching tool. Download links are under [Requirements](#requirements).
+2. **Profanity tab** – tick the words to mute. Click *Scan game text* to see how many lines each one hits in your copy of the game.
+3. **Build tab** – choose a muting mode, click *Build mod*, then enable it in Reloaded-II alongside `ff16.utility.modloader`.
 
-| Region | Original RMS | Muted RMS |
-|---|---|---|
-| "was" (before target) | 2825 | 2819 (unchanged) |
-| "Moss" (target) | 2135 | 12 (99.4% reduction) |
-| "the/chronicler" (after target) | 2521 | 2508 (unchanged) |
-| "who/said" (after target) | 2416 | 2391 (unchanged) |
+Prefer the command line? See [Manual usage](#manual-usage).
 
-Sample count identical before/after (166,357). `scripts/sab_mute.py` now accepts an optional `start_sec end_sec` range and only touches that window, leaving the rest of the line byte-for-byte equivalent (modulo normal lossy re-encode noise, ~1%).
+---
 
-## Feasibility findings
+## How it works
 
-- **Detection**: FFXVI's `.pzd` dialogue files carry the exact subtitle text (`Line:`) *and* the exact relative audio path (`VoiceSoundPath:`) for every voice line. Profanity detection is a deterministic text search — no ASR/Whisper transcription needed for the ~41,820 standalone dialogue/bark files in `0024.en.pac`.
-- **Audio format**: `.sab` (Square Enix "SEAD" engine) is a documented container — verified byte-for-byte against vgmstream's open-source parser (`src/meta/sqex_sead.c`) — wrapping a CRI HCA stream.
-- **Round-trip proven**: `scripts/sab_mute.py` parses a real `.sab`, decodes the embedded HCA, mutes it, re-encodes, and patches it back in place. Verified against a real extracted line (DLC2 boss-battle bark, "Clive."):
-  - Original: 27,468 samples, peak amplitude 21,573, RMS 4,791.
-  - Muted: 27,468 samples (**identical duration**), peak 0, RMS 0.0.
-  - vgmstream parses the patched file cleanly with identical metadata (sample rate, channels, bitrate).
-- **Cutscenes turned out to be a non-issue.** Story movies are Bink2 (`.bk2`) — 105 files total (95 base + 10 DLC), confirmed via pack index — using a codec revision (`KB2n`) newer than any open-source tool parses (checked ffmpeg's own demuxer source: only `i`/`j`/`k` supported). That meant testing needed RAD's own official Video Tools, which is GUI-driven (its installer wouldn't launch cleanly in an unattended/scripted context, so this step needed a human at the keyboard). Once opened there: **every `.bk2` tested has no audio track at all** — RAD's own tool explicitly reports "No sound found in the Bink file." This makes sense in hindsight: these are 4K HDR video files (one is 1.8GB); keeping them video-only and dubbing dialogue via the real-time `.sab` system avoids re-encoding video per language. It also matches something noticed earlier — the game's very first scene has no Bink movie at all yet still uses `.sab`, consistent with `.sab` being how *all* dialogue works, cutscenes included, with Bink providing only picture. **No cutscene-specific audio muting is needed — the `.sab` pipeline above is the complete solution.**
+FFXVI stores each spoken line's **subtitle text and its exact audio-file path together** in the game's `.pzd` dialogue tables. So detecting profanity is a precise text search over the real subtitles — no guessing, no transcribing needed to *find* anything. Each match points straight at the `.sab` audio file to mute.
 
-### Profanity scanner
+The audio itself is Square Enix's `.sab` container (the "SEAD" engine) wrapping a CRI HCA stream — a format documented in [vgmstream](https://github.com/vgmstream/vgmstream)'s open-source parser, which let the muter patch audio back in place without breaking the container. Muting preserves the exact clip length, so lip-sync and event timing are untouched.
 
-`scripts/scan_profanity.py` + `scripts/profanity_wordlist.json`: scans every extracted `.pzd`→`.yaml` dialogue file's `Line:` text against a word-boundary-matched, severity-tiered wordlist, and emits an edit-list (line ID, matched word(s), severity, exact `VoiceSoundPath`) — no audio decoding needed for detection at all.
+Cutscene movies (`.bk2` Bink video) were checked and contain **no audio track at all** (verified with RAD's own Video Tools: "No sound found in the Bink file") — the dialogue you hear over them is played through the same `.sab` system, so nothing special is needed for cutscenes.
 
-First run against base game + DLC2 + DLC3 text (6,127 `.pzd` files, 27,818 individual dialogue lines total): 395 matches. Spot-checked for false positives, including the highest-risk word ("ass", prone to matching inside "class"/"grass"/"assassin") — word-boundary regex correctly returned only 1 genuine hit, no substring contamination.
+## Detection completeness
 
-Iterated on the wordlist twice based on actual usage data from the scan:
-- Added "bloody" to the mild tier after noticing it appears standalone (not just in "bloody hell") in 216 dialogue files — FFXVI's dialogue is notably British in style. Brought the total to 487.
-- Then removed "bloody", "hell", "piss", "pissed", and "crap" entirely after review (kept "damn"/"damned"/"ass") — these are common, mild British-English intensifiers that came back much more often than anything else flagged and didn't need muting. **Current total: 294 matches** (103 severe, 87 moderate, 104 mild).
+Because the stakes for this kind of filter are "one missed word ruins it," detection was audited against the **entire** dialogue corpus (27,818 lines), not just a hand-guessed wordlist:
 
-The generated edit-list itself (which necessarily contains real game dialogue quotes) is **not committed to this repo** — same "don't redistribute copyrighted content" principle as the audio. Run the scanner yourself against your own extracted files to regenerate it locally.
+- The wordlist is **concept-based**: each concept (e.g. `bastard`) enumerates *every inflected/possessive form that actually appears in the game* (`bastard`, `bastards`, `bastard's`, `bastards'll`, …). This fixes the classic trap where a naive `\bbastard\b` silently misses the plural "bastards" — which alone is 52 lines in FFXVI.
+- The forms were derived empirically by scanning the whole vocabulary (12,063 unique tokens), including a wide sweep for British swearing (FFXVI is heavily British-voiced: `arse`, `bugger`, `sod`, `bollocks`, `prick`, `shite`, …) and for slurs (none present).
+- `scripts/verify_coverage.py` is a **zero-leak self-test**: it independently re-scans the corpus and asserts that *every* occurrence of *every* enabled token appears in the edit-list. If anything could slip through, it fails loudly.
+- Matching is exact-token with word boundaries, so it never touches innocent substrings (`pass`, `assist`, `class`, `shattered`, "a chink in the armor").
 
-### Full batch pipeline
+Only ~300 voice files (combat barks like `vo_bh###.sab`) have no subtitle text; these are checked separately by transcribing them directly (see `scripts/` / the report), since a text scan can't reach them.
 
-`scripts/batch_mute_pipeline.py` ties everything together: takes the scanner's edit-list, and for every match extracts the real `.sab`, finds the flagged word's precise timing (faster-whisper word timestamps + energy-envelope refinement, bounded by the neighboring word's own ASR boundary so it can't bleed across a word with no pause between them), mutes just that word, and assembles a ready-to-use Reloaded-II mod folder.
+## Muting modes
 
-Every result is tagged `word_level` or `whole_line_fallback` (with a reason) so nothing gets a guessed boundary it can't back up: low ASR confidence, a line whose text implies trailing words that ASR didn't detect at all, or (see below) a degenerate zero-width ASR timestamp all fall back to the safe, fully-verified whole-line mute instead.
+- **Accurate (default)** – silences just the profane word, keeping the surrounding dialogue. It locates the word with Whisper (`large-v3` by default for best timing), refines the cut to the real audio energy boundaries, and then **self-verifies**: it re-transcribes the muted clip and, if the word is still audible at all, automatically escalates that line to a whole-line mute. So a mislocated cut can never leak — worst case it over-mutes.
+- **Safe (whole-line)** – silences the entire line containing any profanity. Bulletproof and fast (no speech recognition), at the cost of losing a few seconds of surrounding clean dialogue per flagged line.
 
-**Final state after processing the full 294-match wordlist** (across the original run, a "bloody"-expansion delta, then reconciling back down after excluding those 5 words — see commit history for the blow-by-blow): 290 of 294 matches have a muted file in the mod folder; the other 4 are the same `simpleq`/side-quest lines whose `.pzd` text entry has no corresponding shipped English audio in any pack tested (consistent ~1-6% rate across multiple runs — orphaned cut-content database rows, not a pipeline bug).
+Every processed line is tagged in the report with which method it got and why.
 
-Three real bugs were caught and fixed by actually verifying output rather than trusting the pipeline's self-report:
-1. **Boundary bleed** — with no pause between words ("Fucking dog!"), the energy-based refinement search had no cap and bled 0.8s into the neighboring word. Fixed by bounding the search at the next/previous word's own ASR timestamp.
-2. **Missing `ModConfig.json`** — the pipeline was producing muted files but not the config Reloaded-II needs to recognize the folder as a mod at all.
-3. **Degenerate zero-width ASR spans** — Whisper occasionally reports a word's start == end (seen in practice: three consecutive words colliding at the same instant in fast speech), which produces a mute range too short to silence anything. The pipeline now treats a sub-50ms ASR span as untrustworthy and falls back to whole-line muting. Caught by an independent RMS re-verification pass that specifically checks for *any* genuinely silenced region in the clip (not a whole-clip average, which dilutes a single muted word into meaninglessness across a multi-second line — an earlier, cruder version of the check falsely flagged 82/290 files before this was corrected).
+## Review without spoilers
 
-After all three fixes, an independent re-verification (re-decoding every output and checking for a real silenced region, not trusting self-reports) passed **290/290**.
+`scripts/build_listen_kit.py` (or the GUI's *Build listen-kit* button) produces an offline `index.html` with an audio player for every muted line, so you can **hear-confirm the mutes in a browser without launching the game**. The muted clip is front-and-center; the original audio and full subtitle text are hidden behind per-row *reveal* toggles to limit story spoilers.
 
-## Architecture decision: local tool, not redistributed assets
+## Manual usage
 
-This project does **not** ship modified Square Enix audio/pack files. It ships:
-1. A profanity "edit list" (line ID → mute timestamps), built from the `.pzd` text scan — safe to publish, it's just metadata.
-2. A local tool that applies that edit list against *your own* legally-owned game install, via the same extract → mute → repack → Reloaded-II pipeline proven above.
+```bat
+:: 1. Extract & convert dialogue text
+python scripts/extract_dialogue_text.py --game-data "<Steam>\FINAL FANTASY XVI\data" --ff16-cli "<path>\FF16Tools.CLI.exe" --out extracted
 
-This avoids redistributing Square Enix's copyrighted audio while still being a one-click experience for other players.
+:: 2. Scan (choose concepts; omit --enable to use defaults, or --all for everything)
+python scripts/scan_profanity.py extracted --enable fuck,shit,bastard,arse,bugger,sod,prick,bollocks,whore,damn -o editlist.json
+
+:: 3. Prove zero leaks for that selection
+python scripts/verify_coverage.py extracted -e editlist.json
+
+:: 4. Build the mod
+set FF16_CLI=<path>\FF16Tools.CLI.exe
+set VGAUDIOCLI=<path>\VGAudioCli.exe
+set VGMSTREAM_CLI=<path>\vgmstream-cli.exe
+set FFXVI_DATA_DIR=<Steam>\FINAL FANTASY XVI\data
+set MOD_OUTPUT_DIR=<ReloadedII>\Mods\ff16.audio.profanity-filter\FFXVI\data
+set SAFE_MODE=word_level        &:: or whole_line
+set WHISPER_MODEL=large-v3      &:: or medium.en / small.en for speed
+python scripts/batch_mute_pipeline.py editlist.json
+```
+
+Then enable `ff16.audio.profanity-filter` (auto-created with its `ModConfig.json`) in Reloaded-II.
 
 ## Requirements
+
 - FFXVI on Steam (PC)
-- .NET runtime (8, 9, or 10 -- set `DOTNET_ROLL_FORWARD=LatestMajor` if you only have one that isn't exactly 9)
-- Python 3.10+, `pip install faster-whisper pyyaml`
-- [Reloaded-II](https://github.com/Reloaded-Project/Reloaded-II) + [ff16.utility.modloader](https://github.com/Nenkai/ff16.utility.modloader) (Nenkai) -- portable install; mods go directly in `<ReloadedII>/Mods/<modid>/`, drag-and-drop onto the app window doesn't do anything
-- [FF16Tools](https://github.com/Nenkai/FF16Tools) (Nenkai)
-- [vgmstream](https://github.com/vgmstream/vgmstream) (`vgmstream-cli.exe`)
-- [VGAudio](https://github.com/Thealexbarney/VGAudio) (`VGAudioCli.exe`, for HCA encode)
+- Python 3.10+ (`pip install -r requirements.txt` → `faster-whisper`, `pyyaml`; `tkinter` ships with Python)
+- .NET runtime 8/9/10 (the tool sets `DOTNET_ROLL_FORWARD=LatestMajor` for you)
+- [Reloaded-II](https://github.com/Reloaded-Project/Reloaded-II) + [ff16.utility.modloader](https://github.com/Nenkai/ff16.utility.modloader) — portable install; mods go directly in `<ReloadedII>\Mods\<modid>\` (drag-and-drop onto the window does nothing)
+- [FF16Tools](https://github.com/Nenkai/FF16Tools) — pack extract / dialogue conversion
+- [vgmstream](https://github.com/vgmstream/vgmstream) (`vgmstream-cli.exe`) — decode `.sab`
+- [VGAudio](https://github.com/Thealexbarney/VGAudio) (`VGAudioCli.exe`) — re-encode HCA
 
-## Usage
+GPU note: `faster-whisper` accelerates on NVIDIA (CUDA) only. On AMD/CPU, `large-v3` still works but is slow — accuracy mode is a one-time build, and *Safe* mode needs no speech recognition at all.
 
-1. Extract and convert all dialogue text:
-   ```
-   python scripts/extract_dialogue_text.py --game-data "<Steam>/FINAL FANTASY XVI/data" --ff16-cli "<path>/FF16Tools.CLI.exe" --out extracted
-   ```
-2. Scan for profanity:
-   ```
-   python scripts/scan_profanity.py extracted -o profanity_editlist.json
-   ```
-3. Run the batch pipeline (set the env vars below to match where you put things, or edit the defaults in the script):
-   ```
-   set FF16_CLI=<path>\FF16Tools.CLI.exe
-   set VGAUDIOCLI=<path>\VGAudioCli.exe
-   set VGMSTREAM_CLI=<path>\vgmstream-cli.exe
-   set FFXVI_DATA_DIR=<Steam>\FINAL FANTASY XVI\data
-   set MOD_OUTPUT_DIR=<ReloadedII>\Mods\ff16.audio.profanity-filter\FFXVI\data
-   python scripts/batch_mute_pipeline.py profanity_editlist.json
-   ```
-4. Add a `ModConfig.json` next to the mod's `FFXVI/` folder (see `scripts/` for reference), enable it in Reloaded-II alongside `ff16.utility.modloader`, and launch.
+## Legal / redistribution
 
-Cutscene (`.bk2`) audio doesn't need separate handling -- confirmed no audio track exists in any tested movie file; see findings above.
+The mod is generated from your own game files and contains modified game audio, so it is **not** redistributed here. The repo ships only code and the wordlist. Generated edit-lists (which quote real dialogue) and mod audio are git-ignored. Use only with a copy of the game you own.
 
 ## Credits
-Format documentation and tooling built on the [FFXVI Modding](https://nenkai.github.io/ffxvi-modding/) community project by Nenkai.
+
+Built on the [FFXVI Modding](https://nenkai.github.io/ffxvi-modding/) community project and tooling by **Nenkai**. Audio format support via **vgmstream** and **VGAudio**.
