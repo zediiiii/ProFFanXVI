@@ -29,7 +29,7 @@ Sample count identical before/after (166,357). `scripts/sab_mute.py` now accepts
   - Original: 27,468 samples, peak amplitude 21,573, RMS 4,791.
   - Muted: 27,468 samples (**identical duration**), peak 0, RMS 0.0.
   - vgmstream parses the patched file cleanly with identical metadata (sample rate, channels, bitrate).
-- **Cutscenes**: story movies are Bink2 (`.bk2`), audio baked into video — 105 files total (95 base + 10 DLC), confirmed via pack index. Extracted files start with a clean, unwrapped `KB2n` magic (no disguising header needed here, unlike the older FFXV-era trick). However, revision `n` is newer than what any open-source tool currently parses — checked ffmpeg's own bink demuxer source (`libavformat/bink.c`, latest master as of 2026-07): it only recognizes revisions `i`/`j`/`k`. That means audio-track replacement for cutscenes genuinely needs RAD's own official Video Tools (the actual creators of the codec), not a reverse-engineered path — and that tool is GUI-driven (its self-extracting installer wouldn't launch cleanly in an unattended/scripted context). **This step needs to be run by a human with hands on the keyboard**, not automated further.
+- **Cutscenes turned out to be a non-issue.** Story movies are Bink2 (`.bk2`) — 105 files total (95 base + 10 DLC), confirmed via pack index — using a codec revision (`KB2n`) newer than any open-source tool parses (checked ffmpeg's own demuxer source: only `i`/`j`/`k` supported). That meant testing needed RAD's own official Video Tools, which is GUI-driven (its installer wouldn't launch cleanly in an unattended/scripted context, so this step needed a human at the keyboard). Once opened there: **every `.bk2` tested has no audio track at all** — RAD's own tool explicitly reports "No sound found in the Bink file." This makes sense in hindsight: these are 4K HDR video files (one is 1.8GB); keeping them video-only and dubbing dialogue via the real-time `.sab` system avoids re-encoding video per language. It also matches something noticed earlier — the game's very first scene has no Bink movie at all yet still uses `.sab`, consistent with `.sab` being how *all* dialogue works, cutscenes included, with Bink providing only picture. **No cutscene-specific audio muting is needed — the `.sab` pipeline above is the complete solution.**
 
 ### Profanity scanner
 
@@ -96,7 +96,7 @@ This avoids redistributing Square Enix's copyrighted audio while still being a o
    ```
 4. Add a `ModConfig.json` next to the mod's `FFXVI/` folder (see `scripts/` for reference), enable it in Reloaded-II alongside `ff16.utility.modloader`, and launch.
 
-Cutscene (`.bk2`) audio isn't covered by this pipeline yet -- see the Bink findings above.
+Cutscene (`.bk2`) audio doesn't need separate handling -- confirmed no audio track exists in any tested movie file; see findings above.
 
 ## Credits
 Format documentation and tooling built on the [FFXVI Modding](https://nenkai.github.io/ffxvi-modding/) community project by Nenkai.
