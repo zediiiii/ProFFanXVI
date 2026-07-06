@@ -266,7 +266,8 @@ def audible_target_regions(model, dest_sab, tokens, work_dir):
     except Exception:
         return [(0.0, 9999.0)]  # can't verify -> force escalation
     env = rms_envelope(str(verify_wav))
-    segments, _ = model.transcribe(str(verify_wav), word_timestamps=True, language="en")
+    segments, _ = model.transcribe(str(verify_wav), word_timestamps=True, language="en",
+                                   temperature=0.0, condition_on_previous_text=False)
     words = [w for seg in segments for w in seg.words]
     real = []
     for w in words:
@@ -295,7 +296,8 @@ def process_match(model, match, work_dir):
 
     wav_path = work_dir / "clip.wav"
     decode_to_wav(sab_src, wav_path)
-    segments, info = model.transcribe(str(wav_path), word_timestamps=True, language="en")
+    segments, info = model.transcribe(str(wav_path), word_timestamps=True, language="en",
+                                      temperature=0.0, condition_on_previous_text=False)
     all_words = [w for seg in segments for w in seg.words]
 
     spans = find_all_spans(all_words, tokens)

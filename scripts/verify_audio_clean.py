@@ -121,7 +121,11 @@ def main():
         # leak. A token over genuine energy IS a leak.
         sr, _, marr = read_wav(mwav)
         env = window_rms(marr, sr)
-        segs, _ = model.transcribe(str(mwav), language="en", word_timestamps=True)
+        # Deterministic transcription: temperature=0 (no stochastic fallback) so
+        # the gate is reproducible, and condition_on_previous_text=False so ASR
+        # can't hallucinate a muted word back from surrounding context.
+        segs, _ = model.transcribe(str(mwav), language="en", word_timestamps=True,
+                                   temperature=0.0, condition_on_previous_text=False)
         checked += 1
         real_hits = []
         for w in (wd for s in segs for wd in s.words):
