@@ -243,14 +243,23 @@ def apply_cuts(sab_src, dest, cuts):
     subprocess.run(args, capture_output=True, text=True, check=True)
 
 
+ENABLED_TOKENS = set()   # every normalized token across the enabled concepts; set in main()
+
+
 def audible_target_regions(model, dest_sab, tokens, work_dir):
-    """Re-transcribe the muted file WITH word timestamps. For every target token
-    still reported, measure how much of its detected span is actually above the
-    speech floor in the muted audio. A token reported over silence is an ASR
-    hallucination (e.g. it fills 'damn' back in before a surviving 'it!') and is
-    ignored; a token over real energy is a genuine remaining instance and its
-    span is returned so we can cut it too. Returns list of (start,end) real
-    regions (empty = clean)."""
+    """Re-transcribe the muted file WITH word timestamps. For every ENABLED
+    profanity token still reported over real audible energy, return its region so
+    we can cut it too. Two subtleties this handles:
+      - Hallucination: ASR fills a muted word back over silence (e.g. 'damn'
+        before a surviving 'it!'). Such a detection sits over near-silence and is
+        ignored (energy fraction check).
+      - Re-labelling: a residual left by a mislocated cut is often transcribed as
+        a DIFFERENT profane word than the line's original (leftover 'fucking'
+        heard as 'shit'; 'dammit' heard as 'damn it'). So we must check the FULL
+        enabled-token set, not just this line's word -- otherwise the residual
+        slips past the self-check (this was a real leak the gate caught)."""
+    check = ENABLED_TOKENS if ENABLED_TOKENS else set(
+        normalize_word(t) for p in tokens for t in p.split()) - {""}
     verify_wav = work_dir / "verify.wav"
     try:
         decode_to_wav(dest_sab, verify_wav)
@@ -259,11 +268,9 @@ def audible_target_regions(model, dest_sab, tokens, work_dir):
     env = rms_envelope(str(verify_wav))
     segments, _ = model.transcribe(str(verify_wav), word_timestamps=True, language="en")
     words = [w for seg in segments for w in seg.words]
-    tnorm = set(normalize_word(t) for p in tokens for t in p.split())
-    tnorm.discard("")
     real = []
     for w in words:
-        if normalize_word(w.word) in tnorm:
+        if normalize_word(w.word) in check:
             wins = [rms for (t, rms) in env if w.start <= t <= w.end]
             if wins:
                 frac = sum(1 for r in wins if r > SPEECH_RMS) / len(wins)
@@ -378,6 +385,26 @@ def main():
     matches = data["matches"]
     if limit:
         matches = matches[:limit]
+
+    # Build the full enabled-token set so the self-verify can catch residual
+    # profanity even when ASR re-labels it as a different profane word than the
+    # line's original ('fucking' leftover heard as 'shit', 'dammit' as 'damn it').
+    global ENABLED_TOKENS
+    try:
+        wl_path = os.environ.get("WORDLIST",
+                                 str(Path(__file__).parent / "profanity_wordlist.json"))
+        wl = json.loads(Path(wl_path).read_text(encoding="utf-8"))
+        enabled = data.get("enabled_concepts")
+        enabled_set = None if enabled in (None, "all") else set(enabled)
+        for c in wl.get("concepts", []):
+            if enabled_set is None or c["id"] in enabled_set:
+                for tok in c["tokens"]:
+                    for part in tok.split():
+                        ENABLED_TOKENS.add(normalize_word(part))
+        ENABLED_TOKENS.discard("")
+        print(f"Self-verify checks {len(ENABLED_TOKENS)} enabled profanity tokens.")
+    except Exception as e:
+        print(f"WARN: could not build enabled-token set ({e}); verify falls back to per-line tokens.")
 
     work_dir = TOOLS_DIR / "_batchwork"
     work_dir.mkdir(exist_ok=True)
