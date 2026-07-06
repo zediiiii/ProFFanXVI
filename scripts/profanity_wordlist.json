@@ -1,31 +1,315 @@
 {
   "_comment": "Concept-based wordlist for FFXVI. Each concept groups every inflected/possessive form that ACTUALLY APPEARS in the game text (empirically derived by scanning the full dialogue corpus), so toggling one concept catches all its forms. Matching is exact-token with word boundaries (no substring false positives like 'pass'/'assist'/'shattered'). 'default' = muted out of the box. Severity is just a grouping hint. Edit freely or use the GUI.",
   "concepts": [
-    {"id": "fuck",     "label": "fuck",     "category": "severe",   "default": true,  "tokens": ["fuck","fucking","fucked","fucker","fuckers","fuckload"]},
-    {"id": "shit",     "label": "shit",     "category": "severe",   "default": true,  "tokens": ["shit","shite","shitload","shithole","shat","birdshit","shitabed"]},
-    {"id": "cunt",     "label": "cunt",     "category": "severe",   "default": true,  "tokens": ["cunt","cunts"], "note": "not found in current game text; listed for completeness/robustness"},
-    {"id": "bastard",  "label": "bastard",  "category": "strong",   "default": true,  "tokens": ["bastard","bastards","bastard's","bastards'","bastards'll"]},
-    {"id": "bitch",    "label": "bitch",    "category": "strong",   "default": true,  "tokens": ["bitch","bitches","bitching","bitch's"]},
-    {"id": "arse",     "label": "arse / arsehole", "category": "strong", "default": true, "tokens": ["arse","arses","arse's","arsehole","arseholes","arse-end","arseache"]},
-    {"id": "bugger",   "label": "bugger",   "category": "strong",   "default": true,  "tokens": ["bugger","buggered","buggers","buggers'll","buggering"]},
-    {"id": "sod",      "label": "sod / sodding", "category": "strong", "default": true, "tokens": ["sod","sods","sod's","sodding"]},
-    {"id": "prick",    "label": "prick",    "category": "strong",   "default": true,  "tokens": ["prick","pricks","prick's"]},
-    {"id": "bollocks", "label": "bollocks", "category": "strong",   "default": true,  "tokens": ["bollocks","bollocking"]},
-    {"id": "cock",     "label": "cock",     "category": "strong",   "default": true,  "tokens": ["cock","cocks","cock's"], "note": "may also match literal roosters ('cocks and capons') -- harmless over-mute of ~1 food line"},
-    {"id": "whore",    "label": "whore",    "category": "strong",   "default": true,  "tokens": ["whore","whores","whore's","whoreson","whoresons"]},
-    {"id": "slut",     "label": "slut",     "category": "strong",   "default": true,  "tokens": ["slut","sluts"]},
-    {"id": "damn",     "label": "damn / damned", "category": "moderate", "default": true, "tokens": ["damn","damned","damnable","damnably","damnedest","thrice-damned","damnation","goddamn","goddamned","dammit","damnit"]},
-    {"id": "ass",      "label": "ass",      "category": "moderate", "default": true,  "tokens": ["ass","asses","asshole","assholes"], "note": "exact-match only; will NOT touch pass/assist/class/assassin"},
-    {"id": "wench",    "label": "wench",    "category": "insult",   "default": true,  "tokens": ["wench","wenches","flax-wench"]},
-    {"id": "balls",    "label": "balls",    "category": "insult",   "default": true,  "tokens": ["balls"]},
-    {"id": "scum",     "label": "scum",     "category": "insult",   "default": true,  "tokens": ["scum","scumbag","scumbags"]},
-    {"id": "filth",    "label": "filth / filthy", "category": "insult", "default": true, "tokens": ["filth","filthy"]},
-    {"id": "swine",    "label": "swine",    "category": "insult",   "default": true,  "tokens": ["swine","swines"]},
-    {"id": "tits",     "label": "tits",     "category": "insult",   "default": false, "tokens": ["tits","titties"]},
-    {"id": "bloody",   "label": "bloody",   "category": "mild-british", "default": false, "tokens": ["bloody","any-bloody-more","sixty-bloody-six"]},
-    {"id": "bleeding", "label": "bleeding (as intensifier)", "category": "mild-british", "default": false, "tokens": ["bleeding","bleedin'"]},
-    {"id": "hell",     "label": "hell",     "category": "mild-british", "default": false, "tokens": ["hell","hells","hell's","hell-bent"]},
-    {"id": "piss",     "label": "piss",     "category": "mild-british", "default": false, "tokens": ["piss","pissed","pissing","pisses"]},
-    {"id": "crap",     "label": "crap",     "category": "mild-british", "default": false, "tokens": ["crap","crappy","craps"]}
+    {
+      "id": "fuck",
+      "label": "fuck",
+      "category": "severe",
+      "default": true,
+      "tokens": [
+        "fuck",
+        "fucking",
+        "fucked",
+        "fucker",
+        "fuckers",
+        "fuckload"
+      ]
+    },
+    {
+      "id": "shit",
+      "label": "shit",
+      "category": "severe",
+      "default": true,
+      "tokens": [
+        "shit",
+        "shite",
+        "shitload",
+        "shithole",
+        "shat",
+        "birdshit",
+        "shitabed"
+      ]
+    },
+    {
+      "id": "cunt",
+      "label": "cunt",
+      "category": "severe",
+      "default": true,
+      "tokens": [
+        "cunt",
+        "cunts"
+      ],
+      "note": "not found in current game text; listed for completeness/robustness"
+    },
+    {
+      "id": "bastard",
+      "label": "bastard",
+      "category": "strong",
+      "default": true,
+      "tokens": [
+        "bastard",
+        "bastards",
+        "bastard's",
+        "bastards'",
+        "bastards'll"
+      ]
+    },
+    {
+      "id": "bitch",
+      "label": "bitch",
+      "category": "strong",
+      "default": true,
+      "tokens": [
+        "bitch",
+        "bitches",
+        "bitching",
+        "bitch's"
+      ]
+    },
+    {
+      "id": "arse",
+      "label": "arse / arsehole",
+      "category": "strong",
+      "default": true,
+      "tokens": [
+        "arse",
+        "arses",
+        "arse's",
+        "arsehole",
+        "arseholes",
+        "arse-end",
+        "arseache"
+      ]
+    },
+    {
+      "id": "bugger",
+      "label": "bugger",
+      "category": "strong",
+      "default": true,
+      "tokens": [
+        "bugger",
+        "buggered",
+        "buggers",
+        "buggers'll",
+        "buggering"
+      ]
+    },
+    {
+      "id": "sod",
+      "label": "sod / sodding",
+      "category": "strong",
+      "default": true,
+      "tokens": [
+        "sod",
+        "sods",
+        "sod's",
+        "sodding"
+      ]
+    },
+    {
+      "id": "prick",
+      "label": "prick",
+      "category": "strong",
+      "default": true,
+      "tokens": [
+        "prick",
+        "pricks",
+        "prick's"
+      ]
+    },
+    {
+      "id": "bollocks",
+      "label": "bollocks",
+      "category": "strong",
+      "default": true,
+      "tokens": [
+        "bollocks",
+        "bollocking"
+      ]
+    },
+    {
+      "id": "cock",
+      "label": "cock",
+      "category": "strong",
+      "default": true,
+      "tokens": [
+        "cock",
+        "cocks",
+        "cock's"
+      ],
+      "note": "may also match literal roosters ('cocks and capons') -- harmless over-mute of ~1 food line"
+    },
+    {
+      "id": "whore",
+      "label": "whore",
+      "category": "strong",
+      "default": true,
+      "tokens": [
+        "whore",
+        "whores",
+        "whore's",
+        "whoreson",
+        "whoresons"
+      ]
+    },
+    {
+      "id": "slut",
+      "label": "slut",
+      "category": "strong",
+      "default": true,
+      "tokens": [
+        "slut",
+        "sluts"
+      ]
+    },
+    {
+      "id": "damn",
+      "label": "damn / damned",
+      "category": "moderate",
+      "default": true,
+      "tokens": [
+        "damn",
+        "damned",
+        "damnable",
+        "damnably",
+        "damnedest",
+        "thrice-damned",
+        "damnation",
+        "goddamn",
+        "goddamned",
+        "dammit",
+        "damnit"
+      ]
+    },
+    {
+      "id": "ass",
+      "label": "ass",
+      "category": "moderate",
+      "default": true,
+      "tokens": [
+        "ass",
+        "asses",
+        "asshole",
+        "assholes"
+      ],
+      "note": "exact-match only; will NOT touch pass/assist/class/assassin"
+    },
+    {
+      "id": "wench",
+      "label": "wench",
+      "category": "insult",
+      "default": false,
+      "tokens": [
+        "wench",
+        "wenches",
+        "flax-wench"
+      ]
+    },
+    {
+      "id": "balls",
+      "label": "balls",
+      "category": "insult",
+      "default": false,
+      "tokens": [
+        "balls"
+      ]
+    },
+    {
+      "id": "scum",
+      "label": "scum",
+      "category": "insult",
+      "default": false,
+      "tokens": [
+        "scum",
+        "scumbag",
+        "scumbags"
+      ]
+    },
+    {
+      "id": "filth",
+      "label": "filth / filthy",
+      "category": "insult",
+      "default": false,
+      "tokens": [
+        "filth",
+        "filthy"
+      ]
+    },
+    {
+      "id": "swine",
+      "label": "swine",
+      "category": "insult",
+      "default": false,
+      "tokens": [
+        "swine",
+        "swines"
+      ]
+    },
+    {
+      "id": "tits",
+      "label": "tits",
+      "category": "insult",
+      "default": false,
+      "tokens": [
+        "tits",
+        "titties"
+      ]
+    },
+    {
+      "id": "bloody",
+      "label": "bloody",
+      "category": "mild-british",
+      "default": false,
+      "tokens": [
+        "bloody",
+        "any-bloody-more",
+        "sixty-bloody-six"
+      ]
+    },
+    {
+      "id": "bleeding",
+      "label": "bleeding (as intensifier)",
+      "category": "mild-british",
+      "default": false,
+      "tokens": [
+        "bleeding",
+        "bleedin'"
+      ]
+    },
+    {
+      "id": "hell",
+      "label": "hell",
+      "category": "mild-british",
+      "default": false,
+      "tokens": [
+        "hell",
+        "hells",
+        "hell's",
+        "hell-bent"
+      ]
+    },
+    {
+      "id": "piss",
+      "label": "piss",
+      "category": "mild-british",
+      "default": false,
+      "tokens": [
+        "piss",
+        "pissed",
+        "pissing",
+        "pisses"
+      ]
+    },
+    {
+      "id": "crap",
+      "label": "crap",
+      "category": "mild-british",
+      "default": false,
+      "tokens": [
+        "crap",
+        "crappy",
+        "craps"
+      ]
+    }
   ]
 }

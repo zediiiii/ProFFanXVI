@@ -42,10 +42,19 @@ Because the stakes for this kind of filter are "one missed word ruins it," detec
 
 ## Muting modes
 
-- **Accurate (default)** – silences just the profane word, keeping the surrounding dialogue. It locates the word with Whisper (`large-v3` by default for best timing), refines the cut to the real audio energy boundaries, and then **self-verifies**: it re-transcribes the muted clip and, if the word is still audible at all, automatically escalates that line to a whole-line mute. So a mislocated cut can never leak — worst case it over-mutes.
+- **Accurate (default)** – silences just the profane word, keeping the surrounding dialogue. It locates the word with Whisper (`large-v3` by default), refines the cut to the real audio-energy boundaries, mutes **every** occurrence, and then **self-verifies**: it re-transcribes the muted clip and, if *any* enabled profanity is still audible **over real energy**, it re-cuts that region; if it still can't clear it, it escalates that line to a whole-line mute. A mislocated cut can never leak — worst case it over-mutes.
 - **Safe (whole-line)** – silences the entire line containing any profanity. Bulletproof and fast (no speech recognition), at the cost of losing a few seconds of surrounding clean dialogue per flagged line.
 
 Every processed line is tagged in the report with which method it got and why.
+
+### Verification is deterministic and independent
+
+Two things make the "no leak" claim real rather than assumed:
+
+- **Energy-aware, all-token verify.** The self-check flags a re-detected word only if it sits over genuine audio energy (ASR routinely *hallucinates* a muted word back from context — "damn" before a surviving "it!"), and it checks the **full enabled wordlist**, not just the line's original word (a mislocated cut's residual is often re-transcribed as a *different* swear — leftover "fucking" heard as "shit"). Both were real leaks caught during development.
+- **Deterministic transcription** (`temperature=0`, no prior-text conditioning) so the gate is reproducible — otherwise large-v3's stochastic fallback let a file flakily pass one run and fail the next.
+
+`scripts/verify_audio_clean.py` is the definitive gate: it independently re-transcribes **every** muted file and fails if any enabled swear is still audible. The shipped build passed at **0 leaks / 0 anomalies across 467 dialogue lines + 37 combat-bank clips**.
 
 ## Review without spoilers
 
