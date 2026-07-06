@@ -129,8 +129,9 @@ def main():
 
     in_path = sys.argv[1]
     out_path = sys.argv[2]
-    mute_start = float(sys.argv[3]) if len(sys.argv) > 3 else None
-    mute_end = float(sys.argv[4]) if len(sys.argv) > 4 else None
+    # remaining args are flat start end [start end ...] pairs; none = whole clip
+    range_args = [float(x) for x in sys.argv[3:]]
+    ranges = list(zip(range_args[0::2], range_args[1::2]))
 
     data = bytearray(open(in_path, 'rb').read())
     info = parse_sab(data)
@@ -154,9 +155,10 @@ def main():
     print("Decoding HCA -> WAV via VGAudioCli...")
     run(vgaudiocli, hca_in, wav_path)
 
-    if mute_start is not None and mute_end is not None:
-        print(f"Muting range {mute_start:.3f} - {mute_end:.3f}...")
-        mute_wav_range(wav_path, mute_start, mute_end)
+    if ranges:
+        for s, e in ranges:
+            print(f"Muting range {s:.3f} - {e:.3f}...")
+            mute_wav_range(wav_path, s, e)
     else:
         print("Muting entire clip...")
         mute_wav_fully(wav_path)

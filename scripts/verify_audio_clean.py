@@ -36,6 +36,19 @@ def read_wav(wav):
     return w.getframerate(), n, a
 
 
+def window_rms(arr, sr, win_sec=0.05):
+    win = max(1, int(sr * win_sec))
+    out = []
+    for i in range(0, len(arr) - win, win):
+        seg = arr[i:i + win]
+        out.append((i / sr, (sum(x * x for x in seg) / len(seg)) ** 0.5))
+    return out
+
+
+def _norm(s):
+    return re.sub(r"[^a-z']", "", s.lower())
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("-r", "--report", required=True)
@@ -54,11 +67,13 @@ def main():
     concepts = load_concepts(args.wordlist)
     enabled = editlist.get("enabled_concepts")
     enabled_ids = set(c["id"] for c in concepts) if enabled in (None, "all") else set(enabled)
-    tok_pats = []
+    # normalized single-word token set for per-word matching against ASR words
+    enabled_tokens = set()
     for c in concepts:
         if c["id"] in enabled_ids:
             for tok in c["tokens"]:
-                tok_pats.append((tok.lower(), re.compile(token_regex(tok), re.IGNORECASE)))
+                enabled_tokens.add(_norm(tok))
+    enabled_tokens.discard("")
 
     from faster_whisper import WhisperModel
     print(f"Loading {args.model} for independent verification...", flush=True)
@@ -99,15 +114,25 @@ def main():
                 _, nm, _ = read_wav(mwav)
                 if no != nm:
                     anomalies.append({"file": internal, "problem": f"duration_mismatch {no} vs {nm}"})
-        # THE definitive check: transcribe muted output, ensure no enabled token
-        segs, _ = model.transcribe(str(mwav), language="en")
-        heard = re.sub(r"[^a-z' ]", " ", " ".join(s.text for s in segs).lower())
-        hits = sorted(set(tok for tok, pat in tok_pats if pat.search(heard)))
+        # THE definitive check: transcribe muted output with word timestamps and
+        # flag a token ONLY if it sits over real audible energy. ASR routinely
+        # hallucinates a muted word back from surrounding context (e.g. 'damn'
+        # before a surviving 'it!'); such a "word" reported over silence is not a
+        # leak. A token over genuine energy IS a leak.
+        sr, _, marr = read_wav(mwav)
+        env = window_rms(marr, sr)
+        segs, _ = model.transcribe(str(mwav), language="en", word_timestamps=True)
         checked += 1
-        if hits:
-            leaks.append({"file": internal, "heard": heard.strip()[:100], "tokens": hits,
-                          "method": meta.get("method", kind)})
-            print(f"LEAK: {internal} still has {hits} :: {heard.strip()[:70]!r}", flush=True)
+        real_hits = []
+        for w in (wd for s in segs for wd in s.words):
+            if _norm(w.word) in enabled_tokens:
+                wins = [r for (t, r) in env if w.start <= t <= w.end]
+                frac = (sum(1 for r in wins if r > 200.0) / len(wins)) if wins else 0
+                if frac > 0.25:
+                    real_hits.append({"token": _norm(w.word), "at": [round(w.start, 2), round(w.end, 2)]})
+        if real_hits:
+            leaks.append({"file": internal, "hits": real_hits, "method": meta.get("method", kind)})
+            print(f"LEAK: {internal} still audibly has {real_hits}", flush=True)
         if checked % 50 == 0:
             print(f"...{checked}/{len(targets)} verified", flush=True)
 

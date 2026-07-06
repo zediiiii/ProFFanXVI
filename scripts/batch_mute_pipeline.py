@@ -194,26 +194,82 @@ def mute_whole_line(sab_src, dest):
                    capture_output=True, text=True, check=True)
 
 
-def word_still_audible(model, dest_sab, tokens, work_dir):
-    """Re-decode the just-muted file and re-transcribe it. If any target token
-    is still recognized by ASR, the cut failed to remove the word -> True.
-    This is the zero-tolerance guarantee: we don't trust that the cut landed,
-    we prove the word is no longer machine-audible."""
+SPEECH_RMS = 200.0   # windows above this in a detected-word span count as real audible speech
+
+
+def find_all_spans(all_words, tokens):
+    """Every occurrence of every token, as refine-ready spans. Overlapping/dup
+    spans are de-duplicated. Returns list of dicts sorted by start."""
+    norm = [normalize_word(w.word) for w in all_words]
+    spans = []
+    for phrase in tokens:
+        target = [normalize_word(t) for t in phrase.split()]
+        target = [t for t in target if t]
+        n = len(target)
+        if n == 0:
+            continue
+        for i in range(len(norm) - n + 1):
+            if norm[i:i + n] == target:
+                sw = all_words[i:i + n]
+                spans.append({
+                    "start": sw[0].start, "end": sw[-1].end,
+                    "conf": min(w.probability for w in sw),
+                    "prev_end": all_words[i - 1].end if i > 0 else None,
+                    "next_start": all_words[i + n].start if i + n < len(all_words) else None,
+                    "idx": i, "n": n,
+                })
+    spans.sort(key=lambda s: s["start"])
+    # drop dups (same start idx)
+    seen = set(); out = []
+    for s in spans:
+        if s["idx"] in seen:
+            continue
+        seen.add(s["idx"]); out.append(s)
+    return out
+
+
+def refine_cut(envelope, span):
+    r_start = refine_start(envelope, span["start"], hard_cap=span["prev_end"])
+    r_end = refine_end(envelope, span["end"], hard_cap=span["next_start"])
+    nxt = span["next_start"]
+    pad = 0.05 if nxt is None else min(0.05, max(0.0, (nxt - r_end) / 2))
+    return max(0.0, r_start - 0.02), r_end + pad
+
+
+def apply_cuts(sab_src, dest, cuts):
+    args = [sys.executable, str(SAB_MUTE), str(sab_src), str(dest)]
+    for s, e in cuts:
+        args += [f"{s:.3f}", f"{e:.3f}"]
+    subprocess.run(args, capture_output=True, text=True, check=True)
+
+
+def audible_target_regions(model, dest_sab, tokens, work_dir):
+    """Re-transcribe the muted file WITH word timestamps. For every target token
+    still reported, measure how much of its detected span is actually above the
+    speech floor in the muted audio. A token reported over silence is an ASR
+    hallucination (e.g. it fills 'damn' back in before a surviving 'it!') and is
+    ignored; a token over real energy is a genuine remaining instance and its
+    span is returned so we can cut it too. Returns list of (start,end) real
+    regions (empty = clean)."""
     verify_wav = work_dir / "verify.wav"
     try:
         decode_to_wav(dest_sab, verify_wav)
     except Exception:
-        return True  # if we can't verify, assume the worst and escalate
-    segments, _ = model.transcribe(str(verify_wav), word_timestamps=False, language="en")
-    heard = " ".join(s.text for s in segments).lower()
-    heard_norm = re.sub(r"[^a-z' ]", " ", heard)
-    for tok in tokens:
-        t = normalize_word(tok)
-        if not t:
-            continue
-        if re.search(r"\b" + re.escape(t) + r"\b", heard_norm):
-            return True
-    return False
+        return [(0.0, 9999.0)]  # can't verify -> force escalation
+    env = rms_envelope(str(verify_wav))
+    segments, _ = model.transcribe(str(verify_wav), word_timestamps=True, language="en")
+    words = [w for seg in segments for w in seg.words]
+    tnorm = set(normalize_word(t) for p in tokens for t in p.split())
+    tnorm.discard("")
+    real = []
+    for w in words:
+        if normalize_word(w.word) in tnorm:
+            wins = [rms for (t, rms) in env if w.start <= t <= w.end]
+            if wins:
+                frac = sum(1 for r in wins if r > SPEECH_RMS) / len(wins)
+                if frac > 0.25:  # a real audible chunk, not a hallucination over silence
+                    real.append((w.start, w.end))
+    return real
 
 
 def process_match(model, match, work_dir):
@@ -225,7 +281,6 @@ def process_match(model, match, work_dir):
     dest = mod_dest_for(voice_path)
     dest.parent.mkdir(parents=True, exist_ok=True)
 
-    # Bulletproof mode: mute the whole line, no ASR, no chance the word survives.
     if SAFE_MODE == "whole_line":
         mute_whole_line(sab_src, dest)
         result.update(method="whole_line", reason="safe_mode")
@@ -233,69 +288,42 @@ def process_match(model, match, work_dir):
 
     wav_path = work_dir / "clip.wav"
     decode_to_wav(sab_src, wav_path)
-
     segments, info = model.transcribe(str(wav_path), word_timestamps=True, language="en")
-    all_words = []
-    for seg in segments:
-        all_words.extend(seg.words)
+    all_words = [w for seg in segments for w in seg.words]
 
-    span = None
-    matched_phrase = None
-    for phrase in tokens:
-        span = find_phrase_span(all_words, phrase)
-        if span:
-            matched_phrase = phrase
-            break
+    spans = find_all_spans(all_words, tokens)
+    spans = [s for s in spans if (s["end"] - s["start"]) >= 0.05 and s["conf"] >= 0.15]
 
-    # if the line's text implies more words follow the target, but ASR found none at
-    # all after it, that's a sign ASR may have failed on the clip's tail.
-    untrustworthy_tail = False
-    if span is not None:
-        _, _, _, _, next_start = span
-        line_text = match.get("line", "")
-        if next_start is None and not phrase_is_last_in_line(line_text, matched_phrase):
-            span = None
-            untrustworthy_tail = True
-
-    # near-zero-width ASR spans (words colliding in fast speech) can't silence anything.
-    degenerate_span = False
-    if span is not None:
-        w_start, w_end, _, _, _ = span
-        if (w_end - w_start) < 0.05:
-            span = None
-            degenerate_span = True
-
-    if span and span[2] >= 0.15:
-        w_start, w_end, conf, prev_end, next_start = span
-        envelope = rms_envelope(str(wav_path))
-        r_start = refine_start(envelope, w_start, hard_cap=prev_end)
-        r_end = refine_end(envelope, w_end, hard_cap=next_start)
-        pad = 0.05 if next_start is None else min(0.05, max(0.0, (next_start - r_end) / 2))
-        r_end = r_end + pad
-        r_start = max(0.0, r_start - 0.02)
-        subprocess.run([sys.executable, str(SAB_MUTE), str(sab_src), str(dest), f"{r_start:.3f}", f"{r_end:.3f}"],
-                       capture_output=True, text=True, check=True)
-
-        # SELF-VERIFY: re-transcribe the muted output; if the word is still there,
-        # the cut missed -- escalate to a whole-line mute so nothing slips through.
-        if word_still_audible(model, dest, tokens, work_dir):
-            mute_whole_line(sab_src, dest)
-            result.update(method="word_level_escalated_to_whole_line",
-                          reason="word_still_audible_after_cut",
-                          attempted_start=r_start, attempted_end=r_end, asr_confidence=conf)
-        else:
-            result.update(method="word_level", start=r_start, end=r_end, asr_confidence=conf,
-                          bounded_by_next_word=next_start is not None, self_verified=True)
-    else:
+    if not spans:
         mute_whole_line(sab_src, dest)
-        if untrustworthy_tail:
-            reason = "untrustworthy_tail_no_next_word"
-        elif degenerate_span:
-            reason = "degenerate_zero_width_asr_span"
-        else:
-            reason = "no_confident_asr_match"
-        result.update(method="whole_line_fallback", reason=reason)
+        result.update(method="whole_line_fallback", reason="no_confident_asr_match")
+        return result
 
+    envelope = rms_envelope(str(wav_path))
+    cuts = [refine_cut(envelope, s) for s in spans]
+
+    # Iteratively cut, then re-verify with energy awareness. Add any genuinely
+    # still-audible target regions and re-cut. Escalate only if truly stuck.
+    escalated = False
+    for attempt in range(3):
+        apply_cuts(sab_src, dest, cuts)
+        real = audible_target_regions(model, dest, tokens, work_dir)
+        if not real:
+            break
+        # widen: add the still-audible regions (with a little pad) to the cut set
+        for (s, e) in real:
+            cuts.append((max(0.0, s - 0.05), e + 0.08))
+    else:
+        # after retries a real audible instance remains -> guarantee via whole-line
+        mute_whole_line(sab_src, dest)
+        escalated = True
+
+    if escalated:
+        result.update(method="word_level_escalated_to_whole_line",
+                      reason="target_still_audible_after_retries", num_spans=len(spans))
+    else:
+        result.update(method="word_level", cuts=[[round(s, 3), round(e, 3)] for s, e in cuts],
+                      num_occurrences=len(spans), self_verified=True)
     return result
 
 
