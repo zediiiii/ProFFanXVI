@@ -1,2 +1,4 @@
 faster-whisper
 pyyaml
+torch
+torchaudio

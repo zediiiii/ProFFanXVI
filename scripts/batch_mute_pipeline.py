@@ -133,41 +133,59 @@ def rms_envelope(path, win_sec=0.005):
     return envelope
 
 
-def refine_end(envelope, whisper_end, hard_cap=None, noise_floor=60.0, sustain_sec=0.08, win_sec=0.005):
-    """Find where the target word truly ends. Walk forward from the ASR end
-    marker looking for the first sustained silence (that's the real end of the
-    word's acoustic tail, which routinely extends past ASR's timestamp). Never
-    search past hard_cap (the next word's own start) so we don't eat a
-    neighbor. If no silence is found before the limit, the word's sound runs
-    right up to that limit, so we must cut all the way TO the limit -- returning
-    the ASR end here would leave the word's tail audible (a real leak seen with
-    single-word clips like 'SHIT!' where the tail ran to the clip end)."""
+# A word's acoustic extent routinely spills past ASR's timestamps and contains
+# internal near-silent gaps -- most importantly the *plosive closure* in words
+# like fuck/fucking/fucked (the brief silent "ck" before the release). If the
+# boundary search stops at that closure it cuts mid-word and leaves the release
+# or the "-ing" audible (real complaints: "missed the -ing", "missed the last
+# half of fuck"). So we GROW through gaps shorter than MAX_GAP and only stop at
+# a genuine inter-word silence, always bounded by the neighboring word.
+NOISE_FLOOR = 120.0    # RMS below this is "silence" (plosive closures sit here)
+MAX_GAP = 0.10         # gaps shorter than this are within-word (plosive), keep going
+# ASR word boundaries are imprecise: a plosive release routinely sounds AFTER
+# where ASR says the next word starts. Allow the cut to overrun the neighbor's
+# ASR boundary by this much so releases/onsets are covered. The cost is a few
+# ms of the adjacent clean word clipped -- far preferable to a leaked "...ck".
+OVERLAP = 0.10
+
+
+def refine_end(envelope, whisper_end, hard_cap=None):
     clip_end = envelope[-1][0] if envelope else whisper_end
-    sustain_windows = max(1, int(sustain_sec / win_sec))
-    search_limit = min(whisper_end + 1.0, clip_end)
+    limit = min(whisper_end + 1.2, clip_end)
     if hard_cap is not None:
-        search_limit = min(search_limit, hard_cap)
-    idx_start = next((i for i, (t, _) in enumerate(envelope) if t >= whisper_end - 0.05), 0)
-    idx_limit = next((i for i, (t, _) in enumerate(envelope) if t >= search_limit), len(envelope))
-    for i in range(idx_start, min(idx_limit, len(envelope) - sustain_windows)):
-        window = envelope[i:i + sustain_windows]
-        if all(rms < noise_floor for _, rms in window):
-            return envelope[i][0]
-    # no clean silence before the limit -> the word is still sounding there;
-    # cut all the way to the limit (next word start, or clip end).
-    return search_limit
+        limit = min(limit, hard_cap + OVERLAP)
+    idx = next((i for i, (t, _) in enumerate(envelope) if t >= whisper_end - 0.10), 0)
+    last_loud = whisper_end
+    end = whisper_end
+    for i in range(idx, len(envelope)):
+        t, rms = envelope[i]
+        if t > limit:
+            break
+        if rms >= NOISE_FLOOR:
+            last_loud = t
+            end = t
+        elif t - last_loud > MAX_GAP:
+            break            # sustained real silence -> word ended at last_loud
+    return min(end + 0.07, limit)
 
 
-def refine_start(envelope, whisper_start, hard_cap=None, noise_floor=60.0, lookback_sec=0.15):
-    search_floor = whisper_start - lookback_sec
-    if hard_cap is not None:
-        search_floor = max(search_floor, hard_cap)
-    idx_anchor = next((i for i, (t, _) in enumerate(envelope) if t >= whisper_start), 0)
-    idx_floor = next((i for i, (t, _) in enumerate(envelope) if t >= search_floor), 0)
-    for i in range(idx_anchor, idx_floor, -1):
-        if envelope[i][1] < noise_floor:
-            return envelope[i][0]
-    return search_floor if hard_cap is not None else whisper_start
+def refine_start(envelope, whisper_start, hard_cap=None):
+    floor_t = (hard_cap - OVERLAP) if hard_cap is not None else 0.0
+    floor_t = max(0.0, floor_t)
+    lo = max(floor_t, whisper_start - 1.2)
+    idx = next((i for i, (t, _) in enumerate(envelope) if t >= whisper_start + 0.10), len(envelope) - 1)
+    last_loud = whisper_start
+    start = whisper_start
+    for i in range(min(idx, len(envelope) - 1), -1, -1):
+        t, rms = envelope[i]
+        if t < lo:
+            break
+        if rms >= NOISE_FLOOR:
+            last_loud = t
+            start = t
+        elif last_loud - t > MAX_GAP:
+            break
+    return max(floor_t, start - 0.05)
 
 
 def mod_dest_for(voice_sound_path):
@@ -228,6 +246,55 @@ def find_all_spans(all_words, tokens):
     return out
 
 
+def find_spans_positional(all_words, line_text, tokens):
+    """Locate the profane word by POSITION when ASR spells it differently than
+    the subtitle (British 'arse' -> ASR 'ass', 'arseache' -> 'arse ache', etc.).
+    We know the exact line text from the .pzd, so align the text word-sequence to
+    the ASR word-sequence and read off the ASR word(s) sitting where the profane
+    word is in the text -- even if ASR mis-transcribed it."""
+    import difflib
+    text_words = [normalize_word(w) for w in re.findall(r"[A-Za-z']+", line_text)]
+    text_words = [w for w in text_words if w]
+    asr_norm = [normalize_word(w.word) for w in all_words]
+    targets = set(normalize_word(t) for p in tokens for t in p.split()) - {""}
+    tgt_positions = [i for i, w in enumerate(text_words) if w in targets]
+    if not tgt_positions or not asr_norm:
+        return []
+    sm = difflib.SequenceMatcher(None, text_words, asr_norm, autojunk=False)
+    # map each text index -> an asr index
+    t2a = {}
+    for tag, i1, i2, j1, j2 in sm.get_opcodes():
+        if tag == "equal":
+            for k in range(i2 - i1):
+                t2a[i1 + k] = j1 + k
+        elif tag == "replace":
+            for k in range(i1, i2):
+                # proportional map into the asr replacement block
+                off = 0 if (i2 - i1) <= 1 else int((k - i1) / (i2 - i1) * (j2 - j1))
+                t2a[k] = min(j2 - 1, j1 + off)
+        # delete/insert: no direct mapping
+    spans = []
+    for tp in tgt_positions:
+        ai = t2a.get(tp)
+        if ai is None or ai >= len(all_words):
+            continue
+        w = all_words[ai]
+        spans.append({
+            "start": w.start, "end": w.end,
+            "conf": max(0.15, w.probability),   # positional match -> trust it enough to attempt
+            "prev_end": all_words[ai - 1].end if ai > 0 else None,
+            "next_start": all_words[ai + 1].start if ai + 1 < len(all_words) else None,
+            "idx": ai, "n": 1,
+        })
+    spans.sort(key=lambda s: s["start"])
+    seen = set(); out = []
+    for s in spans:
+        if s["idx"] in seen:
+            continue
+        seen.add(s["idx"]); out.append(s)
+    return out
+
+
 def refine_cut(envelope, span):
     r_start = refine_start(envelope, span["start"], hard_cap=span["prev_end"])
     r_end = refine_end(envelope, span["end"], hard_cap=span["next_start"])
@@ -280,6 +347,45 @@ def audible_target_regions(model, dest_sab, tokens, work_dir):
     return real
 
 
+# --- Forced alignment (MMS_FA) -------------------------------------------------
+# We know each line's exact subtitle text from the .pzd, so instead of trusting
+# Whisper's (unreliable) word timestamps we force-align that known text to the
+# audio. This gives accurate per-word boundaries -- it knows "fucking" is one
+# word ending after "-ing", and where a mis-pronounced British "arse" sits --
+# which fixed the systematic "cut ends too early, leaves the back half" problem.
+_ALIGN = {}
+
+
+def load_aligner():
+    import torch, torchaudio
+    torch.set_num_threads(int(os.environ.get("ALIGN_THREADS", "8")))
+    b = torchaudio.pipelines.MMS_FA
+    _ALIGN.update(bundle=b, model=b.get_model(), tok=b.get_tokenizer(),
+                  align=b.get_aligner(), torch=torch, ta=torchaudio)
+
+
+def align_words(wav_path, text):
+    """Return [(word, start_sec, end_sec), ...] aligning the known text to audio."""
+    torch = _ALIGN["torch"]; ta = _ALIGN["ta"]; b = _ALIGN["bundle"]
+    w = wave.open(str(wav_path), 'rb'); ch = w.getnchannels(); sr = w.getframerate()
+    a = array.array('h'); a.frombytes(w.readframes(w.getnframes()))
+    if not a:
+        return []
+    t = torch.tensor(a, dtype=torch.float32).view(-1, ch).mean(1) / 32768.0
+    wav = ta.functional.resample(t.unsqueeze(0), sr, b.sample_rate)
+    words = re.findall(r"[A-Za-z']+", text.lower())
+    if not words:
+        return []
+    try:
+        with torch.inference_mode():
+            emission, _ = _ALIGN["model"](wav)
+            spans = _ALIGN["align"](emission[0], _ALIGN["tok"](words))
+    except Exception:
+        return []
+    ratio = wav.size(1) / emission.size(1) / b.sample_rate
+    return [(wr, s[0].start * ratio, s[-1].end * ratio) for wr, s in zip(words, spans)]
+
+
 def process_match(model, match, work_dir):
     voice_path = match["voice_sound_path"]
     tokens = match["matched_words"]
@@ -296,43 +402,45 @@ def process_match(model, match, work_dir):
 
     wav_path = work_dir / "clip.wav"
     decode_to_wav(sab_src, wav_path)
-    segments, info = model.transcribe(str(wav_path), word_timestamps=True, language="en",
-                                      temperature=0.0, condition_on_previous_text=False)
-    all_words = [w for seg in segments for w in seg.words]
+    envelope = rms_envelope(str(wav_path))
 
-    spans = find_all_spans(all_words, tokens)
-    spans = [s for s in spans if (s["end"] - s["start"]) >= 0.05 and s["conf"] >= 0.15]
-
-    if not spans:
+    aligned = align_words(wav_path, match.get("line", ""))
+    if not aligned:
         mute_whole_line(sab_src, dest)
-        result.update(method="whole_line_fallback", reason="no_confident_asr_match")
+        result.update(method="whole_line_fallback", reason="alignment_failed")
         return result
 
-    envelope = rms_envelope(str(wav_path))
-    cuts = [refine_cut(envelope, s) for s in spans]
+    # every aligned word that is an enabled profanity token -> a cut, with pads
+    # for onset and (crucially) the plosive release, lightly bounded by the
+    # neighbouring aligned words so a clean neighbour is barely touched.
+    check = ENABLED_TOKENS if ENABLED_TOKENS else set(normalize_word(t) for p in tokens for t in p.split()) - {""}
+    cuts = []
+    for i, (wr, ws, we) in enumerate(aligned):
+        if normalize_word(wr) not in check:
+            continue
+        # sanity: the aligned word must sit over real energy in the original;
+        # if it's over silence the alignment is bogus -> skip (fall back below).
+        wins = [rms for (t, rms) in envelope if ws <= t <= we]
+        if wins and (sum(1 for r in wins if r > SPEECH_RMS) / len(wins)) < 0.15:
+            continue
+        prev_end = aligned[i - 1][2] if i > 0 else None
+        nxt_start = aligned[i + 1][1] if i + 1 < len(aligned) else None
+        s = ws - 0.05
+        e = we + 0.10                       # generous tail: cover the plosive release
+        if prev_end is not None:
+            s = max(s, prev_end - 0.03)     # tiny overlap back into neighbour is fine
+        if nxt_start is not None:
+            e = min(e, nxt_start + 0.04)     # tiny overlap forward is fine
+        cuts.append((max(0.0, s), e))
 
-    # Iteratively cut, then re-verify with energy awareness. Add any genuinely
-    # still-audible target regions and re-cut. Escalate only if truly stuck.
-    escalated = False
-    for attempt in range(3):
-        apply_cuts(sab_src, dest, cuts)
-        real = audible_target_regions(model, dest, tokens, work_dir)
-        if not real:
-            break
-        # widen: add the still-audible regions (with a little pad) to the cut set
-        for (s, e) in real:
-            cuts.append((max(0.0, s - 0.05), e + 0.08))
-    else:
-        # after retries a real audible instance remains -> guarantee via whole-line
+    if not cuts:
         mute_whole_line(sab_src, dest)
-        escalated = True
+        result.update(method="whole_line_fallback", reason="no_aligned_profanity")
+        return result
 
-    if escalated:
-        result.update(method="word_level_escalated_to_whole_line",
-                      reason="target_still_audible_after_retries", num_spans=len(spans))
-    else:
-        result.update(method="word_level", cuts=[[round(s, 3), round(e, 3)] for s, e in cuts],
-                      num_occurrences=len(spans), self_verified=True)
+    apply_cuts(sab_src, dest, cuts)
+    result.update(method="word_level", cuts=[[round(s, 3), round(e, 3)] for s, e in cuts],
+                  num_occurrences=len(cuts), located_by="forced_alignment")
     return result
 
 
@@ -377,11 +485,10 @@ def main():
 
     model = None
     if SAFE_MODE != "whole_line":
-        from faster_whisper import WhisperModel
-        print(f"Loading whisper model '{WHISPER_MODEL}' ({WHISPER_DEVICE}/{WHISPER_COMPUTE})...")
-        model = WhisperModel(WHISPER_MODEL, device=WHISPER_DEVICE, compute_type=WHISPER_COMPUTE)
+        print("Loading forced aligner (torchaudio MMS_FA)...")
+        load_aligner()
     else:
-        print("SAFE_MODE=whole_line: muting entire lines, no ASR needed.")
+        print("SAFE_MODE=whole_line: muting entire lines, no alignment needed.")
 
     data = json.loads(Path(editlist_path).read_text(encoding="utf-8"))
     matches = data["matches"]
