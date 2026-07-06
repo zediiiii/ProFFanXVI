@@ -213,6 +213,32 @@ def mute_whole_line(sab_src, dest):
 
 
 SPEECH_RMS = 200.0   # windows above this in a detected-word span count as real audible speech
+ALIGN_SCORE_HI = 0.15    # forced-alignment confidence at/above this = trust it outright
+PRESENCE_TOKENS = set()  # normalized tokens whose presence in ASR confirms a real swear
+_ASR = {}                # lazily-loaded large-v3 for presence checks
+
+
+def asr_profane(path, work_dir):
+    """Does large-v3 actually hear an enabled swear in this clip? Used only to
+    disambiguate low-confidence alignments (is the word really spoken, or is the
+    subtitle mismatched?). Deterministic."""
+    if "model" not in _ASR:
+        from faster_whisper import WhisperModel
+        _ASR["model"] = WhisperModel(os.environ.get("ASR_MODEL", "large-v3"),
+                                     device="cpu", compute_type="int8")
+    p = Path(path)
+    if str(p).endswith(".sab"):
+        w = work_dir / "_asrchk.wav"; decode_to_wav(p, w); p = w
+    segs, _ = _ASR["model"].transcribe(str(p), language="en", temperature=0.0,
+                                       condition_on_previous_text=False)
+    text = " ".join(s.text for s in segs).lower()
+    for tok in text.split():
+        n = re.sub(r"[^a-z']", "", tok)
+        if not n:
+            continue
+        if n in PRESENCE_TOKENS or n.startswith(("fuck", "shit")):
+            return True
+    return False
 
 
 def find_all_spans(all_words, tokens):
@@ -365,25 +391,47 @@ def load_aligner():
 
 
 def align_words(wav_path, text):
-    """Return [(word, start_sec, end_sec), ...] aligning the known text to audio."""
+    """Force-align the known text to the audio. Returns (aligned, full) where
+    aligned = [(word, start, end), ...] and full = True if the whole text was
+    aligned. Some .pzd lines are segmented: the text is the full line but this
+    .sab holds only a fragment, so the token sequence is longer than the audio
+    can support -- in that case we align the largest fitting prefix and report
+    full=False (the caller then knows any un-aligned words aren't in this clip)."""
     torch = _ALIGN["torch"]; ta = _ALIGN["ta"]; b = _ALIGN["bundle"]
     w = wave.open(str(wav_path), 'rb'); ch = w.getnchannels(); sr = w.getframerate()
     a = array.array('h'); a.frombytes(w.readframes(w.getnframes()))
     if not a:
-        return []
+        return [], False
     t = torch.tensor(a, dtype=torch.float32).view(-1, ch).mean(1) / 32768.0
     wav = ta.functional.resample(t.unsqueeze(0), sr, b.sample_rate)
     words = re.findall(r"[A-Za-z']+", text.lower())
     if not words:
-        return []
-    try:
+        return [], False
+
+    def try_align(ws):
         with torch.inference_mode():
             emission, _ = _ALIGN["model"](wav)
-            spans = _ALIGN["align"](emission[0], _ALIGN["tok"](words))
+            spans = _ALIGN["align"](emission[0], _ALIGN["tok"](ws))
+        ratio = wav.size(1) / emission.size(1) / b.sample_rate
+        out = []
+        for wr, sp in zip(ws, spans):
+            score = sum(s.score for s in sp) / len(sp)   # alignment confidence
+            out.append((wr, sp[0].start * ratio, sp[-1].end * ratio, score))
+        return out
+
+    try:
+        return try_align(words), True
     except Exception:
-        return []
-    ratio = wav.size(1) / emission.size(1) / b.sample_rate
-    return [(wr, s[0].start * ratio, s[-1].end * ratio) for wr, s in zip(words, spans)]
+        pass
+    # token sequence too long for the audio -> largest fitting prefix
+    lo, hi, best = 1, len(words), []
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        try:
+            best = try_align(words[:mid]); lo = mid + 1
+        except Exception:
+            hi = mid - 1
+    return best, (len(best) == len(words))
 
 
 def process_match(model, match, work_dir):
@@ -404,41 +452,68 @@ def process_match(model, match, work_dir):
     decode_to_wav(sab_src, wav_path)
     envelope = rms_envelope(str(wav_path))
 
-    aligned = align_words(wav_path, match.get("line", ""))
+    aligned, full = align_words(wav_path, match.get("line", ""))
     if not aligned:
         mute_whole_line(sab_src, dest)
         result.update(method="whole_line_fallback", reason="alignment_failed")
         return result
 
-    # every aligned word that is an enabled profanity token -> a cut, with pads
-    # for onset and (crucially) the plosive release, lightly bounded by the
-    # neighbouring aligned words so a clean neighbour is barely touched.
     check = ENABLED_TOKENS if ENABLED_TOKENS else set(normalize_word(t) for p in tokens for t in p.split()) - {""}
-    cuts = []
-    for i, (wr, ws, we) in enumerate(aligned):
-        if normalize_word(wr) not in check:
-            continue
-        # sanity: the aligned word must sit over real energy in the original;
-        # if it's over silence the alignment is bogus -> skip (fall back below).
-        wins = [rms for (t, rms) in envelope if ws <= t <= we]
-        if wins and (sum(1 for r in wins if r > SPEECH_RMS) / len(wins)) < 0.15:
-            continue
+    prof = [(i, wr, ws, we, sc) for i, (wr, ws, we, sc) in enumerate(aligned) if normalize_word(wr) in check]
+
+    # The alignment score alone can't tell a mis-matched subtitle from a
+    # correctly-aligned-but-low-scoring line (both ~0.05). So when confidence is
+    # low we let ASR decide whether the word is actually SPOKEN in this clip:
+    #  - MMS forced alignment gives the accurate boundaries (used to cut);
+    #  - large-v3 gives reliable presence ("is there really a swear here?").
+    hi_conf = [p for p in prof if p[4] >= ALIGN_SCORE_HI]
+    lo_conf = [p for p in prof if p[4] < ALIGN_SCORE_HI]
+
+    asr_says_profane = None
+    if lo_conf or not prof:
+        asr_says_profane = asr_profane(wav_path, work_dir)
+
+    to_cut = list(hi_conf)
+    if lo_conf and asr_says_profane:
+        to_cut += lo_conf            # ASR confirms a swear is here -> trust the alignment
+    to_cut.sort(key=lambda p: p[0])
+
+    def cut_for(i, ws, we):
         prev_end = aligned[i - 1][2] if i > 0 else None
         nxt_start = aligned[i + 1][1] if i + 1 < len(aligned) else None
         s = ws - 0.05
         e = we + 0.10                       # generous tail: cover the plosive release
         if prev_end is not None:
-            s = max(s, prev_end - 0.03)     # tiny overlap back into neighbour is fine
+            s = max(s, prev_end - 0.03)
         if nxt_start is not None:
-            e = min(e, nxt_start + 0.04)     # tiny overlap forward is fine
-        cuts.append((max(0.0, s), e))
+            e = min(e, nxt_start + 0.04)
+        return (max(0.0, s), e)
+
+    cuts = [cut_for(i, ws, we) for (i, wr, ws, we, sc) in to_cut]
 
     if not cuts:
-        mute_whole_line(sab_src, dest)
-        result.update(method="whole_line_fallback", reason="no_aligned_profanity")
+        # No profanity to cut here.
+        if asr_says_profane:
+            # ASR hears a swear but alignment couldn't place it (short mismatch
+            # clip, heavy reverb, etc.) -> guarantee removal with a whole-clip mute.
+            mute_whole_line(sab_src, dest)
+            result.update(method="whole_line_asr_present", reason="profanity_heard_not_located")
+        else:
+            # The subtitle profanity isn't actually voiced in this clip (FFXVI's
+            # text/audio-mismatched simplevoice entries) -> leave it untouched.
+            if dest.exists():
+                dest.unlink()
+            result.update(method="skipped_not_in_clip", reason="profanity_not_in_audio")
         return result
 
     apply_cuts(sab_src, dest, cuts)
+    # Safety net for the low-confidence cuts: confirm ASR can no longer hear a
+    # swear in the muted result; if it can, the alignment was wrong -> whole-clip.
+    if lo_conf and asr_says_profane and asr_profane(dest, work_dir):
+        mute_whole_line(sab_src, dest)
+        result.update(method="word_level_escalated_to_whole_line",
+                      reason="still_audible_after_aligned_cut")
+        return result
     result.update(method="word_level", cuts=[[round(s, 3), round(e, 3)] for s, e in cuts],
                   num_occurrences=len(cuts), located_by="forced_alignment")
     return result
@@ -511,6 +586,10 @@ def main():
                     for part in tok.split():
                         ENABLED_TOKENS.add(normalize_word(part))
         ENABLED_TOKENS.discard("")
+        global PRESENCE_TOKENS
+        PRESENCE_TOKENS = set(ENABLED_TOKENS)
+        if "arse" in ENABLED_TOKENS or "arses" in ENABLED_TOKENS:
+            PRESENCE_TOKENS |= {"ass", "asses", "asshole", "assholes"}  # ASR spells 'arse' as 'ass'
         print(f"Self-verify checks {len(ENABLED_TOKENS)} enabled profanity tokens.")
     except Exception as e:
         print(f"WARN: could not build enabled-token set ({e}); verify falls back to per-line tokens.")
