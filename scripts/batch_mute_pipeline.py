@@ -218,10 +218,23 @@ PRESENCE_TOKENS = set()  # normalized tokens whose presence in ASR confirms a re
 _ASR = {}                # lazily-loaded large-v3 for presence checks
 
 
-def asr_profane(path, work_dir):
+def _close(a, bset):
+    """True if a is within edit-distance 1 of any token in bset (len>=5 only, so
+    short words like 'ass' aren't fuzzily confused). Catches ASR mis-spellings
+    like 'bullocks' for 'bollocks'."""
+    import difflib
+    for b in bset:
+        if len(b) >= 5 and abs(len(a) - len(b)) <= 1:
+            if difflib.SequenceMatcher(None, a, b).ratio() >= 0.86:
+                return True
+    return False
+
+
+def asr_profane(path, work_dir, target_tokens=None):
     """Does large-v3 actually hear an enabled swear in this clip? Used only to
     disambiguate low-confidence alignments (is the word really spoken, or is the
-    subtitle mismatched?). Deterministic."""
+    subtitle mismatched?). Deterministic. Fuzzy-matches this line's own target
+    tokens so an ASR mis-spelling ('bullocks' for 'bollocks') still counts."""
     if "model" not in _ASR:
         from faster_whisper import WhisperModel
         _ASR["model"] = WhisperModel(os.environ.get("ASR_MODEL", "large-v3"),
@@ -232,11 +245,14 @@ def asr_profane(path, work_dir):
     segs, _ = _ASR["model"].transcribe(str(p), language="en", temperature=0.0,
                                        condition_on_previous_text=False)
     text = " ".join(s.text for s in segs).lower()
+    tgt = set(normalize_word(t) for p in (target_tokens or []) for t in p.split()) - {""}
     for tok in text.split():
         n = re.sub(r"[^a-z']", "", tok)
         if not n:
             continue
         if n in PRESENCE_TOKENS or n.startswith(("fuck", "shit")):
+            return True
+        if tgt and _close(n, tgt):
             return True
     return False
 
@@ -471,7 +487,7 @@ def process_match(model, match, work_dir):
 
     asr_says_profane = None
     if lo_conf or not prof:
-        asr_says_profane = asr_profane(wav_path, work_dir)
+        asr_says_profane = asr_profane(wav_path, work_dir, tokens)
 
     to_cut = list(hi_conf)
     if lo_conf and asr_says_profane:
@@ -509,7 +525,7 @@ def process_match(model, match, work_dir):
     apply_cuts(sab_src, dest, cuts)
     # Safety net for the low-confidence cuts: confirm ASR can no longer hear a
     # swear in the muted result; if it can, the alignment was wrong -> whole-clip.
-    if lo_conf and asr_says_profane and asr_profane(dest, work_dir):
+    if lo_conf and asr_says_profane and asr_profane(dest, work_dir, tokens):
         mute_whole_line(sab_src, dest)
         result.update(method="word_level_escalated_to_whole_line",
                       reason="still_audible_after_aligned_cut")
