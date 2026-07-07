@@ -56,6 +56,8 @@ There's also a **Safe (whole-line) mode** (`SAFE_MODE=whole_line`) that silences
 
 `scripts/verify_aligned.py` is the definitive check: it re-aligns each line's text to the **original** audio to find each profane word's exact span, then confirms the **muted** audio is silent across that span — catching fragment leaks (a leftover "-ing") that a transcription-based gate can miss. The shipped build passes at **0 leaks across all 457 word-level dialogue lines**, plus 8 lines correctly left alone (no profanity actually voiced), 2 whole-clip, and 37 combat-bank clips independently confirmed silent. (`scripts/verify_audio_clean.py`, a transcription-based gate, remains available as a second opinion.)
 
+A further **15 flagged lines have subtitle text but no shipped audio** — their `.sab` files simply aren't present in any of the game's packs (confirmed via `FF16Tools.CLI list-files`: the quest folders that hold them don't exist, and the only packs that mention those quest IDs contain the `.pzd` *text* tables, zero `.sab`). These are cut/unused sidequest lines: there is no audio for the game to play, so they cannot leak. The pipeline reports them as extraction errors rather than silently dropping them, which is what let us verify they're inert rather than assume it.
+
 ## Review without spoilers
 
 `scripts/build_listen_kit.py` (or the GUI's *Build listen-kit* button) produces an offline `index.html` with an audio player for every muted line, so you can **hear-confirm the mutes in a browser without launching the game**. The muted clip is front-and-center; the original audio and full subtitle text are hidden behind per-row *reveal* toggles to limit story spoilers.
