@@ -40,21 +40,21 @@ Because the stakes for this kind of filter are "one missed word ruins it," detec
 
 **Combat vocalizations** don't have subtitles and a text scan can't reach them. The `sound/voice/battle/*.sab` files turned out to be multi-subsong *banks* — 306 banks holding **27,498 individual grunts/callouts** total. Every one is transcribed (`scripts/transcribe_banks_full.py`, a parallel first pass; `scripts/verify_and_mute_banks.py`, large-v3 verification of hits) and any that actually contain enabled profanity are surgically silenced with `scripts/mute_bank_subsongs.py` — which mutes just the one offending clip inside a bank and leaves every other grunt bit-identical (verified: all subsongs still parse, target silent, untouched ones unchanged).
 
-## Muting modes
+## How the muting works (forced alignment)
 
-- **Accurate (default)** – silences just the profane word, keeping the surrounding dialogue. It locates the word with Whisper (`large-v3` by default), refines the cut to the real audio-energy boundaries, mutes **every** occurrence, and then **self-verifies**: it re-transcribes the muted clip and, if *any* enabled profanity is still audible **over real energy**, it re-cuts that region; if it still can't clear it, it escalates that line to a whole-line mute. A mislocated cut can never leak — worst case it over-mutes.
-- **Safe (whole-line)** – silences the entire line containing any profanity. Bulletproof and fast (no speech recognition), at the cost of losing a few seconds of surrounding clean dialogue per flagged line.
+Because every line's exact subtitle text is known from the `.pzd`, the muter **force-aligns that text to the audio** (`torchaudio`'s MMS_FA model) to get accurate, deterministic per-word boundaries — it knows exactly where "fucking" ends (after the "-ing") and where a mis-pronounced British "arse" actually sits. It then silences each enabled-profanity word, padded to also swallow the unvoiced "f" fricative onset and the "ck" release burst (which sit just outside the voiced boundary), lightly bounded by the neighbouring words so a clean neighbour is only grazed.
 
-Every processed line is tagged in the report with which method it got and why.
+This replaced an earlier approach that trusted Whisper's word timestamps, which were unreliable (off by up to 0.6s, inconsistent run-to-run) and left the back half of plosive-heavy swears audible. Forced alignment is accurate, reproducible, and faster.
 
-### Verification is deterministic and independent
+Two things keep it honest on FFXVI's messier data:
+- **ASR presence gate for low-confidence alignments.** Some `simplevoice` entries have subtitle text that doesn't match their audio (the clip says "Can I have a go at that one?" while the subtitle says "boil on the arse") — the profane word is written but never voiced. Forced-alignment score alone can't tell those from correct-but-quiet lines, so when confidence is low the tool asks large-v3 whether a swear is *actually spoken* (with fuzzy matching, so a mis-spelled "bullocks" still counts as "bollocks"): heard → mute; not heard → leave the clip untouched.
+- **Whole-clip escalation.** If a swear is heard but can't be cleanly located (heavy reverb, etc.), the whole clip is muted so nothing leaks.
 
-Two things make the "no leak" claim real rather than assumed:
+There's also a **Safe (whole-line) mode** (`SAFE_MODE=whole_line`) that silences the entire line for every match — bulletproof and needs no models — if you'd rather not run the alignment path.
 
-- **Energy-aware, all-token verify.** The self-check flags a re-detected word only if it sits over genuine audio energy (ASR routinely *hallucinates* a muted word back from context — "damn" before a surviving "it!"), and it checks the **full enabled wordlist**, not just the line's original word (a mislocated cut's residual is often re-transcribed as a *different* swear — leftover "fucking" heard as "shit"). Both were real leaks caught during development.
-- **Deterministic transcription** (`temperature=0`, no prior-text conditioning) so the gate is reproducible — otherwise large-v3's stochastic fallback let a file flakily pass one run and fail the next.
+### Independent verification
 
-`scripts/verify_audio_clean.py` is the definitive gate: it independently re-transcribes **every** muted file and fails if any enabled swear is still audible. The shipped build passed at **0 leaks / 0 anomalies across 467 dialogue lines + 37 combat-bank clips**.
+`scripts/verify_aligned.py` is the definitive check: it re-aligns each line's text to the **original** audio to find each profane word's exact span, then confirms the **muted** audio is silent across that span — catching fragment leaks (a leftover "-ing") that a transcription-based gate can miss. The shipped build passes at **0 leaks across all 457 word-level dialogue lines**, plus 8 lines correctly left alone (no profanity actually voiced), 2 whole-clip, and 37 combat-bank clips independently confirmed silent. (`scripts/verify_audio_clean.py`, a transcription-based gate, remains available as a second opinion.)
 
 ## Review without spoilers
 
