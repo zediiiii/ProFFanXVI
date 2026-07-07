@@ -495,14 +495,19 @@ def process_match(model, match, work_dir):
     to_cut.sort(key=lambda p: p[0])
 
     def cut_for(i, ws, we):
+        # MMS marks the voiced/vowel boundaries, but a word's unvoiced onset
+        # (the "f" fricative before the vowel) and its plosive release (the "ck"
+        # burst) sit just outside those marks. Pad generously enough to swallow
+        # both -- lightly bounded by the neighbouring words so a clean neighbour
+        # is only grazed. (User heard "f"/"ck" bleed with tighter pads.)
         prev_end = aligned[i - 1][2] if i > 0 else None
         nxt_start = aligned[i + 1][1] if i + 1 < len(aligned) else None
-        s = ws - 0.05
-        e = we + 0.10                       # generous tail: cover the plosive release
+        s = ws - 0.10                       # cover the fricative onset
+        e = we + 0.16                       # cover the plosive release burst
         if prev_end is not None:
-            s = max(s, prev_end - 0.03)
+            s = max(s, prev_end - 0.05)
         if nxt_start is not None:
-            e = min(e, nxt_start + 0.04)
+            e = min(e, nxt_start + 0.06)
         return (max(0.0, s), e)
 
     cuts = [cut_for(i, ws, we) for (i, wr, ws, we, sc) in to_cut]
