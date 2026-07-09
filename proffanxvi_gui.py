@@ -143,13 +143,19 @@ class App:
         nb.add(build, text="3. Build")
         mode = ttk.LabelFrame(build, text="Muting mode", padding=8)
         mode.pack(fill="x")
-        self.mode = tk.StringVar(value="word_level")
-        ttk.Radiobutton(mode, text="Accurate: mute just the word (self-verified; auto whole-line if unsure). Recommended.",
+        self.mode = tk.StringVar(value="fast_cutlist")
+        ttk.Radiobutton(mode, text="Fast: precompiled cutlist (seconds, no ML download). Recommended.",
+                        variable=self.mode, value="fast_cutlist").pack(anchor="w")
+        ttk.Radiobutton(mode, text="Accurate (full pipeline): re-derive word-level cuts yourself (slow, needs the ML deps in requirements.txt).",
                         variable=self.mode, value="word_level").pack(anchor="w")
-        ttk.Radiobutton(mode, text="Safe: mute the whole line containing any profanity (bulletproof; loses some clean dialogue).",
+        ttk.Radiobutton(mode, text="Safe (full pipeline): mute the whole line containing any profanity (bulletproof; loses some clean dialogue).",
                         variable=self.mode, value="whole_line").pack(anchor="w")
+        ttk.Label(mode, text="Fast mode covers everything already muted in this repo's cutlist.json. If the game has been\n"
+                             "patched since it was built, changed clips fall back to a safe whole-line mute automatically\n"
+                             "-- use Accurate/Safe (full pipeline) to re-derive precise cuts for those.",
+                  foreground="#555", justify="left").pack(anchor="w", pady=(4, 0))
         mrow = ttk.Frame(build); mrow.pack(fill="x", pady=6)
-        ttk.Label(mrow, text="Whisper model (accurate mode):").pack(side="left")
+        ttk.Label(mrow, text="Whisper model (full pipeline only):").pack(side="left")
         self.model = tk.StringVar(value="large-v3")
         ttk.Combobox(mrow, textvariable=self.model, width=14,
                      values=["large-v3", "medium.en", "small.en", "base.en"]).pack(side="left", padx=6)
@@ -286,9 +292,23 @@ class App:
             "MOD_OUTPUT_DIR": str(mod_data),
             "BATCH_EXTRACT_DIR": str(work / "batch_extracted"),
             "SAB_MUTE_SCRIPT": str(SCRIPTS / "sab_mute.py"),
+            "MUTE_BANK_SCRIPT": str(SCRIPTS / "mute_bank_subsongs.py"),
             "SAFE_MODE": self.mode.get(),
             "WHISPER_MODEL": self.model.get(),
         }
+
+        if self.mode.get() == "fast_cutlist":
+            cutlist = ROOT / "data" / "cutlist.json"
+            if not cutlist.exists():
+                messagebox.showerror("Missing cutlist.json", f"Expected {cutlist} -- did you clone the full repo?")
+                return
+            self._logln("Building from precompiled cutlist (fast path, no ML deps needed)...\n")
+            # separate filename from the full-pipeline's report.json -- shapes differ
+            # (this is a stats summary, not per-line detail) and "Build listen-kit"
+            # expects the full-pipeline shape, so this must not overwrite that one.
+            self._run_bg([sys.executable, str(SCRIPTS / "apply_cutlist.py"), str(cutlist),
+                          "--enable", ids, "-o", str(work / "cutlist_report.json")], env=env)
+            return
 
         def after_scan(rc):
             if rc != 0:

@@ -9,13 +9,14 @@ It does **not** redistribute any game audio. It runs against *your own* legally-
 ## Quick start (GUI)
 
 ```
-pip install -r requirements.txt
 python proffanxvi_gui.py
 ```
 
+No `pip install` needed for this — the default build mode uses the precompiled `data/cutlist.json` (see [How the muting works](#how-the-muting-works-forced-alignment)) and only needs the native tools below, not the Python ML stack.
+
 1. **Paths tab** – click *Auto-detect* (finds a Steam FFXVI install and bundled `./tools`), or point each field at the matching tool. Download links are under [Requirements](#requirements).
-2. **Profanity tab** – tick the words to mute. Click *Scan game text* to see how many lines each one hits in your copy of the game.
-3. **Build tab** – choose a muting mode, click *Build mod*, then enable it in Reloaded-II alongside `ff16.utility.modloader`.
+2. **Profanity tab** – tick the words to mute. Click *Scan game text* to see how many lines each one hits in your copy of the game (optional — just a preview).
+3. **Build tab** – leave *Fast (precompiled cutlist)* selected, click *Build mod*, then enable it in Reloaded-II alongside `ff16.utility.modloader`.
 
 Prefer the command line? See [Manual usage](#manual-usage).
 
@@ -64,6 +65,25 @@ A further **15 flagged lines have subtitle text but no shipped audio** — their
 
 ## Manual usage
 
+### Fast path (recommended): build from the precompiled cutlist
+
+`data/cutlist.json` already says exactly what to cut for every enabled concept — the alignment/ASR work was done once and checked into the repo as plain numbers (file paths, cut timestamps in seconds, integrity hashes, our own concept tags). Applying it only needs the same lightweight native tools already required for repacking, no ML deps:
+
+```bat
+set FF16_CLI=<path>\FF16Tools.CLI.exe
+set VGAUDIOCLI=<path>\VGAudioCli.exe
+set VGMSTREAM_CLI=<path>\vgmstream-cli.exe
+set FFXVI_DATA_DIR=<Steam>\FINAL FANTASY XVI\data
+set MOD_OUTPUT_DIR=<ReloadedII>\Mods\ff16.audio.profanity-filter\FFXVI\data
+python scripts/apply_cutlist.py data/cutlist.json --enable fuck,shit,bastard,arse,bugger,sod,prick,bollocks,whore,damn
+```
+
+This takes a couple of minutes (mostly pack extraction/re-encoding), not hours, and never downloads a Whisper model. Every file it touches is re-extracted fresh from *your own* game files and hash-checked against the cutlist's fingerprint before cutting — see [Surviving game updates](#surviving-game-updates) below for what happens when that check fails.
+
+### Advanced: full pipeline (re-derive cuts yourself)
+
+Needed only if you want to customize detection itself (edit the wordlist, add new concepts) or want fresh precise cuts after a game update instead of the safety fallback:
+
 ```bat
 :: 1. Extract & convert dialogue text
 python scripts/extract_dialogue_text.py --game-data "<Steam>\FINAL FANTASY XVI\data" --ff16-cli "<path>\FF16Tools.CLI.exe" --out extracted
@@ -87,17 +107,26 @@ python scripts/batch_mute_pipeline.py editlist.json
 
 Then enable `ff16.audio.profanity-filter` (auto-created with its `ModConfig.json`) in Reloaded-II.
 
+## Surviving game updates
+
+The cutlist's fast path never trusts stale offsets blindly: every file is re-extracted from your current game install and its sha256 is checked against what the cutlist expects *before* any cut is applied.
+
+- If a dialogue line's audio no longer matches (Square Enix patched that clip), it's **whole-line-muted** instead — safer than applying an offset computed for different audio, at the cost of losing that one line's clean dialogue too.
+- If a combat-bank subsong's audio no longer matches, that bank is **skipped and left untouched** (rather than blanking dozens of unrelated legitimate grunts in the same bank over one changed clip).
+
+`apply_cutlist.py` prints how many files fell into each fallback path. If it's more than a handful after an update, the cutlist itself should be regenerated (needs the full pipeline's ML deps) — or just re-run the full pipeline directly, since you own the underlying detection/alignment logic either way.
+
 ## Requirements
 
 - FFXVI on Steam (PC)
-- Python 3.10+ (`pip install -r requirements.txt` → `faster-whisper`, `pyyaml`; `tkinter` ships with Python)
+- Python 3.10+; `tkinter` ships with Python. The fast path (`apply_cutlist.py`, the GUI's default) needs no extra packages beyond stdlib.
 - .NET runtime 8/9/10 (the tool sets `DOTNET_ROLL_FORWARD=LatestMajor` for you)
 - [Reloaded-II](https://github.com/Reloaded-Project/Reloaded-II) + [ff16.utility.modloader](https://github.com/Nenkai/ff16.utility.modloader) — portable install; mods go directly in `<ReloadedII>\Mods\<modid>\` (drag-and-drop onto the window does nothing)
 - [FF16Tools](https://github.com/Nenkai/FF16Tools) — pack extract / dialogue conversion
 - [vgmstream](https://github.com/vgmstream/vgmstream) (`vgmstream-cli.exe`) — decode `.sab`
 - [VGAudio](https://github.com/Thealexbarney/VGAudio) (`VGAudioCli.exe`) — re-encode HCA
 
-GPU note: `faster-whisper` accelerates on NVIDIA (CUDA) only. On AMD/CPU, `large-v3` still works but is slow — accuracy mode is a one-time build, and *Safe* mode needs no speech recognition at all.
+Only the **advanced full pipeline** needs `pip install -r requirements.txt` (`torch`, `torchaudio`, `faster-whisper` — several GB, including the `large-v3` model download on first run). GPU note: `faster-whisper` accelerates on NVIDIA (CUDA) only; on AMD/CPU it's slow but works, and this path is only needed for re-deriving cuts, not for normal installs.
 
 ## Legal / redistribution
 

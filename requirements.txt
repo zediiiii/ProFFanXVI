@@ -1,3 +1,7 @@
+# Only needed for the advanced full pipeline (batch_mute_pipeline.py) -- i.e.
+# re-deriving cuts yourself after editing the wordlist or a game update. The
+# default fast path (apply_cutlist.py / the GUI's "Fast" mode) needs none of
+# this, just the native tools in the README's Requirements section.
 faster-whisper
 pyyaml
 torch

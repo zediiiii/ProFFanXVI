@@ -1,0 +1,7371 @@
+{
+ "schema_version": 1,
+ "dialogue": [
+  {
+   "path": "sound/voice/bevent/bevent0000042/vo_bevent0000042_023_000.sab",
+   "orig_sha256": "55f66d56462fb52c60fd874d3ce80c4167a5649cf2025f5a802c605ab0246917",
+   "orig_size": 49120,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.247,
+     2.312
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/bevent/bevent0000057/vo_bevent0000057_016_000.sab",
+   "orig_sha256": "84e7a9624417f7e5ff80c36f884bf0976e16be8f9ce9b2f1ebd54e303f1d9e41",
+   "orig_size": 4576,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.44
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/bevent/bevent0000061/vo_bevent0000061_027_000.sab",
+   "orig_sha256": "b36a92c931d45a53788fbe7079bdc3d5a25b94516772d2aede162f4455937265",
+   "orig_size": 18144,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.644
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/bevent/bevent0000063/vo_bevent0000063_005_000.sab",
+   "orig_sha256": "5fb82ce38915f2ecd98eb9b969858e29a61389676aef9d5f51377bdf4e3bf7e7",
+   "orig_size": 8416,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.145,
+     0.692
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/bevent/bevent0000065/vo_bevent0000065_008_000.sab",
+   "orig_sha256": "bf86828f065fa013c57ddb51c12e2ec498dcd6c145da7f87ab6134182e8450a5",
+   "orig_size": 22752,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.804,
+     1.928
+    ]
+   ],
+   "concepts": [
+    "bollocks"
+   ]
+  },
+  {
+   "path": "sound/voice/bevent/bevent0000066/vo_bevent0000066_005_000.sab",
+   "orig_sha256": "71760f56aeb1954966fc1cb59ea7a1ef107beeaab80320f61085d648040ca0df",
+   "orig_size": 15072,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.366,
+     1.254
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/bevent/bevent0000070/vo_bevent0000070_019_000.sab",
+   "orig_sha256": "a48551e17faba25d8be0cee3cf268ae1b79a6299c124bc2d7186d941c7f3d5cd",
+   "orig_size": 15072,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.104,
+     0.71
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/bevent/bevent0000073/vo_bevent0000073_005_000.sab",
+   "orig_sha256": "ef15c6994fc2eb655918fe814a259bd496252200a5208ffe5f493582bdbb7688",
+   "orig_size": 33760,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.02,
+     0.561
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/bevent/bevent0000094/vo_bevent0000094_008_000.sab",
+   "orig_sha256": "6e9938ef4fe047c8f30a0b69723f9c0292d9015ebb9b99659da97bb75faf4782",
+   "orig_size": 8160,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.102,
+     0.645
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/bevent/bevent0000095/vo_bevent0000095_014_000.sab",
+   "orig_sha256": "42dd561531fb5e1d06c5fbecbcf22b572364149cc70489a83d20409a7b675caa",
+   "orig_size": 7904,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.343
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/bevent/bevent0000151/vo_bevent0000151_012_000.sab",
+   "orig_sha256": "27a1e76971f7974750a47cb707bfd785ebf837c3cc2dc7a41eb56446e1ab4025",
+   "orig_size": 7648,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.325
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/bevent/bevent0000158/vo_bevent0000158_011_000.sab",
+   "orig_sha256": "3b95a49604848425e819d0b2d70ae1830077ec447852f615200c21c083ad18d7",
+   "orig_size": 13024,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.445,
+     1.028
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/bevent/bevent0000181/vo_bevent0000181_003_000.sab",
+   "orig_sha256": "435900619c271bd10304b8060fbc0abb1eca780791da95f010685c67b073125f",
+   "orig_size": 22752,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.021,
+     0.543
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/bevent/bevent0000185/vo_bevent0000185_007_000.sab",
+   "orig_sha256": "b7e38b1f9beedad7d56ade155af80f0b26e3014d6adcf1b4c0f5c99bbe60f316",
+   "orig_size": 17888,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.524,
+     1.065
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/bevent/bevent0000310/vo_bevent0000310_002_000.sab",
+   "orig_sha256": "9aa1ab9abfc54b825be739322265053415aaba1f8f389f8202f2c7099495ce10",
+   "orig_size": 73184,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.882,
+     2.563
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/bossbattle/bossbattle0020480/vo_bossbattle0020480_002_000.sab",
+   "orig_sha256": "3ad2bbe4c7cd8b778b64e084696af73d58ca9fa704a75e71747929368cc27177",
+   "orig_size": 35808,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.605,
+     1.409
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/bossbattle/bossbattle0050020/vo_bossbattle0050020_002_000.sab",
+   "orig_sha256": "67101e6ee10a932d863fea7cbabb005dff6ee0f7deaf19e5f878680873c5728c",
+   "orig_size": 19424,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.923,
+     1.364
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/bossbattle/bossbattle0070020/vo_bossbattle0070020_002_000.sab",
+   "orig_sha256": "cb7a4f7a39c19b0c7d0f5fb6184fb4559f7cc477863e29a4c01f97c3f06c4c17",
+   "orig_size": 18400,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.062,
+     0.768
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/bossbattle/bossbattle0090000/vo_bossbattle0090000_005_000.sab",
+   "orig_sha256": "11a4cf3481fbcbf5dbd78f40e442d420dfd6e8acc35d549f6c04662430b1f90c",
+   "orig_size": 24288,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.466,
+     0.889
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/bossbattle/bossbattle0160010/vo_bossbattle0160010_004_000.sab",
+   "orig_sha256": "69877c35c4cb4d0282b2c218a767b9d27a6a1314ced8676595c61a2bf9c0c6ab",
+   "orig_size": 32224,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.991,
+     2.875
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/bossbattle/bossbattle0160030/vo_bossbattle0160030_002_000.sab",
+   "orig_sha256": "1031ef74350bce9a35d21c549d479e2d5ea600ab3b89d68f610e7ddd8e9fa424",
+   "orig_size": 25824,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.963,
+     1.665
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/bossbattle/bossbattle0170020/vo_bossbattle0170020_002_000.sab",
+   "orig_sha256": "dd6c7c85e69f3b072e3b149f73bcaf84eb18250817dd3c03ddc286f0eed4b9b4",
+   "orig_size": 19936,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.323
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/bossbattle/bossbattle0300040/vo_bossbattle0300040_002_000.sab",
+   "orig_sha256": "11433fc5a781f102e2a53985423e9b08993611d83cdb2f43a7f5f499380fe05e",
+   "orig_size": 21216,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.524,
+     1.027
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutl/cutl2000200/vo_cutl2000200_012_000.sab",
+   "orig_sha256": "b0cf0a36ba33d87b2b17e5843f31901d8dad7381f494b25072b1e8505167ad9b",
+   "orig_size": 46816,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.241,
+     0.762
+    ]
+   ],
+   "concepts": [
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/cutl/cutl2002100/vo_cutl2002100_018_000.sab",
+   "orig_sha256": "70a9832f10fde240b2147ab13bf66df681206685ab11da47234c8eb5c16f905b",
+   "orig_size": 28640,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.02,
+     0.501
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1000400/vo_cutm1000400_025_000.sab",
+   "orig_sha256": "0d2f0a0de0bc19063a2c15200e998776a17eb316579c10eeb52be6ada87e39c3",
+   "orig_size": 14048,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.406
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1000400/vo_cutm1000400_043_000.sab",
+   "orig_sha256": "1621915b50b65b0671d9edce138b19b9b0054c719f4f31d62371e2a8614ff028",
+   "orig_size": 16096,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.407,
+     1.214
+    ]
+   ],
+   "concepts": [
+    "cock"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1000600/vo_cutm1000600_016_000.sab",
+   "orig_sha256": "f8c26a7c85b843abd12ed8fc46fb6282f99ffe26b378eaeabfa32bdcb7b215e8",
+   "orig_size": 47328,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.236,
+     4.139
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1000700/vo_cutm1000700_008_000.sab",
+   "orig_sha256": "63c591e374ec9cdc95fba379ec91362f0fb49d75485f06796d7c1082523215a8",
+   "orig_size": 14048,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.141,
+     1.226
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1000700/vo_cutm1000700_014_000.sab",
+   "orig_sha256": "cb70846d8ffe6be60e2f7175afbde7ee7119d88462c8d705dc71fd10ddfc8de4",
+   "orig_size": 34784,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.361,
+     0.741
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1000800/vo_cutm1000800_015_000.sab",
+   "orig_sha256": "23b97513a222943653757f4cd5d5e89cbb79dafec5294101f7372a86b0687bb6",
+   "orig_size": 52192,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.693,
+     3.214
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1001320/vo_cutm1001320_003_000.sab",
+   "orig_sha256": "da94682b3e31935153f462d7dd795af6e9cf29e0f83c14dae603ec1f70a4bc09",
+   "orig_size": 43744,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.324,
+     2.025
+    ]
+   ],
+   "concepts": [
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1001500/vo_cutm1001500_017_000.sab",
+   "orig_sha256": "cfa721d8815d3b0c2ccdf392da67993e8c4c477fc9f7086b32b33f2c02fe978d",
+   "orig_size": 14816,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.041,
+     0.703
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1002000/vo_cutm1002000_007_000.sab",
+   "orig_sha256": "e44fe4f6c53e718a0ddda867b753d57b4406d8b6821dd63758e031718579d016",
+   "orig_size": 38624,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.209,
+     1.611
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1002300/vo_cutm1002300_056_000.sab",
+   "orig_sha256": "4e0a249f566f1418f1634df6f5c7cd79b0961fc121fc732214fb0f8ec958ef9b",
+   "orig_size": 11744,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.433,
+     1.062
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1002700/vo_cutm1002700_010_000.sab",
+   "orig_sha256": "cebb841bfc8c96e858c8dec2dbabb9122e7cdc0207581b958eef70d275615f48",
+   "orig_size": 56032,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.441
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1003000/vo_cutm1003000_019_000.sab",
+   "orig_sha256": "194439fe1ebfa436c0acff994965d0187123a9d75b9ee69bfd977aa407197a25",
+   "orig_size": 9440,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.162,
+     0.806
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1003000/vo_cutm1003000_029_000.sab",
+   "orig_sha256": "02d14b0d06ed15471662437c7caca6acda4c0b6df55441a69a74bc4c66052964",
+   "orig_size": 32224,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.342,
+     0.763
+    ],
+    [
+     1.999,
+     2.852
+    ]
+   ],
+   "concepts": [
+    "arse",
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1003010/vo_cutm1003010_020_000.sab",
+   "orig_sha256": "4c4300393f1f1c7ae9dba5abbccde2bb2ca04ed927ab5e490870e073db99685d",
+   "orig_size": 30176,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.301,
+     0.902
+    ],
+    [
+     1.965,
+     2.526
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1003100/vo_cutm1003100_018_000.sab",
+   "orig_sha256": "27f9088757950bb24c3fca575c1698bccec10968ec9ea9602697d3c03101e62b",
+   "orig_size": 27616,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.95,
+     1.573
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1003500/vo_cutm1003500_043_000.sab",
+   "orig_sha256": "dd81dc39af8fe35eb482b9b5f7cd9bdcb2da6ad43f0ff048ec70a51fda478287",
+   "orig_size": 67808,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.563,
+     3.003
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1003600/vo_cutm1003600_005_000.sab",
+   "orig_sha256": "8ca5eabb84b8915f8405262a84ccd45554086ce1aecc35a1b82aef2b4f8e3cbd",
+   "orig_size": 23008,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.646
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1004600/vo_cutm1004600_004_000.sab",
+   "orig_sha256": "b82c03f55c09649cb36d2656798ae6fe135c9bb52787fc62f6de7423891ebd5e",
+   "orig_size": 88032,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.487,
+     3.328
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1004600/vo_cutm1004600_024_000.sab",
+   "orig_sha256": "5a01b6c6cc71cd7c017c6209be8de53e41d5f86d54d0be8db7f986675ea10899",
+   "orig_size": 106976,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.566,
+     5.107
+    ]
+   ],
+   "concepts": [
+    "bitch"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1005100/vo_cutm1005100_023_000.sab",
+   "orig_sha256": "6b94622bb0cfff8757c81ffa084e4413c6eadfed87118a0ba893c9492138888e",
+   "orig_size": 69344,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.402,
+     1.143
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1005600/vo_cutm1005600_003_000.sab",
+   "orig_sha256": "02407fa986f5175136e36c7ccc446161f6ca5780ef72157f9a98cf57f6ab7b63",
+   "orig_size": 23776,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.221,
+     0.862
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1005600/vo_cutm1005600_025_000.sab",
+   "orig_sha256": "eca16e5f6f15c49724217e7393914d774fc9139c720421fa0838436bad7ac1fc",
+   "orig_size": 40672,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.121,
+     0.663
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1005600/vo_cutm1005600_029_000.sab",
+   "orig_sha256": "7c7c011bffba9119155b9f2c6870b28d3b13ea1a1d52c0ae3e11160721118890",
+   "orig_size": 21984,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.322
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1005800/vo_cutm1005800_004_000.sab",
+   "orig_sha256": "c92f3adfd1faf5ef862c8777c93960bacc8d3f81847ba60f24091fa581f7c481",
+   "orig_size": 34016,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.041,
+     0.483
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1006100/vo_cutm1006100_021_000.sab",
+   "orig_sha256": "eaebf3b5750da703d08d2876888955d79e6206f6061697eee3a5461a551a9519",
+   "orig_size": 34016,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.1,
+     0.561
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1006500/vo_cutm1006500_022_000.sab",
+   "orig_sha256": "57c92abfe51980edb1f144fc18ac32d9b845848c04862543c0ed211cda41fdc9",
+   "orig_size": 49376,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.331,
+     2.812
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1006700/vo_cutm1006700_019_000.sab",
+   "orig_sha256": "26cd8f340e6cabc48c1d430d2fbcc2ffe2de7a3d0713ed7a791250642055d88d",
+   "orig_size": 41440,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.685,
+     3.266
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1007000/vo_cutm1007000_006_000.sab",
+   "orig_sha256": "73913b9c00c8f602ad9a0d584797f688d245bb06aafcb582a2d55da74892267c",
+   "orig_size": 12768,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.081,
+     0.684
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1007600/vo_cutm1007600_037_000.sab",
+   "orig_sha256": "8e94b82f2b398852e19fba4c0b870e30ef3b17a0692cb167c1cd457ba6bb6e84",
+   "orig_size": 64736,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.782,
+     1.202
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1008060/vo_cutm1008060_006_000.sab",
+   "orig_sha256": "52a81d8b7a44e4bb6ac55ffa7b9f7e634da0fb4a35f725c6bcce0eadf0580fb2",
+   "orig_size": 31456,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.361
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1008900/vo_cutm1008900_016_000.sab",
+   "orig_sha256": "7fc403b1e103dfe88b6d9431761b5dc601396395be4a6f89bb798b21554d64d6",
+   "orig_size": 10720,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.063,
+     0.752
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1010410/vo_cutm1010410_009_000.sab",
+   "orig_sha256": "4f6807f4d0037dded1b7be1f149b351cc0de39e675d928e947d77219c14f2f8c",
+   "orig_size": 38368,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.113,
+     2.795
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1010410/vo_cutm1010410_018_000.sab",
+   "orig_sha256": "2d621fab3546d05cd87233f7d53024a284611ff53a981ffb23beb0d2016075dc",
+   "orig_size": 10464,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.949
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1010420/vo_cutm1010420_009_000.sab",
+   "orig_sha256": "0ce9db1feb5bac489a5c978249f70677119b77d2293f352efd82958e7b23d4d0",
+   "orig_size": 23776,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.702,
+     1.424
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1010500/vo_cutm1010500_035_000.sab",
+   "orig_sha256": "1781cf805c00047d8d94964264c554f8f7700c506c2f1d8ecb02d7451a322f17",
+   "orig_size": 86496,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.362,
+     2.882
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1011200/vo_cutm1011200_044_000.sab",
+   "orig_sha256": "ea6c1e9c67ab5b13da49274b7149151473ba0a7d2f5f3ecf23d7e9bf88d21172",
+   "orig_size": 52448,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.291,
+     0.883
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1011500/vo_cutm1011500_004_000.sab",
+   "orig_sha256": "91ec7f3e8ece94e65f5b56f30599c977f81bc94847fc82351c4aea2b13315e2f",
+   "orig_size": 41440,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.43,
+     2.971
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1011500/vo_cutm1011500_907_000.sab",
+   "orig_sha256": "96592adcca17e2df08fb70425277eb915e6b119367e62df4239bb833810334f6",
+   "orig_size": 21472,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.383,
+     0.924
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1011500/vo_cutm1011500_005_000.sab",
+   "orig_sha256": "9723402f52d22f4289cee8edc48f94ca3cccf02e9e38194dfb62734ddb3e3077",
+   "orig_size": 48608,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.222,
+     2.003
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1011500/vo_cutm1011500_912_000.sab",
+   "orig_sha256": "71d0cca586a0e30a3f550b8b62cdbce64f601265f37c133a2fe9a622944c9ba7",
+   "orig_size": 23776,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.733,
+     1.866
+    ]
+   ],
+   "concepts": [
+    "whore"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1011500/vo_cutm1011500_910_000.sab",
+   "orig_sha256": "9a4a2c0516582fd22ad9113c140f95f4d8e74557fb56ba93b03c15636cfd664e",
+   "orig_size": 20960,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.508,
+     1.031
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1012500/vo_cutm1012500_051_000.sab",
+   "orig_sha256": "9e837acb14ef28dcba21f16b1a408df591c4dd7237bca6a75e6ea1f55630439d",
+   "orig_size": 19936,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.162,
+     0.503
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1012600/vo_cutm1012600_052_000.sab",
+   "orig_sha256": "ac4a5c2834cea35bb75e9f2864708a422ddc6b31d68bf2313e5bfaac2d4ce7a0",
+   "orig_size": 55008,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.085,
+     1.947
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1012700/vo_cutm1012700_038_000.sab",
+   "orig_sha256": "6570bac9c22f55cc8b06d00d0a74df9667cfd2f4daea394fd7e8443942abd038",
+   "orig_size": 73184,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.982,
+     2.803
+    ]
+   ],
+   "concepts": [
+    "whore"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1012700/vo_cutm1012700_051_000.sab",
+   "orig_sha256": "4e464b0b10845203e4dbe68d59a31c6b9702899356a84b49be16773c940910b3",
+   "orig_size": 41696,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.112,
+     2.714
+    ]
+   ],
+   "concepts": [
+    "whore"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1012800/vo_cutm1012800_046_000.sab",
+   "orig_sha256": "3c2ec05bede64f0c0c59d49d95d1a71eb83916f51aff6ab1f1747d51455ac7b8",
+   "orig_size": 49120,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.065,
+     3.645
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1012800/vo_cutm1012800_059_000.sab",
+   "orig_sha256": "adebf9ce5e5ef97cb3a2aaa5bd0bc356642d252e37052ca89e20da9d19d7dfb3",
+   "orig_size": 36576,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.169,
+     3.072
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1012900/vo_cutm1012900_007_000.sab",
+   "orig_sha256": "a752b221b43a48a7f06f9d95ef1d7cf83161cc85d6016405d24938177f6fb6e1",
+   "orig_size": 42720,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.744,
+     1.387
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1013100/vo_cutm1013100_015_000.sab",
+   "orig_sha256": "f08c2ec6dedc77d0ed242d06034c9f9d44f583c544edfa18b9c6808a6a234097",
+   "orig_size": 13280,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.143,
+     0.969
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1013100/vo_cutm1013100_030_000.sab",
+   "orig_sha256": "625654f6245097593bb248d1021c20c900f89e97f771cbd4288df0d79c4c778a",
+   "orig_size": 11232,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.366,
+     0.91
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1013200/vo_cutm1013200_014_000.sab",
+   "orig_sha256": "f2bcfccd5cc026d97d6690beedb80e49a9858436c08e91ba16ea8875282765ec",
+   "orig_size": 32224,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.965,
+     1.467
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1013200/vo_cutm1013200_021_000.sab",
+   "orig_sha256": "c39eb4520beba50703198dbd92fdf70622df903ce3a809fca0ac5fd0eb85cead",
+   "orig_size": 6368,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.493
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1013300/vo_cutm1013300_006_000.sab",
+   "orig_sha256": "14d130660b836c0edec9b63b2687246c03d4e61718a185c44b7ceaa23da00998",
+   "orig_size": 47328,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.854,
+     3.396
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1013350/vo_cutm1013350_022_000.sab",
+   "orig_sha256": "6ea812303c44b8318dce2bdddce683b33cd7553735f16b62550a19ed2c4751d5",
+   "orig_size": 67040,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.575,
+     5.276
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1013400/vo_cutm1013400_023_000.sab",
+   "orig_sha256": "90278f7892989404563e1dd06b795dc0725fa06f5daf01455fe1e1d838035433",
+   "orig_size": 55264,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.668,
+     3.91
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1013500/vo_cutm1013500_005_000.sab",
+   "orig_sha256": "a1a0ef30dcdf2cf4832a4b52810941bea30135268fc36afcb1d72beffb454ce6",
+   "orig_size": 36832,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.884,
+     2.265
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1013500/vo_cutm1013500_032_000.sab",
+   "orig_sha256": "97e20bf22f2496f4e4f87111edc7473f01446a51afab655a56bbc574d85c942c",
+   "orig_size": 70624,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.541,
+     1.002
+    ],
+    [
+     4.47,
+     5.191
+    ]
+   ],
+   "concepts": [
+    "bastard",
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1014100/vo_cutm1014100_011_000.sab",
+   "orig_sha256": "4cb4683644129d5eb110442b102d09d7ddd1b740d0dc312365f931fcd42ce3ec",
+   "orig_size": 77792,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.08,
+     0.781
+    ],
+    [
+     0.661,
+     1.321
+    ],
+    [
+     1.201,
+     1.962
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1014100/vo_cutm1014100_012_100.sab",
+   "orig_sha256": "92beed26752f8934abd5cda4f1130044be731c643510ae39652bfa04dfed1c61",
+   "orig_size": 17376,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     1.355
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1014500/vo_cutm1014500_020_000.sab",
+   "orig_sha256": "6dd0b3dbc8c3454123fc2cac45dbe1fcbe956ef55cff09e37c3410de8e0df776",
+   "orig_size": 26336,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.281,
+     0.802
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1014900/vo_cutm1014900_059_000.sab",
+   "orig_sha256": "aaf02feebca8174b431703368d0013ca25687597136ff36e23d687c7e4ae1ea6",
+   "orig_size": 58848,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.421,
+     0.881
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1015710/vo_cutm1015710_007_000.sab",
+   "orig_sha256": "b20fa835202286a1889c16aa74accc8ec6aba3b1324636b8a6dd34e042ad3265",
+   "orig_size": 66784,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.083,
+     3.503
+    ]
+   ],
+   "concepts": [
+    "whore"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1015800/vo_cutm1015800_901_000.sab",
+   "orig_sha256": "7bed7d2c68b5d6af525e7a039245bfb287e24fbc59d890bf8fa263c9e115718b",
+   "orig_size": 65248,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.824,
+     2.525
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1017150/vo_cutm1017150_015_000.sab",
+   "orig_sha256": "862fca18145611ccaa3707ad41632daddcac3119dcb2e97c8878e97eebd510f2",
+   "orig_size": 40416,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.342
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1019100/vo_cutm1019100_050_000.sab",
+   "orig_sha256": "f584d1e9d5836ab6a52455fb1eea2bd9a48eed01b9a798aa0c55fe1ebc44757b",
+   "orig_size": 32992,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.141,
+     0.664
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1019100/vo_cutm1019100_073_000.sab",
+   "orig_sha256": "d186a73972e9c03f3939f921e503f6f45d97da1a9662b9de573682a5351d5455",
+   "orig_size": 48608,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.113,
+     3.836
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1019300/vo_cutm1019300_040_000.sab",
+   "orig_sha256": "5e5f192f9d4eb0fafb3d30618223d63ae81d1bdc7c867d85577a290c3ce3c1db",
+   "orig_size": 12768,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.021,
+     1.066
+    ]
+   ],
+   "concepts": [
+    "bollocks"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1019400/vo_cutm1019400_005_000.sab",
+   "orig_sha256": "bfab506cbb0cd7d0991b1ec2d8b6a5d9957ce4a71f9652d721ef992fb8c0e3b1",
+   "orig_size": 62432,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.963,
+     2.444
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1019400/vo_cutm1019400_029_000.sab",
+   "orig_sha256": "ac34582c138754ef8f50198168f8a1698303f91c119a0d410dd25bf397e06a44",
+   "orig_size": 31712,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.504,
+     0.966
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1020800/vo_cutm1020800_010_000.sab",
+   "orig_sha256": "343e0be4e31fc71209ef2006ccd80ce3b8939afcb22a7d467b9822abb164abc0",
+   "orig_size": 65248,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.47,
+     4.93
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1021000/vo_cutm1021000_019_000.sab",
+   "orig_sha256": "d8ff42146657ed44c6803bffbd5cf0f4f7d3637f0afb5df0395290b92ce4403e",
+   "orig_size": 33504,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.742,
+     1.242
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1021150/vo_cutm1021150_007_000.sab",
+   "orig_sha256": "8b5a48856fbca937f457172760568c9fc790dd5f8ee472b28c8e1339e34c94ee",
+   "orig_size": 57568,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.04,
+     0.441
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1021200/vo_cutm1021200_007_000.sab",
+   "orig_sha256": "78064c0b51a39627abb650b959b9b31c9645ee1a69e2793d0b0df322dcb0be88",
+   "orig_size": 27616,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.508,
+     2.372
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1021200/vo_cutm1021200_008_000.sab",
+   "orig_sha256": "c6b9d926c85f1970a66da115196b420c3f28ca397d7dbb24417bc1a907393c11",
+   "orig_size": 41696,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.031,
+     2.814
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1021300/vo_cutm1021300_901_000.sab",
+   "orig_sha256": "a28ff0b0f6db37221c8f88f42fd216882e29d53a8b767f18570e05d07baa552e",
+   "orig_size": 13024,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.205,
+     0.913
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1021300/vo_cutm1021300_009_000.sab",
+   "orig_sha256": "a8ffa08886ec0a357adfa65c74e00f8f40a92e63beae821049e2291896899f6a",
+   "orig_size": 33248,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.711,
+     2.153
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1021300/vo_cutm1021300_020_000.sab",
+   "orig_sha256": "1e3cc5eaa2d0ffdab3f020a918b4b50479f4f1d68207fdf70ba52fb6b3dce687",
+   "orig_size": 29152,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.453,
+     2.036
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1022500/vo_cutm1022500_005_000.sab",
+   "orig_sha256": "732900a2e2bbd600a7d9b103df340fcad2f83488d6f76b6914de6cff23c3097f",
+   "orig_size": 27104,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.682,
+     1.243
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1022500/vo_cutm1022500_008_000.sab",
+   "orig_sha256": "83a30257b977a37718d8965b507f12df094fb61c6e912e3156a45acc3dc441f2",
+   "orig_size": 31712,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.343,
+     0.825
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1022600/vo_cutm1022600_017_000.sab",
+   "orig_sha256": "8e65586f5562f54207c16d1449d9dadabe3850974434d4fe940b20fe127043f4",
+   "orig_size": 69344,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.15,
+     3.832
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1022700/vo_cutm1022700_068_000.sab",
+   "orig_sha256": "aa182d2b38a857657e79ec8a3fc0ce52cfc302459c159a4ab89015dc81e1a4f3",
+   "orig_size": 25056,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.889,
+     1.613
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1024100/vo_cutm1024100_003_000.sab",
+   "orig_sha256": "c9196ad96895bbfc07f5562a19200c53e547085d8029d722597de7a52b864439",
+   "orig_size": 45792,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.721,
+     1.122
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1024200/vo_cutm1024200_007_000.sab",
+   "orig_sha256": "9f0906e4746f9dfce8e99920bed4282ae2504245491f5fabbd127670c76d2c11",
+   "orig_size": 26592,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.745,
+     1.387
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutm/cutm1025000/vo_cutm1025000_098_000.sab",
+   "orig_sha256": "29c48e9724c854e144ef5e37b668db0344581b8f87f512a81cf49789d8e8dda2",
+   "orig_size": 37600,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.741,
+     3.132
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutq/cutq4000400/vo_cutq4000400_013_000.sab",
+   "orig_sha256": "5b545b2430f522ce07f12368162c61d0a2f7470b5423578ee4ddaa44b63b85c7",
+   "orig_size": 68576,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.343,
+     3.783
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/cutq/cutq4001500/vo_cutq4001500_018_100.sab",
+   "orig_sha256": "2d65e1fbbe7427f2ca49513a6aa9e159d223a1dbf09dfba3b3238e36df3e69c2",
+   "orig_size": 63456,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.805,
+     5.325
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutq/cutq4001500/vo_cutq4001500_040_000.sab",
+   "orig_sha256": "35df25964f9e6fc34fda0d533f64fa46dcaaffc9fedcd8dea55b69f670e6bcd5",
+   "orig_size": 33760,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.208,
+     2.709
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/cutq/cutq4010100/vo_cutq4010100_100_000.sab",
+   "orig_sha256": "60e362c4827edb5a2425007544184b1a04f975f25c691cc5cd06afd489eb0a34",
+   "orig_size": 10976,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.348
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutq/cutq4010200/vo_cutq4010200_026_000.sab",
+   "orig_sha256": "b08938a74d9798097bdef8b502793bb4a65149dd38bdcd6567b4e5445dfdf5a6",
+   "orig_size": 27872,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.817,
+     2.46
+    ]
+   ],
+   "concepts": [
+    "whore"
+   ]
+  },
+  {
+   "path": "sound/voice/cutq/cutq4010200/vo_cutq4010200_039_000.sab",
+   "orig_sha256": "11ae56865465fc944c220c4545b4da12f2ca2aaa44a4b1808f0a60c2c8296799",
+   "orig_size": 44768,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.241,
+     0.901
+    ]
+   ],
+   "concepts": [
+    "slut"
+   ]
+  },
+  {
+   "path": "sound/voice/cutq/cutq4010200/vo_cutq4010200_065_000.sab",
+   "orig_sha256": "0db61a6d777a5fbafc3861570a3b1105f515150096c9fe0cd83489521ec66b87",
+   "orig_size": 45024,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.582
+    ]
+   ],
+   "concepts": [
+    "whore"
+   ]
+  },
+  {
+   "path": "sound/voice/cutq/cutq4010400/vo_cutq4010400_009_000.sab",
+   "orig_sha256": "611c5ac4d674fca5127b4179a0af9f6e1651c25008cbb0a46c1b456b9fbbba41",
+   "orig_size": 23776,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.923,
+     1.585
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutq/cutq4010600/vo_cutq4010600_005_000.sab",
+   "orig_sha256": "b87e0bb8def35518157c501b5582cfb09542695a7f5fe8bfd8bf6a19730f9c53",
+   "orig_size": 23520,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.398,
+     1.781
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/cutq/cutq4020000/vo_cutq4020000_013_000.sab",
+   "orig_sha256": "771dada6dac7687d054c0c17b31c44c0e391e76cc20a5d8c215742e66feb5b42",
+   "orig_size": 91104,
+   "method": "word_level",
+   "cuts": [
+    [
+     5.689,
+     6.229
+    ]
+   ],
+   "concepts": [
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/cutq/cutq4020100/vo_cutq4020100_013_000.sab",
+   "orig_sha256": "53a50eb7fb2f511dc6733739551783ebf4966ed40d90d5cf2e06993f0dca8401",
+   "orig_size": 67552,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.632,
+     5.213
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutq/cutq4020100/vo_cutq4020100_014_000.sab",
+   "orig_sha256": "5889be8adb86b6adc1ead55a3b0996a364be3dc404164e4452662ec54ced1140",
+   "orig_size": 27872,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.009,
+     2.49
+    ]
+   ],
+   "concepts": [
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/cutq/cutq4025000/vo_cutq4025000_013_000.sab",
+   "orig_sha256": "4e462076a2f3136cccb35cdecdd905e23ee98f7cc7e00e596c78c1fb484b5284",
+   "orig_size": 95712,
+   "method": "word_level",
+   "cuts": [
+    [
+     7.086,
+     7.886
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/cutq/cutq4025000/vo_cutq4025000_017_000.sab",
+   "orig_sha256": "5fc3eafed49cd7c90b4979b8f7e01124d5e31174108e346c1f307cf416f1c370",
+   "orig_size": 76000,
+   "method": "word_level",
+   "cuts": [
+    [
+     5.327,
+     6.248
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultm/defaultm8002160/vo_defaultm8002160_040_000.sab",
+   "orig_sha256": "9b494d5c402ad26592f054e79472be557f2d236e9cdb6eb829126a558ff7535a",
+   "orig_size": 72672,
+   "method": "word_level",
+   "cuts": [
+    [
+     5.739,
+     6.42
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultm/defaultm8500040/vo_defaultm8500040_030_000.sab",
+   "orig_sha256": "c1ba89c918bbfda6da3757a8695615a64f6f4b2fbb9bb857880feee00d4032b7",
+   "orig_size": 59104,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.461,
+     1.082
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultm/defaultm8650110/vo_defaultm8650110_030_000.sab",
+   "orig_sha256": "dbf9b5495cf7154da6c997efea04bc4c7c0b26e6b0ac185c7b2056172400227c",
+   "orig_size": 70368,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.666,
+     2.388
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultm/defaultm8720110/vo_defaultm8720110_030_000.sab",
+   "orig_sha256": "e52cda3746025c09a89addc35f9327c9e1d622888a1d76a116722e81ff86dc96",
+   "orig_size": 34016,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.382
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultm/defaultm8720130/vo_defaultm8720130_030_000.sab",
+   "orig_sha256": "90ecb598fce588c838cc8dc25f7c1b408616827b46060a297505eef84d9b7b92",
+   "orig_size": 26848,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.162,
+     0.804
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq11000030/vo_defaultq11000030_010_000.sab",
+   "orig_sha256": "294e31b4c37f8409485b59f686c41a8b8643e2c97bed9f8edf261725f43ebd9d",
+   "orig_size": 41440,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.682
+    ]
+   ],
+   "concepts": [
+    "bollocks"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq11000060/vo_defaultq11000060_010_000.sab",
+   "orig_sha256": "76fd73a33162182873516c601537ca0c249288f5a39242addafd1aa33dfefdd5",
+   "orig_size": 41184,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.149,
+     2.631
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq11000070/vo_defaultq11000070_020_000.sab",
+   "orig_sha256": "e3b50bf5488807a53a71f9e90ec6041ee7b5f53888901d2a9cd02c4a7081a0a0",
+   "orig_size": 58592,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.73,
+     5.27
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq11000200/vo_defaultq11000200_020_000.sab",
+   "orig_sha256": "946932ae6d96f7f6f7735ddaba5abc10cf576b53e9ee35f6cb092d9e25e85472",
+   "orig_size": 51424,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.213,
+     3.835
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq11003210/vo_defaultq11003210_020_000.sab",
+   "orig_sha256": "f26a0b1b9a9dde1d7480a6c9e1f6cd7a20930acf95ac742bbc2f8ab3125b801c",
+   "orig_size": 73184,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.012,
+     4.633
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq12000110/vo_defaultq12000110_020_000.sab",
+   "orig_sha256": "516e0a5d73852228325f45657242387af3de8b2f5c0cde3f69cc257173ce65ef",
+   "orig_size": 46048,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.997,
+     3.418
+    ]
+   ],
+   "concepts": [
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq12000440/vo_defaultq12000440_010_000.sab",
+   "orig_sha256": "590c72edc1f1063f137258f5f25f9642370a3d7afa885446347e160be8bfeaf6",
+   "orig_size": 50144,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.816,
+     4.296
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq12001060/vo_defaultq12001060_020_000.sab",
+   "orig_sha256": "2df8c43fe349c5f7a56065c6233a935ddc41589d0b229574028bd88c6beb1ebf",
+   "orig_size": 40928,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.804,
+     1.305
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq12002270/vo_defaultq12002270_010_000.sab",
+   "orig_sha256": "a38fd124cb3bc4772020d0a6339ec7b35c6b10d65440b01c60ba51f30c06f5d7",
+   "orig_size": 39392,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.852,
+     3.554
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq13000230/vo_defaultq13000230_010_000.sab",
+   "orig_sha256": "6fb347bf7450d3cf280640eb75c6feb73030f59d3e7867b091fdec6670461237",
+   "orig_size": 73952,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.08,
+     0.701
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq13004060/vo_defaultq13004060_010_000.sab",
+   "orig_sha256": "e26d7ee96cd43385484e0a86ec7359971b0f190e35cf2eb13df4871d8e7af744",
+   "orig_size": 37600,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.047,
+     1.789
+    ],
+    [
+     2.475,
+     3.379
+    ]
+   ],
+   "concepts": [
+    "bastard",
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq13004310/vo_defaultq13004310_010_000.sab",
+   "orig_sha256": "dd60cc0ee5117c8667a457a8a89093b6faf788b70701d6b4bc3f06809b49d596",
+   "orig_size": 82400,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.34
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq13004580/vo_defaultq13004580_010_000.sab",
+   "orig_sha256": "25a1c189a06d96b5a0f22bedbe6049be3e66d2096f69377a564f71050315add5",
+   "orig_size": 78816,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.261,
+     1.062
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq13004590/vo_defaultq13004590_010_000.sab",
+   "orig_sha256": "33477f377cf6d0e31f84f3fc63c50d83a381a880cc19f0c28a35c22120ba7340",
+   "orig_size": 55520,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.121,
+     0.822
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq13004710/vo_defaultq13004710_010_000.sab",
+   "orig_sha256": "dbcb81eedecb278969c3225365fe0fd1ab25a3ad63a3ee251397cfbf66c08cca",
+   "orig_size": 63456,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.394,
+     2.186
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq13005090/vo_defaultq13005090_010_000.sab",
+   "orig_sha256": "76aa43ad642e3863f553d98db2897c6bf21cedc693f8b50355808816bf04c3e7",
+   "orig_size": 82400,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.771,
+     4.433
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq13005180/vo_defaultq13005180_010_000.sab",
+   "orig_sha256": "255b7a5ba303b1274021dbc5aeacfe08bfca083fb61a85c46475755268b7f58d",
+   "orig_size": 104160,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.523,
+     2.284
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq13006060/vo_defaultq13006060_010_000.sab",
+   "orig_sha256": "f95345f7776a5615a8dfc23ae3dd5373b10c8a59d03b6241ecc3d9f22cf15249",
+   "orig_size": 41696,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.141,
+     0.943
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq13006230/vo_defaultq13006230_010_000.sab",
+   "orig_sha256": "301c1006ba6ffd36122df08b1f8fd24925d5804bf66afd2cdbc31a5af09045f4",
+   "orig_size": 52192,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.064,
+     1.686
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq20000019/vo_defaultq20000019_010_000.sab",
+   "orig_sha256": "bd06faf71fcaea20b0bc1ad9adc7637fd745a49f0118ad34394a19ae197c6baf",
+   "orig_size": 72928,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.525,
+     4.026
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq20000044/vo_defaultq20000044_010_000.sab",
+   "orig_sha256": "0b970c83a0d59dfe8d686d658db42933698ddeb285a6e621abb9c84ed4cc7ff9",
+   "orig_size": 26336,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.094,
+     1.806
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq20000202/vo_defaultq20000202_010_000.sab",
+   "orig_sha256": "bf412fe74c25ac51973df81f09e668a5cdf2416b74490826e7b7b3699ba7c420",
+   "orig_size": 59872,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.481,
+     0.962
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq20002017/vo_defaultq20002017_010_000.sab",
+   "orig_sha256": "46221a5d699f0e02a3ca301d7a5822d738d8a48f23d2a616d445190d8b38e87d",
+   "orig_size": 51936,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.226,
+     2.948
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq20003002/vo_defaultq20003002_010_000.sab",
+   "orig_sha256": "b0560a644d311ec518d7175fd514e4c64579d3edec5bd54d98cf7b2e400583cb",
+   "orig_size": 36832,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.945,
+     1.607
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq20003002/vo_defaultq20003002_020_000.sab",
+   "orig_sha256": "be2b934498ff64bd8c737a8cb6922bbe7598e674ad4a29403f25d316343a3766",
+   "orig_size": 50912,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.375,
+     1.746
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq20003029/vo_defaultq20003029_020_000.sab",
+   "orig_sha256": "21805a06a902223437d8463d62fa84df184b99bbae508b71039eb411db10fe53",
+   "orig_size": 46560,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.273,
+     3.754
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq20003031/vo_defaultq20003031_020_000.sab",
+   "orig_sha256": "9e2a98fb6d0d5255cb77d373272e52471c55c58847f80288dab32abbfe950ad8",
+   "orig_size": 30688,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.763,
+     1.304
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq20004030/vo_defaultq20004030_020_000.sab",
+   "orig_sha256": "055f8abe9643a715249b9c410c3b03779c91400debefc2be8ee47ae23e3dfc2d",
+   "orig_size": 39392,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.482,
+     1.083
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq20004032/vo_defaultq20004032_010_000.sab",
+   "orig_sha256": "b5d8fd222df668c1fbf8b10a30d68ab10a8509b87ca6e521f16ce8d277aa029a",
+   "orig_size": 46304,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.226,
+     1.848
+    ]
+   ],
+   "concepts": [
+    "cock"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq20006315/vo_defaultq20006315_020_000.sab",
+   "orig_sha256": "7a4092c23f1fb1dc097bc409e383b6cab271550493b973d76f623ebeda38abdf",
+   "orig_size": 49120,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.05,
+     0.742
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq20007017/vo_defaultq20007017_010_000.sab",
+   "orig_sha256": "299fa882682d16581c09bad4523694cdacd95ae76eef0900bea4b924e2ec0532",
+   "orig_size": 40672,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.642,
+     1.583
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq20007019/vo_defaultq20007019_020_000.sab",
+   "orig_sha256": "4679dc4067836daeb8557ec2dd05ede444ba094d8e3b4ceb99d5556b49e4e674",
+   "orig_size": 26080,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.463,
+     1.186
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq21001002/vo_defaultq21001002_010_000.sab",
+   "orig_sha256": "1f6d978613281f9d3101fdea29e83d1d8beac8047ffafd739efb3e4a51a9c33f",
+   "orig_size": 46048,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.321,
+     0.882
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq21005015/vo_defaultq21005015_010_000.sab",
+   "orig_sha256": "9daa3cccbbe4624b5e2bd119b8d68a9fe0d195062b28d0ff25aee9e583cd6158",
+   "orig_size": 63984,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.485,
+     3.085
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq22000033/vo_defaultq22000033_010_000.sab",
+   "orig_sha256": "f33664fd062a07fe56aab1cb39982e22009b8b4cb717ff2246d8ac975fc8c0c7",
+   "orig_size": 30176,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.019,
+     2.723
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq22001001/vo_defaultq22001001_020_000.sab",
+   "orig_sha256": "07145e6df27d78ca565ad9f42911523d65cd0c94eba75347303093264d6cdb36",
+   "orig_size": 61664,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.622,
+     1.383
+    ],
+    [
+     2.707,
+     3.508
+    ]
+   ],
+   "concepts": [
+    "bastard",
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq30002061/vo_defaultq30002061_010_000.sab",
+   "orig_sha256": "d688422a3b0714bf8545345d7565dcf59ac485879652c4fabd0ab32bafced093",
+   "orig_size": 64224,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.891,
+     5.752
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq31000230/vo_defaultq31000230_020_000.sab",
+   "orig_sha256": "3e7a9c2891f6abb4af9b855370cc249263de92e548de9cd6f3185684171f6b8f",
+   "orig_size": 64992,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.29,
+     3.173
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq31002010/vo_defaultq31002010_010_000.sab",
+   "orig_sha256": "e5a19869b34cc584dc1f116482540c6255858df4e58433e3ed4eb4363a77cb72",
+   "orig_size": 22240,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.304,
+     0.889
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq31002100/vo_defaultq31002100_010_000.sab",
+   "orig_sha256": "2a1d2b797611cda71313318bf52b4cc0a1b43d281b23c5b9646efedd1f0f3a16",
+   "orig_size": 63712,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.293,
+     1.884
+    ]
+   ],
+   "concepts": [
+    "whore"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq31002120/vo_defaultq31002120_020_000.sab",
+   "orig_sha256": "ca815e31286c010a33dbb243ad89eb33b04f1b0ed84017a38ab220c62aeab497",
+   "orig_size": 13536,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.827
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq31003020/vo_defaultq31003020_010_000.sab",
+   "orig_sha256": "0842e1fd1e0602fcb2ed8499ae20e4d702af05e714aed886af219fb3ef56c19f",
+   "orig_size": 100320,
+   "method": "word_level",
+   "cuts": [
+    [
+     7.449,
+     8.13
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq31003060/vo_defaultq31003060_010_000.sab",
+   "orig_sha256": "4a4baddd6485930197d7d6ab924cb53ebb03a92b1b11a7f206c86d2e125c4105",
+   "orig_size": 42720,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.587,
+     3.328
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq31005060/vo_defaultq31005060_010_000.sab",
+   "orig_sha256": "cc1ee1362924d8c95240cbbc13779d373f2f8d3ac656f78d7acc85d618eb1a13",
+   "orig_size": 21472,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.167,
+     1.629
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq31005100/vo_defaultq31005100_010_000.sab",
+   "orig_sha256": "98a0645a8d87fa5ba47a86f8041a4d7521b843208ff5d420a9fb9fe6e1514494",
+   "orig_size": 74976,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.165,
+     4.906
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq31005101/vo_defaultq31005101_010_000.sab",
+   "orig_sha256": "48a050bafe5661fc47e1495018dcb780dca13b21f14bfae1b12af7ed7370e371",
+   "orig_size": 86496,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.605,
+     3.266
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq31006020/vo_defaultq31006020_010_000.sab",
+   "orig_sha256": "add2f925e859cb6b7a9e688ab824360c165e81437caf285eeea65eea36a8748b",
+   "orig_size": 30176,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.495,
+     1.917
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3101105/vo_defaultq3101105_003_000.sab",
+   "orig_sha256": "75a2f4ebdbf2c3c31623199a436d31667e04cd130c55ea69222c6d70b409d540",
+   "orig_size": 38880,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.487,
+     2.269
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3203005/vo_defaultq3203005_002_000.sab",
+   "orig_sha256": "14399dcce6c323f4dc62b9e79fb04bf4f5151773af45a461ff1a04f46827f08f",
+   "orig_size": 26592,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.343,
+     0.966
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3213005/vo_defaultq3213005_003_000.sab",
+   "orig_sha256": "b439d78e4ab52ddea220ccdec60fc158900db96bc27e8630ce24b9bb1519a21e",
+   "orig_size": 73952,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.462,
+     1.223
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3213007/vo_defaultq3213007_002_000.sab",
+   "orig_sha256": "080a4e0411f0e3f67bed48f16a4879a6d87ccb55d38b33758f9c88c78ea10301",
+   "orig_size": 59104,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.867,
+     5.347
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3301018/vo_defaultq3301018_004_000.sab",
+   "orig_sha256": "6e9b50ced5e4e874e403e83055208a5655032c6413457f5e70c8715a6476bf85",
+   "orig_size": 53472,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.756,
+     4.398
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3303007/vo_defaultq3303007_002_000.sab",
+   "orig_sha256": "c0ff08f31cb268a3b342ae6ac8a0b689d7237c5c629c809eb65af63f76d83829",
+   "orig_size": 51424,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.871,
+     4.552
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3304004/vo_defaultq3304004_002_000.sab",
+   "orig_sha256": "d161dc5577140c3603e93762aa7d1f292dec96393171dc444e9bd6586a91146c",
+   "orig_size": 44000,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.701,
+     1.362
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3308012/vo_defaultq3308012_002_000.sab",
+   "orig_sha256": "ae8dde4e8a6e989089fc676bc8f6d0266c4dd5cf391658ec2a1c20a6a1df20fd",
+   "orig_size": 38624,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.361
+    ]
+   ],
+   "concepts": [
+    "prick"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3308014/vo_defaultq3308014_004_000.sab",
+   "orig_sha256": "d6edf4694da129257c58368cec3814e8bf2da3058af4d950203c21cc9e37f6e1",
+   "orig_size": 38368,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.773,
+     2.416
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3309001/vo_defaultq3309001_002_000.sab",
+   "orig_sha256": "20c2f579e0c9be88298a9e4e3e89f6f22d7ddb31bd210178976153d10883c1f4",
+   "orig_size": 83424,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.821,
+     5.532
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq34000014/vo_defaultq34000014_010_000.sab",
+   "orig_sha256": "0375cfeb6ef2987ecca956e7cb80215d6c2af9f4dd21e97275068250cabd48b6",
+   "orig_size": 22752,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.567,
+     1.273
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq34000019/vo_defaultq34000019_030_000.sab",
+   "orig_sha256": "429e04bb9f0d27c09a72d7512ffd8360e9c2f309a00433d65110df6974a34698",
+   "orig_size": 88800,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.972,
+     5.894
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3408006/vo_defaultq3408006_002_000.sab",
+   "orig_sha256": "74deadb168501f40c17fee6dbb2f51debbfdb91420feeaad32bb0db264a09906",
+   "orig_size": 39904,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.323,
+     0.825
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3409000/vo_defaultq3409000_001_000.sab",
+   "orig_sha256": "96a295c3d222facecacd989024430be32b416d9e215795e2f3f68f71ee04e614",
+   "orig_size": 63456,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.124,
+     4.844
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3410008/vo_defaultq3410008_002_000.sab",
+   "orig_sha256": "e8a5376c1c5873ce954c32ce184798a12efc3cb221e8bffa0b8982102f2f64ab",
+   "orig_size": 37600,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.664
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3412007/vo_defaultq3412007_201_000.sab",
+   "orig_sha256": "050ff1d7a4b998ac407ae93938a9e853e214858a29e577825ad953caed719f6c",
+   "orig_size": 65248,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.121,
+     0.662
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3416001/vo_defaultq3416001_002_000.sab",
+   "orig_sha256": "deade17c81de279b50392c40295895fe2d5ef0b4171253be88937f37d0aa7101",
+   "orig_size": 102624,
+   "method": "word_level",
+   "cuts": [
+    [
+     5.197,
+     5.768
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3417006/vo_defaultq3417006_002_000.sab",
+   "orig_sha256": "48c853b3f17dcbd2e1e82985653ac396dbee8a2a226ead02c5530954b6534fe9",
+   "orig_size": 55520,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.728,
+     2.57
+    ],
+    [
+     4.178,
+     4.941
+    ]
+   ],
+   "concepts": [
+    "arse",
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3418001/vo_defaultq3418001_002_000.sab",
+   "orig_sha256": "e5ebe64008ead1ef4fa76c3f6c4e5c9b5a3ecf8290c30a4c8e5b9890f6d67579",
+   "orig_size": 113376,
+   "method": "word_level",
+   "cuts": [
+    [
+     9.379,
+     9.88
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3422000/vo_defaultq3422000_002_000.sab",
+   "orig_sha256": "03763235d69319c2b3fbd990597d77d8146cbc122ac47e099af4c483e7ebd13b",
+   "orig_size": 151520,
+   "method": "word_level",
+   "cuts": [
+    [
+     11.247,
+     11.807
+    ]
+   ],
+   "concepts": [
+    "cock"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3429003/vo_defaultq3429003_001_000.sab",
+   "orig_sha256": "56dcbc7056b91890a9ab1204a4769e1810cf579f17358eabc775c0da922fdb30",
+   "orig_size": 52192,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.362
+    ],
+    [
+     0.443,
+     1.186
+    ]
+   ],
+   "concepts": [
+    "bastard",
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3430001/vo_defaultq3430001_002_000.sab",
+   "orig_sha256": "f454b5a8a13ca0e0045481ec0c7ea3a297b66b1679c99b59a4d929ab33a7d40c",
+   "orig_size": 64992,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.587,
+     5.268
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3430001/vo_defaultq3430001_003_000.sab",
+   "orig_sha256": "ad5334877b86e3a5197c49b0867a6ba1b6c2698a378ffdce15c614d764322624",
+   "orig_size": 32992,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.655,
+     1.108
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3430002/vo_defaultq3430002_002_000.sab",
+   "orig_sha256": "d6fc013467efa76f5bed7f1e0a4ff71d63b6405ac842213182d57e3773e4ca96",
+   "orig_size": 66272,
+   "method": "whole_line",
+   "cuts": null,
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3435005/vo_defaultq3435005_002_000.sab",
+   "orig_sha256": "0b7dcfee6015f05b990174f7376f84b81a4189de0fc33aee718a31a2ac208eba",
+   "orig_size": 60640,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.523,
+     4.095
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3438009/vo_defaultq3438009_002_000.sab",
+   "orig_sha256": "c0d6ade0a3769cb6ea97f54e610ce3409651a4d6ba7b87f631c00162a8bfe9f9",
+   "orig_size": 37344,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.865,
+     1.366
+    ]
+   ],
+   "concepts": [
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3438009/vo_defaultq3438009_003_000.sab",
+   "orig_sha256": "b7e85514c895531f129ff7a9953abf6d6245d215e5c3ab55520d90bb3a6b2a0e",
+   "orig_size": 73696,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.553,
+     2.144
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq3440000/vo_defaultq3440000_002_000.sab",
+   "orig_sha256": "11b8c46e5a4a8deffb2dba91800ea300124c503d46d047a394f427db4d0497f9",
+   "orig_size": 66784,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.082,
+     2.603
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq50000012/vo_defaultq50000012_020_000.sab",
+   "orig_sha256": "7d795589959de6fb53ab8571c44cbab5892dcd116ae5641c751b3dc074cf46dd",
+   "orig_size": 20448,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.691,
+     1.154
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq50000025/vo_defaultq50000025_020_000.sab",
+   "orig_sha256": "89b010207be0e305068b91fc6e03afc28e3558d612164a8d31c76ad846dc6558",
+   "orig_size": 67040,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.218,
+     3.709
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq50010012/vo_defaultq50010012_010_000.sab",
+   "orig_sha256": "da6e7b55e49c915c582622afc279819e015fb7ee3f534162e192b103d7889545",
+   "orig_size": 42464,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.511,
+     2.932
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq60003001/vo_defaultq60003001_010_000.sab",
+   "orig_sha256": "40e7d7c35cee9ef21884ef78728b8f0aac9ad65e177c0a7d9ebefb61049efed9",
+   "orig_size": 69088,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.922,
+     1.644
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq60003024/vo_defaultq60003024_010_000.sab",
+   "orig_sha256": "a99b5d84e1aa91e6bc4f2408612e814476e98aacb7bae200cfcd21b9f8047487",
+   "orig_size": 38624,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.741,
+     3.473
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq60003038/vo_defaultq60003038_010_000.sab",
+   "orig_sha256": "26b0958613b3fe5a64d7c7491f49c093276fcefb324130d5b2da4440ba167f88",
+   "orig_size": 64224,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.093,
+     3.836
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq60003049/vo_defaultq60003049_010_000.sab",
+   "orig_sha256": "e18bcb86c93e2ff382abf5bfbe5d4886139d7cdc5529f6cefbf20791d0b2ed83",
+   "orig_size": 28640,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.808,
+     1.23
+    ]
+   ],
+   "concepts": [
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq60004002/vo_defaultq60004002_010_000.sab",
+   "orig_sha256": "eb1b83c4b6d02189bdecf850898f0bef207445d95f5169a9dcbf6bd4ca430f46",
+   "orig_size": 102112,
+   "method": "word_level",
+   "cuts": [
+    [
+     7.778,
+     8.158
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq60005036/vo_defaultq60005036_010_000.sab",
+   "orig_sha256": "b1c683b8de4cd1b39b7db2ad8658bf3b4aa95521757077d3c264e7ba8f889f12",
+   "orig_size": 89312,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.662,
+     1.223
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq60006001/vo_defaultq60006001_010_000.sab",
+   "orig_sha256": "e633c1a3ccdb16b5cf7e99997cc3f16feab845f809523add7ef34cb71c884253",
+   "orig_size": 89824,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.341,
+     1.203
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq60007044/vo_defaultq60007044_010_000.sab",
+   "orig_sha256": "920848f70521a24246235c57cc2026dba9c05932d1d60d093e64e1aa059ba277",
+   "orig_size": 50912,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.526,
+     4.388
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq60008031/vo_defaultq60008031_020_000.sab",
+   "orig_sha256": "77b1acb97878fce66fd2bb7c1a3863aca2e25db989d4abdcb71647ac54e338a1",
+   "orig_size": 67040,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.508,
+     5.309
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq60011009/vo_defaultq60011009_020_000.sab",
+   "orig_sha256": "76e4309bb56ee36cd71494a22558e9a1dc1b5c5131c134394356db7dba09da92",
+   "orig_size": 47584,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.423,
+     1.025
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq60011029/vo_defaultq60011029_010_000.sab",
+   "orig_sha256": "d42969ea6e2ae5c13e6287441746c0251bf496426f79a165e0b40ee2ef2f419a",
+   "orig_size": 65504,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.201,
+     1.721
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq70091002/vo_defaultq70091002_002_000.sab",
+   "orig_sha256": "49334fa08f3c4619c882e35c70823fefa2a8e1d4bd535619dc485c7f6e24a5ce",
+   "orig_size": 35552,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.323,
+     2.084
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq70231001/vo_defaultq70231001_002_000.sab",
+   "orig_sha256": "5bd1f78b02b774dded943bba0a825870019b2257c4261d9565f539e91cd2d6cb",
+   "orig_size": 18656,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.407,
+     1.114
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/defaultq/defaultq70231002/vo_defaultq70231002_002_000.sab",
+   "orig_sha256": "7e29e0f1ef3df6ad09a3ecbc3489908c354cc02524a3adaca02928e484240669",
+   "orig_size": 24544,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.696,
+     1.39
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/levent/levent10500010/vo_levent10500010_070_000.sab",
+   "orig_sha256": "dc275dd0964c9036480518e034a7f8a118ce94d5dba98d76e122fc25e9fdfa43",
+   "orig_size": 17632,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.022,
+     0.486
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/levent/levent10500010/vo_levent10500010_130_000.sab",
+   "orig_sha256": "689e8f7b8dd80bace806493988a76e909746d2a79ab6814d0d769a93e4686ce4",
+   "orig_size": 7392,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.062,
+     0.626
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/levent/levent19000020/vo_levent19000020_030_000.sab",
+   "orig_sha256": "94383a6178fab930d13bead9af74bb80683756b8654415f7e9ba1eab64d2907c",
+   "orig_size": 19680,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.302
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/levent/levent19000040/vo_levent19000040_060_000.sab",
+   "orig_sha256": "8f96e29607e0ca093a731d877b58aacf5d7f8184188f210e703c0c11b6a24c5a",
+   "orig_size": 12512,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.001,
+     0.547
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/levent/levent19000090/vo_levent19000090_030_000.sab",
+   "orig_sha256": "9cc8ce7e8dcf2108ff01c72032c7b459cd39da3216f730d59d101eede8e95d45",
+   "orig_size": 25312,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.282
+    ],
+    [
+     0.152,
+     0.464
+    ],
+    [
+     0.334,
+     0.626
+    ],
+    [
+     0.496,
+     0.847
+    ],
+    [
+     0.79,
+     1.111
+    ],
+    [
+     0.981,
+     1.334
+    ],
+    [
+     1.183,
+     1.616
+    ],
+    [
+     1.538,
+     2.081
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/levent/levent39100010/vo_levent39100010_030_000.sab",
+   "orig_sha256": "1ee50eb36378804ad62dbf76e1eeb564099656591e89e6d46839a951bbd30de6",
+   "orig_size": 17376,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.872,
+     1.255
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/partym/partym6040060/vo_partym6040060_030_000.sab",
+   "orig_sha256": "2b5481f3d2f489f6efeabeb63a733f5951159b3e1406185e59cf8b68f916d50a",
+   "orig_size": 21216,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.303
+    ],
+    [
+     0.629,
+     1.234
+    ]
+   ],
+   "concepts": [
+    "bastard",
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/partym/partym6040080/vo_partym6040080_030_000.sab",
+   "orig_sha256": "745e21b2ddad3e7be4e0842cef5de2496c5d4eb313862f82768716f98a88aef3",
+   "orig_size": 13536,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.364
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/partym/partym6070100/vo_partym6070100_030_000.sab",
+   "orig_sha256": "f21a263555fe0c9ad34e6cc1f6ef30be4ed14aae6daae50311fb8c23f6129097",
+   "orig_size": 33248,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.322
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/partym/partym6070110/vo_partym6070110_040_000.sab",
+   "orig_sha256": "51b65fbd5db74060e59ed0a3d182a13b3059ee06c420fe017cd5655fc9c74186",
+   "orig_size": 25824,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.667,
+     1.191
+    ]
+   ],
+   "concepts": [
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/partym/partym6110140/vo_partym6110140_080_000.sab",
+   "orig_sha256": "694738505f606f8f0eab38e8e34302f857368cc6b36fbd976b4e04311352c8f2",
+   "orig_size": 63200,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.06,
+     0.641
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/partym/partym6130100/vo_partym6130100_030_000.sab",
+   "orig_sha256": "1164653621735a9224c6e6ad8d4fc49c37ec6b75618eb0397892c6bc6d458118",
+   "orig_size": 34016,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.101,
+     0.623
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/partym/partym6140105/vo_partym6140105_030_000.sab",
+   "orig_sha256": "c5fce590847e173d5cf8b7898f965d74767287069fc32f8b4c399cb8fab1390a",
+   "orig_size": 32224,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.211,
+     1.673
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/partym/partym6140110/vo_partym6140110_030_000.sab",
+   "orig_sha256": "c7e8149c840f7bdbdd3ca9268f9b80b1f82d560d1fae355cae37d4788af894fe",
+   "orig_size": 49632,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.342,
+     1.345
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/partym/partym6160110/vo_partym6160110_030_000.sab",
+   "orig_sha256": "fc7b7c1f98232701231a82f92c75dfdb81ff7f3da2ad25b2df1901c5a39a15fb",
+   "orig_size": 33504,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.301
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/partym/partym6170130/vo_partym6170130_040_000.sab",
+   "orig_sha256": "07b83182bf77c9a9ef9cc2fd0d14e2697448ea39d44a1d6d5db83dfe8907e219",
+   "orig_size": 44512,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.235,
+     3.978
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/partym/partym6170150/vo_partym6170150_080_000.sab",
+   "orig_sha256": "ec95e517a498fd3ee4d8819cab18d2225adf7c580ba175e295fe1f8609a80c0e",
+   "orig_size": 48608,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.065,
+     3.866
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/partym/partym6170160/vo_partym6170160_030_000.sab",
+   "orig_sha256": "7d14e86354db7ee95edc702f24c506077e69467735d1cb620fcf67fe5104a170",
+   "orig_size": 54240,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.945,
+     3.346
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/partym/partym6170180/vo_partym6170180_050_000.sab",
+   "orig_sha256": "ea69c7629869eee7094847c87ffb9c86a47e36eb46e6862f86d0dbe4dd3025df",
+   "orig_size": 32224,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.904,
+     2.825
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/partym/partym6170180/vo_partym6170180_060_000.sab",
+   "orig_sha256": "1c9d84fe7531e1106e7726a835e399c49a83cafb9b62693df693d5c9a21e2276",
+   "orig_size": 30944,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.404,
+     0.928
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/partym/partym6200110/vo_partym6200110_050_000.sab",
+   "orig_sha256": "c5343f482d59b3718738801668db7e7b954bed5a50257d1f85dc39e5b8be90ce",
+   "orig_size": 19424,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.546,
+     1.11
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/partym/partym6550010/vo_partym6550010_030_000.sab",
+   "orig_sha256": "1867168dab0fafcc01257c9699b211ebdf853b4f412dea08618a3a32fd2b1db9",
+   "orig_size": 36832,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.341
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/partym/partym6600070/vo_partym6600070_030_000.sab",
+   "orig_sha256": "57985182a7f6894bda4068d619d4aaba7666df9a36da23f2659e910d86fddd68",
+   "orig_size": 24544,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.301
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/partym/partym6650120/vo_partym6650120_030_000.sab",
+   "orig_sha256": "7597f78fc60eb1db0badb23b4decc113e469b922759f7f6ab49d71fa6df5f3b3",
+   "orig_size": 34272,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.301
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/partym/partym6660020/vo_partym6660020_030_000.sab",
+   "orig_sha256": "982d0ad2517250bcdc14b3e4f220b172910631ca84542612b2552ec3a7419e47",
+   "orig_size": 52960,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     2.41
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/partym/partym6750040/vo_partym6750040_030_000.sab",
+   "orig_sha256": "931a9046e442d53df94034f135f5f3e7e1c7fdbf37dc188cf8a85c5ffadef70d",
+   "orig_size": 30944,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.362
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/partym/partym6800050/vo_partym6800050_030_000.sab",
+   "orig_sha256": "992f1c63c1f5794a84fa1c5fe3f32a55729cc5b1815054a407d03fcc5b22454f",
+   "orig_size": 34272,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.213,
+     3.056
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/partyq/partyq3009008/vo_partyq3009008_002_000.sab",
+   "orig_sha256": "ef6a48da5ccb109623bfa51f4aae932deddad79f63b543cad8c9a0c67fb8f22b",
+   "orig_size": 54496,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.401
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/partyq/partyq3017000/vo_partyq3017000_004_000.sab",
+   "orig_sha256": "757562fdf5a4a6dfa3f0975a2428bc9e7b933fcc028f2bbf8e60c04a66345e01",
+   "orig_size": 44512,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.795,
+     1.368
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/partyq/partyq3030005/vo_partyq3030005_002_000.sab",
+   "orig_sha256": "a41360ff07adf71137fe0782d6b57315338b6b426c86080cfa6ae07cf7a2535d",
+   "orig_size": 54496,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.061,
+     0.622
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/partyq/partyq3101001/vo_partyq3101001_004_000.sab",
+   "orig_sha256": "c5d72a5b7e47cdce91e4bac882eb747ec67e052e1f28ab157b7e679a0a6b4169",
+   "orig_size": 57056,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.691,
+     1.202
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/partyq/partyq3101010/vo_partyq3101010_004_000.sab",
+   "orig_sha256": "e99c46372c1c846607f6c09ded42e95bb4c3bb8d0fef13eb29ee49105961fe0e",
+   "orig_size": 57056,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.691,
+     1.202
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/partyq/partyq3101011/vo_partyq3101011_004_000.sab",
+   "orig_sha256": "f08f7a77b028d84405ee449fc17a71d62292ae0a06fa4e7c44866968175ce9b0",
+   "orig_size": 57056,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.691,
+     1.202
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/partyq/partyq3101012/vo_partyq3101012_002_000.sab",
+   "orig_sha256": "d5e1d6318f07e1e2525487f30c4681bbabdee8794e7161537fe158d879369197",
+   "orig_size": 31712,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.884,
+     1.465
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/partyq/partyq3101012/vo_partyq3101012_004_000.sab",
+   "orig_sha256": "c461c2df4d897e601b7822403c49d6139c5810ed522dfcb963e2424b07862873",
+   "orig_size": 57056,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.691,
+     1.202
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/partyq/partyq3101015/vo_partyq3101015_002_000.sab",
+   "orig_sha256": "1b402ba7fe9bf71e87a1a7c5c80484b0022f5d4267a2fdb26b59bb9ba7a84952",
+   "orig_size": 37344,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.744,
+     1.226
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/partyq/partyq3101100/vo_partyq3101100_003_000.sab",
+   "orig_sha256": "7a88a8677aba269178daaa747d0801e0a223ceb16ae539db9e0224ae210a3f48",
+   "orig_size": 7392,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.33
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/partyq/partyq3101110/vo_partyq3101110_003_000.sab",
+   "orig_sha256": "4ae6bd13f8e744e470669287633de992f4afd3668bef778a22f61312dc37d34a",
+   "orig_size": 15584,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.713,
+     1.339
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/partyq/partyq3101116/vo_partyq3101116_003_000.sab",
+   "orig_sha256": "133085d821d960843f4b6bf7ecef5f27fadcb848175c5ae5768698fc1a308b0e",
+   "orig_size": 27360,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.292,
+     1.836
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/partyq/partyq3102102/vo_partyq3102102_002_000.sab",
+   "orig_sha256": "75791ada35511cfcb58a26553094a819cd272ea228ef1b4c5c96116739358a86",
+   "orig_size": 60128,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.28
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/partyq/partyq3103007/vo_partyq3103007_004_000.sab",
+   "orig_sha256": "bffdc72676f95be39da82167cf6319a8e16641b551ae98b69ff39d822ad844b1",
+   "orig_size": 26848,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.31,
+     1.912
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/partyq/partyq3105111/vo_partyq3105111_002_000.sab",
+   "orig_sha256": "0cc6f5c544390d4ff9b0b2b1ff029c214fabe514abe0bc628971c4fddaad788f",
+   "orig_size": 42976,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.301
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/partyq/partyq3304004/vo_partyq3304004_004_000.sab",
+   "orig_sha256": "cb79f33c9796eafc1b1a9396111dadb91f10c6e59175cd69263239cdbd77ca12",
+   "orig_size": 28640,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.33,
+     2.014
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/partyq/partyq3416005/vo_partyq3416005_001_000.sab",
+   "orig_sha256": "cff51b7183cf1048be24ac3ca77e34d3de2f2915e41e163a85fb9e142d51fc9d",
+   "orig_size": 13792,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.347,
+     0.993
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/shop/shop0000500/vo_shop0000500_023_000.sab",
+   "orig_sha256": "1283eacb1f9642d6ce4a856b446e268d648cc1cf9bfc7e7996264565c6cae8ed",
+   "orig_size": 33248,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.417,
+     2.999
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/shop/shop0011030/vo_shop0011030_019_000.sab",
+   "orig_sha256": "a2a223e68d375b14ab2f47b43b1197b299af5b198d6198bfcb2b84830fd58253",
+   "orig_size": 30688,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.665,
+     2.146
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/simplem/simplem1020020/vo_simplem1020020_020_100.sab",
+   "orig_sha256": "84f2aca1db04524895b3246a7d3bb8c182e463f07b514fbeea911b180bd7de82",
+   "orig_size": 61920,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.712,
+     3.293
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simplem/simplem1520010/vo_simplem1520010_040_000.sab",
+   "orig_sha256": "48ae55744d0142ccb2b0cfff958b9e354a1a049103711aec59ac70b88ad1518e",
+   "orig_size": 55008,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.563,
+     3.163
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3001002/vo_simpleq3001002_004_000.sab",
+   "orig_sha256": "8b50e048cd9c0126a394529b8a0490f3d83673bc2f0e9bb966e9912d0df8a0cc",
+   "orig_size": 33760,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.689,
+     2.191
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3001004/vo_simpleq3001004_008_000.sab",
+   "orig_sha256": "ed50f9218306a1b30f2d28650bb27b1b60d01a1914566c3feaf629059ff0c9fe",
+   "orig_size": 28128,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.101,
+     0.602
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3001004/vo_simpleq3001004_011_000.sab",
+   "orig_sha256": "2a84dd7b21e850aa4be306de833b24999e8757aff481e5e9085167b0ce68658f",
+   "orig_size": 26080,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.775,
+     2.337
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3002001/vo_simpleq3002001_009_000.sab",
+   "orig_sha256": "d6ab612fd202ff7acb2fbb6af4e0242c686946b6126be8c7d07fc46594aaade0",
+   "orig_size": 80608,
+   "method": "word_level",
+   "cuts": [
+    [
+     6.793,
+     7.314
+    ]
+   ],
+   "concepts": [
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3002002/vo_simpleq3002002_003_000.sab",
+   "orig_sha256": "492ec44bac2b1c07ef11bd628a4040540e5cab9c7dcfcbe573ae0538e1bf1d1b",
+   "orig_size": 39648,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.713,
+     3.576
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3002002/vo_simpleq3002002_004_000.sab",
+   "orig_sha256": "8f1d589a836dbbfa8137e2723bb06e5328879a0957601a6b35ea58e8a8574a3a",
+   "orig_size": 81888,
+   "method": "word_level",
+   "cuts": [
+    [
+     6.708,
+     7.399
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3003000/vo_simpleq3003000_013_000.sab",
+   "orig_sha256": "804843eea179ec41261cb37aa9a606134a5d626055fd40de3a92e57b31eff70f",
+   "orig_size": 53216,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.066,
+     4.566
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3006002/vo_simpleq3006002_013_000.sab",
+   "orig_sha256": "bd7fd1e95db5b8c7d3f376c9ad5d0ad9e8b15cf8c81ced463353c927a879c736",
+   "orig_size": 36320,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.525,
+     3.186
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3007009/vo_simpleq3007009_100_000.sab",
+   "orig_sha256": "7556c9e161735a808f3a18c0a322c918db16b2aa0f5e5d7c64c108cc6e5a5fde",
+   "orig_size": 74464,
+   "method": "word_level",
+   "cuts": [
+    [
+     5.48,
+     5.962
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3007009/vo_simpleq3007009_102_000.sab",
+   "orig_sha256": "c58041e64b853308f6676d5081d1d1f14c9fa56992391f70589d5906d37330e4",
+   "orig_size": 134880,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.827,
+     4.407
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3008500/vo_simpleq3008500_013_000.sab",
+   "orig_sha256": "75188be244dc1f1613c8b64bc593dd8ffa81d9113ea451bdef199934dd8b6350",
+   "orig_size": 69856,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.665,
+     2.386
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3009002/vo_simpleq3009002_010_000.sab",
+   "orig_sha256": "012d01f7c8a8b7f68b26dabeb0e3fa9f0c6136332d8722059e58461ede393732",
+   "orig_size": 95200,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.725,
+     3.206
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3009002/vo_simpleq3009002_015_000.sab",
+   "orig_sha256": "e60444675ad3e1bdbabd3daab05d4c5c66debcd9abd3a9569342bedb94723384",
+   "orig_size": 91616,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.308,
+     4.708
+    ]
+   ],
+   "concepts": [
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3009003/vo_simpleq3009003_004_000.sab",
+   "orig_sha256": "fdbd792bb16d24903311b2ee2748f01d3284f6589711a35ddf729979c0c226c4",
+   "orig_size": 48864,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.558,
+     4.059
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3009005/vo_simpleq3009005_102_000.sab",
+   "orig_sha256": "b6f1dfbb8b17941833bfdbb4cdb3e038f0aa97ad67b802dc61ebd957902fc7b5",
+   "orig_size": 83680,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.308,
+     3.808
+    ]
+   ],
+   "concepts": [
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3009007/vo_simpleq3009007_010_000.sab",
+   "orig_sha256": "0fe57c68f4f94a2e703f29f06969f0e6cb4d4ae325189019ad0f5fa0157ce792",
+   "orig_size": 57568,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.041,
+     1.541
+    ]
+   ],
+   "concepts": [
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3012000/vo_simpleq3012000_105_000.sab",
+   "orig_sha256": "cafbd2f2547665f2dc42b9c860775dd1933647e8afb1983a237e99c07dd5948e",
+   "orig_size": 63712,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.922,
+     1.582
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3012000/vo_simpleq3012000_106_000.sab",
+   "orig_sha256": "24574f538e633a2bb64e3de23711bc54838f9275c27a83928d7a6c547383ae22",
+   "orig_size": 86240,
+   "method": "word_level",
+   "cuts": [
+    [
+     6.689,
+     7.249
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3013000/vo_simpleq3013000_101_000.sab",
+   "orig_sha256": "0b2298ac6ee78777629e792aca5ae1af5a897c7f912d9ac262cbdcd7d5d50813",
+   "orig_size": 14560,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.226,
+     1.157
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3013001/vo_simpleq3013001_007_000.sab",
+   "orig_sha256": "f250512332050eb71b92d8ff0fd0c92038c36c441f27e988a93b2c62885aa33f",
+   "orig_size": 41440,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.265,
+     1.806
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3013001/vo_simpleq3013001_010_000.sab",
+   "orig_sha256": "99f483fc136b6e72643e3bb05ec3c127f7223a541ae3b31559d91188bd0743f7",
+   "orig_size": 85728,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.05,
+     0.742
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3013002/vo_simpleq3013002_004_000.sab",
+   "orig_sha256": "54b2afdadf56876e69fbfac8fe7d3ccde546f7d264fa911902250e9abc961dbc",
+   "orig_size": 7648,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.367
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3013002/vo_simpleq3013002_106_000.sab",
+   "orig_sha256": "45469ec5145e0723c7ec24b95128129cab929e323a5e008fda73097cb372bc22",
+   "orig_size": 42720,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.544,
+     2.065
+    ]
+   ],
+   "concepts": [
+    "bitch"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3015003/vo_simpleq3015003_007_000.sab",
+   "orig_sha256": "3e91c46865698783da361608f6f5d524e4f0afe4c732b21ef74e5b5400b754bd",
+   "orig_size": 89056,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.303,
+     2.824
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3017002/vo_simpleq3017002_003_000.sab",
+   "orig_sha256": "8546f74945cb7135953de009a4c024a6dad82bea406ac2c185ceaec112ccf57b",
+   "orig_size": 71904,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.087,
+     2.749
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3019002/vo_simpleq3019002_203_000.sab",
+   "orig_sha256": "18e94e4cf4cc5e34d61841e7f1da1ef7f67feb351450e9b41756017b650ef66a",
+   "orig_size": 87008,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.848,
+     3.409
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3020000/vo_simpleq3020000_106_000.sab",
+   "orig_sha256": "2208d641c1cf0fcc7afe8f6e19586f8b0bd3415fa63b42777c9db440a88c14c5",
+   "orig_size": 54752,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.908,
+     2.711
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3021501/vo_simpleq3021501_326_000.sab",
+   "orig_sha256": "674129273cdeddbb277d1360c42ce3a1dc0396c626b577b1335ebac0e30da49e",
+   "orig_size": 80608,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.751,
+     4.452
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3022004/vo_simpleq3022004_100_000.sab",
+   "orig_sha256": "44f810c702a25b65d46e30ed3c28a435427247936979c9840eee1f2190d90725",
+   "orig_size": 17376,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.383,
+     0.805
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3022006/vo_simpleq3022006_008_000.sab",
+   "orig_sha256": "346ccf45bcd058f68d9a1bc88bc54727ac2f0b3f2d6e854bf4fad85fa6de6fa6",
+   "orig_size": 45024,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.22,
+     0.861
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3024000/vo_simpleq3024000_022_000.sab",
+   "orig_sha256": "c953762130f5f8abe57404778944fb9d4813da2e29b69b6c85682ea83edb8348",
+   "orig_size": 59872,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.719,
+     5.14
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3024003/vo_simpleq3024003_007_000.sab",
+   "orig_sha256": "9bc65ef8592ecf7aa1b5bb663c4d04a55f37124d09f8f3c393c1424d5baef1b5",
+   "orig_size": 13792,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.502
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3026000/vo_simpleq3026000_013_000.sab",
+   "orig_sha256": "ff8cd6c4ca9b11dc638e73e18114296ffcfe6bf8ee605722166154ed0c66d843",
+   "orig_size": 104672,
+   "method": "word_level",
+   "cuts": [
+    [
+     8.209,
+     8.729
+    ]
+   ],
+   "concepts": [
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3026502/vo_simpleq3026502_005_000.sab",
+   "orig_sha256": "cdb2aad0e0fd94c9e8c08c04e70211d34efe8762a3d6b40194d47c7bd59e60ec",
+   "orig_size": 45792,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.509,
+     4.05
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3026505/vo_simpleq3026505_005_000.sab",
+   "orig_sha256": "974f1c26d1e91745da8e7b8dab042448805f25c008b795be281385a34f44fcde",
+   "orig_size": 47840,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.381,
+     0.842
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3026506/vo_simpleq3026506_023_000.sab",
+   "orig_sha256": "3243e5065a7c24cce7247cc6074452c2f03b15406302dac18b57ea28a35631c1",
+   "orig_size": 22496,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.041,
+     0.443
+    ]
+   ],
+   "concepts": [
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3027011/vo_simpleq3027011_009_000.sab",
+   "orig_sha256": "c44e1b5ce82e59ec793ff781130551a55324c14ef63005e21d4466d891667cd2",
+   "orig_size": 59872,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.991,
+     1.402
+    ]
+   ],
+   "concepts": [
+    "prick"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3027300/vo_simpleq3027300_005_000.sab",
+   "orig_sha256": "7f03baecee88326897dc62a658bca8dfa52ac118146017f351dbe1d0200e295e",
+   "orig_size": 53216,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.098,
+     4.84
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3027302/vo_simpleq3027302_013_000.sab",
+   "orig_sha256": "1c9234f1c6fdda51a2be47ae229d8e3d90bfc522246f517f4b9e2e5ad2f87d1e",
+   "orig_size": 26080,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.729,
+     1.394
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3027312/vo_simpleq3027312_003_000.sab",
+   "orig_sha256": "3c0819831a569c6761447dc2a1015e9f4c06b567b3aeeaee7a80dbbff3d88153",
+   "orig_size": 32736,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.684,
+     2.124
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3027802/vo_simpleq3027802_006_000.sab",
+   "orig_sha256": "20d3074d8402eb33e8a9deb9911d4d32d5fdd171e2ad81516182294019b050c7",
+   "orig_size": 83936,
+   "method": "word_level",
+   "cuts": [
+    [
+     6.874,
+     7.555
+    ]
+   ],
+   "concepts": [
+    "bollocks"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3029006/vo_simpleq3029006_310_000.sab",
+   "orig_sha256": "31795aae7ec7a980970516b36700c26bbfd84523f24ba526c0151a4a0a0c143f",
+   "orig_size": 19936,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.524
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3029008/vo_simpleq3029008_301_000.sab",
+   "orig_sha256": "8ce5c215431a424074e53080f7ff873e54127c5fef30f72e8b78b3f815257f35",
+   "orig_size": 17888,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.222,
+     0.603
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3030500/vo_simpleq3030500_310_000.sab",
+   "orig_sha256": "654d2431a9acfd6d03eea31480906d49499be3558f3523bf6d7f81b01bf09663",
+   "orig_size": 45280,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.053,
+     3.353
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3031004/vo_simpleq3031004_308_000.sab",
+   "orig_sha256": "a50f8e61e6799f4ad6c5bb95074d9106f3b788b59aafd6dbc5411e97a447ea38",
+   "orig_size": 61664,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.2,
+     0.821
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3033002/vo_simpleq3033002_310_000.sab",
+   "orig_sha256": "c10c2eef1228cc4b646793ebc58ed0b9ed81b2271773735e507737a0909266b3",
+   "orig_size": 12768,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.404
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3033003/vo_simpleq3033003_317_000.sab",
+   "orig_sha256": "25a468a01f9a12a2fd30ac73072aa4bed82760d0f8bfcf9431fea7644a71c7df",
+   "orig_size": 29152,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.322
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3033005/vo_simpleq3033005_306_000.sab",
+   "orig_sha256": "a9f3da6d7eafe0f1e2a098e598266a9d6d4ec809a5e5b18749059eee5f7e8fa6",
+   "orig_size": 47072,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.201,
+     0.721
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3034004/vo_simpleq3034004_330_000.sab",
+   "orig_sha256": "bbe0f04cb4f4e8058125531100014b260024b6655209c117202c5bfd3e085128",
+   "orig_size": 24800,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.787,
+     1.371
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3034006/vo_simpleq3034006_311_000.sab",
+   "orig_sha256": "a586c4ef951bdb0d04ce4ef97730b1854778e55f0457e34aecbcdc6affa66166",
+   "orig_size": 36320,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.006,
+     2.588
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3038003/vo_simpleq3038003_309_000.sab",
+   "orig_sha256": "eff9ee650f47825b236b795240d9f5dc639153fa0daee1b9538487df074941b2",
+   "orig_size": 30688,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.775,
+     2.117
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3038004/vo_simpleq3038004_305_000.sab",
+   "orig_sha256": "9d1aa190212c7f53720fe4bd3eef6fc2eb84c96c4a12b9683f3d5c4a1fe7b0b6",
+   "orig_size": 49888,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.791,
+     4.504
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3038006/vo_simpleq3038006_311_000.sab",
+   "orig_sha256": "a42759aa6576e8042e71a32490808979e3c8192f86ab885a3a2a5966b57c7aba",
+   "orig_size": 18912,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.631,
+     1.237
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3101006/vo_simpleq3101006_008_000.sab",
+   "orig_sha256": "0426d9c7184b265d16eaad51069a74ab6b083e7de7666db139c0c3f3ab1a1470",
+   "orig_size": 137952,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.28
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3101007/vo_simpleq3101007_006_000.sab",
+   "orig_sha256": "9534edac6829c0780899550d16b91e698105cf3b70bfd9d97b2277b4b24c8f67",
+   "orig_size": 19680,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.443
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3101103/vo_simpleq3101103_021_000.sab",
+   "orig_sha256": "e2803e0e837d54c4f64e9870a73f2fb9117226359c395d696474bef554495aee",
+   "orig_size": 46304,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.583,
+     1.204
+    ],
+    [
+     1.547,
+     2.128
+    ],
+    [
+     2.23,
+     2.871
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3101103/vo_simpleq3101103_024_000.sab",
+   "orig_sha256": "5ec24aedcc666d1a848da0e8fb4997843850c59c6061d29e19b2b7aedca71ff5",
+   "orig_size": 66272,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.726,
+     5.287
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3101103/vo_simpleq3101103_026_000.sab",
+   "orig_sha256": "e41bb4f9303210c3874a075c1f67ae2cb0b86e4e9f891c2abb8845bf3f34c8e9",
+   "orig_size": 15072,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.325,
+     0.87
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3101103/vo_simpleq3101103_030_000.sab",
+   "orig_sha256": "985da228074bf8faefcbdd40b38918ecd9a25825387437c58113802376c5ed32",
+   "orig_size": 36064,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.19,
+     2.912
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3102006/vo_simpleq3102006_008_000.sab",
+   "orig_sha256": "c5646f2dc7041b776946bd8c28741f12a8b24603abb0fcb140a62cfec83ea3a5",
+   "orig_size": 39904,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.789,
+     2.27
+    ]
+   ],
+   "concepts": [
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3102009/vo_simpleq3102009_009_000.sab",
+   "orig_sha256": "41b90601785ed68b7d1bddc6e7f32e044669724948403f47d7492e8e1b48b43e",
+   "orig_size": 81632,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.639,
+     5.571
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3103000/vo_simpleq3103000_007_000.sab",
+   "orig_sha256": "8cdcb87c8b276e61d3afeda3f03c538d73d4b2351e6d49567921b8d32dd1bcf8",
+   "orig_size": 62176,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.608,
+     3.09
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3103001/vo_simpleq3103001_017_000.sab",
+   "orig_sha256": "9c4b1e77a4b7fc09f57ae68f84748da06c8e64e6475102a98a8dc517b619bc59",
+   "orig_size": 48608,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.623,
+     1.285
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3103103/vo_simpleq3103103_026_000.sab",
+   "orig_sha256": "c5edcdac71ac4fadabf3e61265146871a0a8f49216cede61f2f05452e7db8187",
+   "orig_size": 21472,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.322
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3103108/vo_simpleq3103108_027_000.sab",
+   "orig_sha256": "16576308967d3dd0418c100231cf3420767aa587a8b3dbc29ff1ab912c404536",
+   "orig_size": 98016,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.245,
+     2.666
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3103108/vo_simpleq3103108_029_000.sab",
+   "orig_sha256": "653b4b8f51de34c1af71049fa3b52d5d3506c7ef603a6a02123245e018e5b5f0",
+   "orig_size": 76000,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.709,
+     5.229
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3104009/vo_simpleq3104009_021_000.sab",
+   "orig_sha256": "af31a1cda9fe85028d1674a20ce2cb2bac0842f690d2b186b6b720b2e29e0bba",
+   "orig_size": 7648,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.002,
+     0.507
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3104101/vo_simpleq3104101_008_000.sab",
+   "orig_sha256": "e2defbc6e1792b2d3a7a7087f4838205000575427f852020cc3c906c71d46284",
+   "orig_size": 30432,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.687,
+     2.188
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3104101/vo_simpleq3104101_011_000.sab",
+   "orig_sha256": "1057466a809a4cdde168f4a1c1f01fa642366852f897c80a8e5f69ec82739485",
+   "orig_size": 53472,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.263,
+     1.964
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3201005/vo_simpleq3201005_003_000.sab",
+   "orig_sha256": "31b6f8d77d1a734731ed7e8ebd791deb1e45a34a575e76d4c803de1149680a9c",
+   "orig_size": 9184,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.323
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3201009/vo_simpleq3201009_005_000.sab",
+   "orig_sha256": "e35b708184729acfc9f447863b8c6b91382c708b6e864055bbf57df3adf9b942",
+   "orig_size": 63712,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.896,
+     5.438
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3202000/vo_simpleq3202000_044_000.sab",
+   "orig_sha256": "9be4cf78eefae7e238aba294c30354b858e8ce159c68db68c309b2ece8075870",
+   "orig_size": 49376,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.793,
+     3.294
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3202011/vo_simpleq3202011_006_000.sab",
+   "orig_sha256": "7c8c6d0bf63666b142d3df40e0e10ed031b42427a5056866bc376246b4027042",
+   "orig_size": 86752,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.328,
+     4.668
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3202011/vo_simpleq3202011_012_000.sab",
+   "orig_sha256": "872911ee873c0bb93b4db7380366ea3cd5e719a62e01dd0cc00c5e3e479263b9",
+   "orig_size": 92640,
+   "method": "word_level",
+   "cuts": [
+    [
+     5.924,
+     6.384
+    ]
+   ],
+   "concepts": [
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3203005/vo_simpleq3203005_002_000.sab",
+   "orig_sha256": "b6c81c2afdfcd3524cba60f06506955256dd7f258d3b56b0b2f036829369926e",
+   "orig_size": 62944,
+   "method": "word_level",
+   "cuts": [
+    [
+     5.099,
+     5.701
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3204015/vo_simpleq3204015_012_000.sab",
+   "orig_sha256": "20dcbd8d32c87d0f43a197e610ca40ebf57bb28fbddfe9b9150e463bc38723c7",
+   "orig_size": 36320,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.268,
+     2.729
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3204025/vo_simpleq3204025_037_000.sab",
+   "orig_sha256": "c2880cefff1090f4729bd9b5783f49fc7d5abbe17733c0c21c9b5603c9a30a0e",
+   "orig_size": 113632,
+   "method": "word_level",
+   "cuts": [
+    [
+     6.307,
+     6.768
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3204025/vo_simpleq3204025_043_000.sab",
+   "orig_sha256": "8a0db4e408663ef6c8060d35cd80bccdc7d23d9371e954a5a1600ca481c0abdf",
+   "orig_size": 34784,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.305,
+     2.986
+    ]
+   ],
+   "concepts": [
+    "bitch"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3204025/vo_simpleq3204025_057_000.sab",
+   "orig_sha256": "ac70f0c7f217584bfa93d80a2ac64a06c38cd740ccae4d406a99ff2f3cd26b3f",
+   "orig_size": 34016,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.502,
+     1.183
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3204026/vo_simpleq3204026_017_000.sab",
+   "orig_sha256": "906668c207523298bb096b5f5fd3fd324c1098d51a04d2c4a8908d57cd6e7e8d",
+   "orig_size": 32736,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.736,
+     2.359
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3212001/vo_simpleq3212001_011_000.sab",
+   "orig_sha256": "80721fdf23ca31e38196bace65fa46010daa59b88b3e394282d41a2a11891804",
+   "orig_size": 89312,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.304,
+     1.886
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3212015/vo_simpleq3212015_009_000.sab",
+   "orig_sha256": "21ca8e3ffef7e8857f0e9f61df1ff3750bf2fb29cf574437592e378e1bd7def6",
+   "orig_size": 51424,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.892,
+     3.534
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3212021/vo_simpleq3212021_003_000.sab",
+   "orig_sha256": "35df313062b28554a102bd8325e11f3df3c9ee3d014f9d0778d012895ee569b1",
+   "orig_size": 13792,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.508,
+     1.133
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3213003/vo_simpleq3213003_005_000.sab",
+   "orig_sha256": "2763cc536d2253c58a16b18d9c2bd07555dc68c459810e97a606dc4903c7145b",
+   "orig_size": 42976,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.792,
+     3.213
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3213005/vo_simpleq3213005_010_000.sab",
+   "orig_sha256": "5b7b2ef536c724b7e34627543f96de648fb34700a9443bb8730ed77167837f4d",
+   "orig_size": 62944,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.762,
+     1.362
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3213013/vo_simpleq3213013_010_000.sab",
+   "orig_sha256": "a50fa9091cc4c1fd88bf58f807cd42615c5c53eccd093253b46ce03c2cf9a18e",
+   "orig_size": 57056,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.675,
+     2.366
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3215011/vo_simpleq3215011_008_000.sab",
+   "orig_sha256": "42c6ba5743b6b53aeb8183ed441a04d4f28f5044fc8bf46148b8315c9671097d",
+   "orig_size": 81376,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.201,
+     0.882
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3215011/vo_simpleq3215011_010_000.sab",
+   "orig_sha256": "8d0fe1f2a2219816d5e6be8bdf146f4f0e4ce8ba57747400dbbb1b30861b72dd",
+   "orig_size": 20192,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.305,
+     0.972
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3215011/vo_simpleq3215011_011_000.sab",
+   "orig_sha256": "b037a30fcd794d7c1c6e31714175571dcc38a5e6ae66458c3b9b783041718ebe",
+   "orig_size": 35552,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.994,
+     1.546
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3216002/vo_simpleq3216002_032_000.sab",
+   "orig_sha256": "4542a34972487db4280d06009f9db9fcbbff128c7691f7cb1a25a43684e6a6e6",
+   "orig_size": 7136,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.288
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3301003/vo_simpleq3301003_020_000.sab",
+   "orig_sha256": "6d1b021499c4e47897c1d7b713b431bb9a5648c97a792e09bfab19a0ec75ab40",
+   "orig_size": 39648,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.076,
+     3.577
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3301003/vo_simpleq3301003_021_000.sab",
+   "orig_sha256": "e999459070e29c297c1a041566218930b001363ff6278f9ada0c329d557d001d",
+   "orig_size": 130016,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.822,
+     1.342
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3301007/vo_simpleq3301007_013_000.sab",
+   "orig_sha256": "f88fde962e6aeedf62eea33136645a05ce61afa9cbfca38c152f4f4dff753fc7",
+   "orig_size": 97760,
+   "method": "word_level",
+   "cuts": [
+    [
+     5.495,
+     6.356
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3303002/vo_simpleq3303002_002_000.sab",
+   "orig_sha256": "e62476ac10cd1321bb8f04ab7d0c6766a9071c2cb8759a4239465e4c42c0fc0c",
+   "orig_size": 26336,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.613,
+     2.256
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3304003/vo_simpleq3304003_009_000.sab",
+   "orig_sha256": "248fa1212572f27227d0c94afbfba2fefc3239f7442534bfad51837420bfec0f",
+   "orig_size": 26336,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.504,
+     1.188
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3304003/vo_simpleq3304003_015_000.sab",
+   "orig_sha256": "e8ea1575942e430558f7359baa09ad86e1ede84091598cc237521807a158eaf5",
+   "orig_size": 53472,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.549,
+     3.11
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3304016/vo_simpleq3304016_004_000.sab",
+   "orig_sha256": "04ee6684016242f7b0ecdcd78a3b2cd626ff88f1ea2148b8155293023b6df3b7",
+   "orig_size": 32480,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.852,
+     2.475
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3306003/vo_simpleq3306003_029_000.sab",
+   "orig_sha256": "b3d067c4d67a6e5eeebca76a692e126f8a71ad827a2be82b762c02ea318accce",
+   "orig_size": 68832,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.541
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3306005/vo_simpleq3306005_011_000.sab",
+   "orig_sha256": "08c5dc521198e3e25518bd91b8c17ea565743e9aaaa6c512da454720958d2300",
+   "orig_size": 23520,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.52,
+     2.104
+    ]
+   ],
+   "concepts": [
+    "prick"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3306005/vo_simpleq3306005_018_000.sab",
+   "orig_sha256": "2c113c923b06e77f6993e4344f578aa2a98ba859be45810ee662cb276bcb1e79",
+   "orig_size": 39648,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.37,
+     1.893
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3306006/vo_simpleq3306006_003_000.sab",
+   "orig_sha256": "929d06fe01ef6e08bc7163df53907cd9fae1bbe964513de951d609e01afbf68f",
+   "orig_size": 19680,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.226,
+     1.648
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3306006/vo_simpleq3306006_025_000.sab",
+   "orig_sha256": "a3020349f9433e373b70aaa3b3ea1ac53d60e1a50d9151f54790b27000c2c5ae",
+   "orig_size": 22752,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.123,
+     0.686
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3306006/vo_simpleq3306006_031_000.sab",
+   "orig_sha256": "9223bb8ddca8a0a164f4ec2591200e8b87f81e9a6f8d92e3b229fce6ef7cdf01",
+   "orig_size": 28640,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.402,
+     0.864
+    ]
+   ],
+   "concepts": [
+    "prick"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3306007/vo_simpleq3306007_018_000.sab",
+   "orig_sha256": "bb1468b08c08bc73bb208849c4a98a050ec9c3e58fd0a08db7f8276ac67d6d42",
+   "orig_size": 51168,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.902,
+     1.283
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3306012/vo_simpleq3306012_002_000.sab",
+   "orig_sha256": "25d37037cded87874b7b3e3ecb839420c5cc899eaf7a01600b515a44542bd616",
+   "orig_size": 104928,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.141,
+     1.962
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3306012/vo_simpleq3306012_021_000.sab",
+   "orig_sha256": "18fa1afc2923643fb93f98d4bdede8d7489a1feecd6f65f012a5879fa09c4083",
+   "orig_size": 67040,
+   "method": "word_level",
+   "cuts": [
+    [
+     5.288,
+     6.008
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3306013/vo_simpleq3306013_030_000.sab",
+   "orig_sha256": "ec6b7458fe30b83bbd4448103837c7072ecdbb78f4187aab1f8f83172341e41c",
+   "orig_size": 41696,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.855,
+     3.606
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3306017/vo_simpleq3306017_003_000.sab",
+   "orig_sha256": "ffcf69f9a3c6eab91f1f7ee3800ccc8331c5e5477c4dbbd2443616739dd5b773",
+   "orig_size": 53728,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.562
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3308008/vo_simpleq3308008_010_000.sab",
+   "orig_sha256": "2837985277e7100c97264b46402bfba8e51963155d66e6cee900e3a8e6e4a9ac",
+   "orig_size": 51680,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.197,
+     3.868
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3308009/vo_simpleq3308009_019_000.sab",
+   "orig_sha256": "6add506130ce0283530dff97572eac0334393e0e5d4993b04d79eaffc60191ce",
+   "orig_size": 47072,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.563,
+     1.145
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3308010/vo_simpleq3308010_035_000.sab",
+   "orig_sha256": "f63e50573593c1114e92bb5ce7a20aa47d4a19c6765afa1560d6f4ce40eaf301",
+   "orig_size": 48608,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.653,
+     3.034
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3308011/vo_simpleq3308011_026_000.sab",
+   "orig_sha256": "d05fb180c4803d43aa8c4c7c582bd65838a3721fb2c3a542bf33dafebe450c3b",
+   "orig_size": 38880,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.816,
+     3.418
+    ]
+   ],
+   "concepts": [
+    "prick"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3308011/vo_simpleq3308011_041_000.sab",
+   "orig_sha256": "34ff56a51443acc8a73bc5d97f22b0e9e8624d4eb4fc78999c0a220e007b57f6",
+   "orig_size": 48608,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.202,
+     1.703
+    ]
+   ],
+   "concepts": [
+    "prick"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3308013/vo_simpleq3308013_001_000.sab",
+   "orig_sha256": "23b3c68a6ae7c20564b335224ac19cdfe2b5f60f5dc4d5c8144786f697891a4d",
+   "orig_size": 45280,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.284,
+     4.037
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3309001/vo_simpleq3309001_009_000.sab",
+   "orig_sha256": "6dd2768facead3f2f42a16622346daac7412489245d45b3858a3dd4cfbeb96f0",
+   "orig_size": 57056,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.109,
+     3.891
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3309005/vo_simpleq3309005_531_000.sab",
+   "orig_sha256": "f8f542fe4a33bb421d27862f982ce82438fe37c177c6973485922863bc6a747a",
+   "orig_size": 62432,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.924,
+     2.766
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3309005/vo_simpleq3309005_556_000.sab",
+   "orig_sha256": "eb55cae91bee24078cf65befbda849754a6c6df1cf1f53bb59f6ce7a440b6c6b",
+   "orig_size": 78304,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.422,
+     1.063
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3309006/vo_simpleq3309006_006_000.sab",
+   "orig_sha256": "2b714b456ee635058459564b2a23aebf90d8a1e056953399d34c652cfb1c3128",
+   "orig_size": 95712,
+   "method": "word_level",
+   "cuts": [
+    [
+     5.413,
+     5.854
+    ]
+   ],
+   "concepts": [
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3402000/vo_simpleq3402000_002_000.sab",
+   "orig_sha256": "fe059662a5f291b50e63ead1781aeb9abdd3adc8671984be740017e9a629ec41",
+   "orig_size": 87264,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.882,
+     1.282
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3402004/vo_simpleq3402004_008_000.sab",
+   "orig_sha256": "5a539265fd94b1d3c1bfd9f7dc3b383bc2d94cafcdba1e4f5d9b89511ccd4a50",
+   "orig_size": 86240,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.263,
+     2.664
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3408000/vo_simpleq3408000_109_000.sab",
+   "orig_sha256": "6d06821ad9588ac7e99c28349cef2252039f7251759b4a3543315503909f18a2",
+   "orig_size": 64736,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.344,
+     3.824
+    ]
+   ],
+   "concepts": [
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3408001/vo_simpleq3408001_104_000.sab",
+   "orig_sha256": "ec6c923ad507fac20fbf80ab48ed415486ef07ad3c80dc82203b7b7d2688ff5b",
+   "orig_size": 45536,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.87,
+     2.432
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3408001/vo_simpleq3408001_106_000.sab",
+   "orig_sha256": "ee2dd07bbd4b32526a4567695fa33f4bfff8430f6b88b458348217a72dbf9f85",
+   "orig_size": 56800,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.181,
+     0.783
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3408001/vo_simpleq3408001_113_000.sab",
+   "orig_sha256": "e86d7b301736074986e40323af4e05bdcdaa765082dde744d76f965b76da7298",
+   "orig_size": 46816,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.027,
+     3.559
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3408006/vo_simpleq3408006_103_000.sab",
+   "orig_sha256": "6e93d55eca0c4cc86a3c0906f054c2af449b3f7ac15bf617a856567c3e12f2cc",
+   "orig_size": 35296,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.277,
+     2.928
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3409001/vo_simpleq3409001_111_000.sab",
+   "orig_sha256": "efd5f5a7011a47d290b44f17fc28a787238ede1a48870cd767b35df7365d3f40",
+   "orig_size": 76256,
+   "method": "word_level",
+   "cuts": [
+    [
+     5.799,
+     6.461
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3409003/vo_simpleq3409003_004_000.sab",
+   "orig_sha256": "f3836f5cdfbb270012fdd8291afa16ddd6d324a13b37c2a75f5f7e0320966a84",
+   "orig_size": 56544,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.423,
+     1.145
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3410010/vo_simpleq3410010_002_000.sab",
+   "orig_sha256": "3021c95875e4a7a32b75cfabd3aa8a64667fe4db3cada1b5090d66e80c0032e0",
+   "orig_size": 69088,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.442,
+     3.223
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3411001/vo_simpleq3411001_100_000.sab",
+   "orig_sha256": "4f3c561af933f9e448cde6a308c1373107a34c97a430c8502978297c833db976",
+   "orig_size": 52448,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.468,
+     2.232
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3411002/vo_simpleq3411002_002_000.sab",
+   "orig_sha256": "88a24abc9a9bdf660e9b2dc7e18ba956faa1c7e49c7367cb998601f042761e88",
+   "orig_size": 18912,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.57,
+     1.075
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3411003/vo_simpleq3411003_007_000.sab",
+   "orig_sha256": "cdb1d0be5f9cc117a0e3d8797cf32b3a5b0fde25cae7702f6ad6fe1011ce1c6d",
+   "orig_size": 88032,
+   "method": "word_level",
+   "cuts": [
+    [
+     5.468,
+     6.029
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3411003/vo_simpleq3411003_009_000.sab",
+   "orig_sha256": "0ea74745b97d9c2fc2cff4a7b8a8b2f679d9a8664a3ef8fcaee01f3d67a5ba31",
+   "orig_size": 96480,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.482,
+     4.343
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3412004/vo_simpleq3412004_200_000.sab",
+   "orig_sha256": "84e758fd4482e3880b76079e2565008dfb51595ad3b4aaaaa54811a07a96633d",
+   "orig_size": 57824,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.31,
+     3.771
+    ]
+   ],
+   "concepts": [
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3412006/vo_simpleq3412006_116_000.sab",
+   "orig_sha256": "b256b19b171028ed4b3b19f5b05b43ed2670f25f2e5aec2241dbb8fd6b68efcf",
+   "orig_size": 37856,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     2.334
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3414000/vo_simpleq3414000_003_000.sab",
+   "orig_sha256": "1460ff8ab8aa475a8ce11ad4a90b0d92d52a8fd7c8bb73ed9966c76768d69538",
+   "orig_size": 88032,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.127,
+     4.627
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3414000/vo_simpleq3414000_006_000.sab",
+   "orig_sha256": "864c55f49e2686bd4a2a0206a850a8e89ac7101ef2fec9e0de5ca569d0b0dc76",
+   "orig_size": 88800,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.105,
+     2.586
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3416000/vo_simpleq3416000_005_000.sab",
+   "orig_sha256": "21421f22d218fcc904e8c3324e567102c3216a187673febcfa5ef92ee81b0371",
+   "orig_size": 69344,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.985,
+     4.725
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3416000/vo_simpleq3416000_007_000.sab",
+   "orig_sha256": "e4fc024181856335c6f110d96f591740edf35f78d1038aa5e763cc99dcc420b7",
+   "orig_size": 70368,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.795,
+     4.296
+    ]
+   ],
+   "concepts": [
+    "prick"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3416003/vo_simpleq3416003_002_000.sab",
+   "orig_sha256": "481f0342867be2af305d71e185d4e20642ecce5ac01af5485569b208f736b349",
+   "orig_size": 45280,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.91,
+     3.391
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3416004/vo_simpleq3416004_003_000.sab",
+   "orig_sha256": "1628db6c67502a7a84fa9c28e43da25556f0fd3531881841524fc7e3485f6323",
+   "orig_size": 35296,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.51,
+     2.053
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3416004/vo_simpleq3416004_005_000.sab",
+   "orig_sha256": "e06fe7ce01874bd878ea10fb8b63457f58ca0e86336f717545900308232aa627",
+   "orig_size": 51680,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.054,
+     1.566
+    ],
+    [
+     3.784,
+     4.115
+    ]
+   ],
+   "concepts": [
+    "bollocks",
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3416006/vo_simpleq3416006_003_000.sab",
+   "orig_sha256": "550d3abc7b0e93787677b835e58e356ac88c41e37c561f30be9de5baa111e48d",
+   "orig_size": 60384,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.906,
+     3.33
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3417014/vo_simpleq3417014_007_000.sab",
+   "orig_sha256": "2de9aad5b54c959e89047ea8b39c8a89bca97df85301bf04d4aadfad9063386f",
+   "orig_size": 44768,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.933,
+     3.394
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3418007/vo_simpleq3418007_018_000.sab",
+   "orig_sha256": "247664e199dd77fe30c29238f564a01057ba4e1ffcceb0bb9c54978110603f56",
+   "orig_size": 35552,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.256,
+     2.049
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3422000/vo_simpleq3422000_101_000.sab",
+   "orig_sha256": "185e51c17fea024b95e381acea3a4f9930b28dde06a6faa6ac7ed2db41af94ad",
+   "orig_size": 24544,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.663
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3422002/vo_simpleq3422002_002_000.sab",
+   "orig_sha256": "26518894e9f747b050d6dd36190c3e5eae0b4d37d527e66cb19da51143d83e96",
+   "orig_size": 108512,
+   "method": "word_level",
+   "cuts": [
+    [
+     7.529,
+     8.09
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3422004/vo_simpleq3422004_104_000.sab",
+   "orig_sha256": "f41dc673d6ec882f89d52ca0be84f6584654c9eafa8e3d982235b41037cbc890",
+   "orig_size": 107488,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.364,
+     4.104
+    ]
+   ],
+   "concepts": [
+    "arse"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3431003/vo_simpleq3431003_100_000.sab",
+   "orig_sha256": "2a7988acc423742f9d5788731ee8fa7db473f170ca38afa49a99407e61679529",
+   "orig_size": 61408,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.432,
+     4.913
+    ]
+   ],
+   "concepts": [
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3431003/vo_simpleq3431003_160_000.sab",
+   "orig_sha256": "ac9e5d7fe36e28d6046a85c2c2eeb2fcc451a23aeaf6985a15054c8abe4a2466",
+   "orig_size": 67040,
+   "method": "word_level",
+   "cuts": [
+    [
+     5.451,
+     5.891
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3431007/vo_simpleq3431007_110_000.sab",
+   "orig_sha256": "a57cfd7394a0b389e64dfe21fd37e4ce19d3aec42beb7c9ea00e525d7bcb91cf",
+   "orig_size": 61408,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.13,
+     3.551
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3431008/vo_simpleq3431008_005_000.sab",
+   "orig_sha256": "17e39c46bcf4d14b88e7a0b05cb02e42c35b666c5506f1dddf99cccbfb164dbd",
+   "orig_size": 29664,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.917,
+     2.54
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3435005/vo_simpleq3435005_012_000.sab",
+   "orig_sha256": "e52d4c3e10902fce619716435aefc42ab55d261a45e48ef106eed5da18e58516",
+   "orig_size": 92384,
+   "method": "word_level",
+   "cuts": [
+    [
+     5.071,
+     5.752
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3435007/vo_simpleq3435007_002_000.sab",
+   "orig_sha256": "2ac4443a7f20bb4f477b57baf2e43ba455fc6cf325ec1b2bcb903b84aab9144b",
+   "orig_size": 63200,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.846,
+     5.286
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3435008/vo_simpleq3435008_005_000.sab",
+   "orig_sha256": "9af0534d075bcbe55c2a5b5a992f960f985b84e0a870f9e6ab57ce64778fc218",
+   "orig_size": 71136,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.068,
+     2.73
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3435009/vo_simpleq3435009_005_000.sab",
+   "orig_sha256": "a846835bf3ee632895a8f091c8c9a082daca8f60d184d6554c92b384510bf50a",
+   "orig_size": 82656,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.664,
+     2.445
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3435009/vo_simpleq3435009_007_000.sab",
+   "orig_sha256": "8b74507b0927d0ae0b74c2a3ffea97a86f1b35344c6819d76f7751941f4a2295",
+   "orig_size": 108256,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.643,
+     4.344
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3435009/vo_simpleq3435009_013_000.sab",
+   "orig_sha256": "249e6945dfb0acb2eb25245dc7da69b58a932ee8d8a7d75aa117707b178de387",
+   "orig_size": 64736,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.684,
+     5.145
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3438003/vo_simpleq3438003_005_000.sab",
+   "orig_sha256": "3899916c94805f1176893817c38e9fdccc4b2d4b15bb1bb04e63d6f3c7eec903",
+   "orig_size": 42464,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.047,
+     3.468
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3438015/vo_simpleq3438015_004_000.sab",
+   "orig_sha256": "7861438926e6b7fb21b9a7bf3e35ec82a56503486320a4247ad625de44b34e7c",
+   "orig_size": 57056,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.325,
+     2.905
+    ]
+   ],
+   "concepts": [
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3439003/vo_simpleq3439003_008_000.sab",
+   "orig_sha256": "70911adde08100b37c8b49f5fc18217208a5ba34f6c267b120b9be4c8396d9c5",
+   "orig_size": 53984,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.36
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3442003/vo_simpleq3442003_260_000.sab",
+   "orig_sha256": "a99dbdb56c626a24fe9c0d00a17293c8b82155b863056f775e62dde4033d62ae",
+   "orig_size": 30944,
+   "method": "whole_line",
+   "cuts": null,
+   "concepts": [
+    "whore"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3446000/vo_simpleq3446000_011_000.sab",
+   "orig_sha256": "b5ee3abec989a3b623ab77c285bc50182c68fd8c1b49b41268987df1b2a4dbc9",
+   "orig_size": 127200,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.02,
+     0.541
+    ],
+    [
+     3.025,
+     3.646
+    ],
+    [
+     7.753,
+     8.414
+    ],
+    [
+     9.416,
+     10.417
+    ]
+   ],
+   "concepts": [
+    "fuck",
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/simpleq/simpleq3448012/vo_simpleq3448012_026_000.sab",
+   "orig_sha256": "70fbbfe6986f13f68da976cfa5d98a1457bba47f83999b1daebde24105ad8815",
+   "orig_size": 38112,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.212,
+     2.754
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/simplevoice/simplevoice60001003/vo_simplevoice60001003_005_000.sab",
+   "orig_sha256": "c2c5daf9dcf47c0fd21c79b582a9ab90c715d57d87bc370b5d26c73f5712a7d4",
+   "orig_size": 19952,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.609,
+     1.658
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/simplevoice/simplevoice60005013/vo_simplevoice60005013_003_000.sab",
+   "orig_sha256": "e50b10b12718f51e934223da6330084a67727ec973a717189dcd4ba2b402544e",
+   "orig_size": 23792,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.489,
+     2.011
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc2/cutl/cutl2030200/vo_cutl2030200_002_000.sab",
+   "orig_sha256": "78c91f50f4082b2de0b0811d56c13b380b172bf721c3ecf7fa78621b6d8945e2",
+   "orig_size": 37088,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.061,
+     0.643
+    ],
+    [
+     1.672,
+     2.376
+    ]
+   ],
+   "concepts": [
+    "bastard",
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc2/cutl/cutl2030200/vo_cutl2030200_023_000.sab",
+   "orig_sha256": "a695dc6bad1892584a02bb903e379244a32747f0c16ab475950c60f73168576f",
+   "orig_size": 17888,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.072,
+     1.615
+    ]
+   ],
+   "concepts": [
+    "sod"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc2/cutm/cutm1030150/vo_cutm1030150_008_000.sab",
+   "orig_sha256": "5c76570d8964fd4d991aebcc96dc2287f82b63c2f80784b376d87c07cbd8fcfb",
+   "orig_size": 50912,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.583,
+     1.446
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc2/cutm/cutm1030200/vo_cutm1030200_005_000.sab",
+   "orig_sha256": "5f9a55308ea833bc864ea64d976734aac77d053ed6ea2d7ca7ba7125d40fbdf0",
+   "orig_size": 64224,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.43,
+     5.131
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc2/cutm/cutm1030200/vo_cutm1030200_010_000.sab",
+   "orig_sha256": "967a544415a73cd693e2d5428e85077ff4d133ae14f3d8018771ac1168369944",
+   "orig_size": 56032,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.033,
+     3.594
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc2/cutm/cutm1030200/vo_cutm1030200_015_000.sab",
+   "orig_sha256": "169a93c482b4f445652833185c20300119f58adcde12696dbbd112f591ca9062",
+   "orig_size": 45024,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.831,
+     3.353
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc2/cutm/cutm1030200/vo_cutm1030200_030_000.sab",
+   "orig_sha256": "ba20b5e15f48c65c228a58be21caee8bf80ebfaa07e58c171d8c455b7b800349",
+   "orig_size": 30176,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.685,
+     2.606
+    ]
+   ],
+   "concepts": [
+    "prick"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc2/cutm/cutm1030600/vo_cutm1030600_039_000.sab",
+   "orig_sha256": "2594eb4c295fb33f5bed10ddf870bd4cc72ac133b21f1eb9723e686c55d8a140",
+   "orig_size": 34784,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.04,
+     0.621
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc2/cutm/cutm1030600/vo_cutm1030600_045_000.sab",
+   "orig_sha256": "39e702514c5334d4237c71895a9418875785ee3b366edea71edac71a713cd038",
+   "orig_size": 14816,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.543,
+     0.965
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc2/defaultq/defaultq3600003/vo_defaultq3600003_003_000.sab",
+   "orig_sha256": "1f17b530eabcf5e7d67d91cfc38bfbf507d4d612c6d62fc114ec839de541cedf",
+   "orig_size": 71136,
+   "method": "word_level",
+   "cuts": [
+    [
+     4.425,
+     4.977
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc2/levent/levent30055001/vo_levent30055001_002_000.sab",
+   "orig_sha256": "f6e92fc0ee8a941a106323e12a078e218a211e8a0dae680983e3c2a8bee3e21d",
+   "orig_size": 20192,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.59,
+     1.115
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc2/levent/levent30400010/vo_levent30400010_030_000.sab",
+   "orig_sha256": "09b801743a4f46bdd9f2747be33b1d77a8333240c9a3b7fee1f24fedcaf6cb1f",
+   "orig_size": 52192,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.683,
+     1.405
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc2/partyq/partyq3600013/vo_partyq3600013_002_000.sab",
+   "orig_sha256": "083c1785c8f0f4ddee185cd321e69f94ba08e1a77e070542783f7561b36f85aa",
+   "orig_size": 53472,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.669,
+     4.351
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc2/simpleq/simpleq3600001/vo_simpleq3600001_003_000.sab",
+   "orig_sha256": "ec6f3117b89755797d819557d8c1d78a0cb0ca6407521e52e92dfbd099efd18c",
+   "orig_size": 81120,
+   "method": "word_level",
+   "cuts": [
+    [
+     5.104,
+     5.705
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc2/simpleq/simpleq3600006/vo_simpleq3600006_033_000.sab",
+   "orig_sha256": "d0000ddff663d8bc7d1c6baa88d3066463863a2ddafedaf4843271afe5b35a1f",
+   "orig_size": 70880,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.103,
+     1.584
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc2/simpleq/simpleq3600007/vo_simpleq3600007_104_000.sab",
+   "orig_sha256": "0841414ba1df262a0f25ac23d58b4eb9bd544edc21a34096e1d24e1d0db3a438",
+   "orig_size": 114144,
+   "method": "word_level",
+   "cuts": [
+    [
+     5.956,
+     6.567
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc2/simpleq/simpleq3600009/vo_simpleq3600009_005_000.sab",
+   "orig_sha256": "19a85f2c6e5dd59ab55e6a65e0b5d931c10a3433950038106e7ee83a843d8a01",
+   "orig_size": 47328,
+   "method": "word_level",
+   "cuts": [
+    [
+     3.228,
+     4.169
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc2/simpleq/simpleq3600009/vo_simpleq3600009_008_000.sab",
+   "orig_sha256": "a45de428d09e16e6d8d0e1f443488dc539e00049d4e2ea64310842d66c7c4777",
+   "orig_size": 97248,
+   "method": "word_level",
+   "cuts": [
+    [
+     6.508,
+     7.109
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc2/simpleq/simpleq3600015/vo_simpleq3600015_006_000.sab",
+   "orig_sha256": "83b6e4b9f96ae173e9e66b8f877015531a28a7f09151be92f720f426a2229045",
+   "orig_size": 41696,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.668,
+     2.25
+    ]
+   ],
+   "concepts": [
+    "prick"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc3/bossbattle/bossbattle0580015/vo_bossbattle0580015_002_000.sab",
+   "orig_sha256": "6b4b5c748a984a8066b34a81e7955c21d0cef406c4575d72e1aa4748220e9a73",
+   "orig_size": 25568,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.192,
+     1.816
+    ]
+   ],
+   "concepts": [
+    "shit"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc3/cutm/cutm1040600/vo_cutm1040600_027_000.sab",
+   "orig_sha256": "2f86c174844ce72ae495246f47816bc63176edc761b4147fdc61ae804e891d20",
+   "orig_size": 28128,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.504,
+     1.905
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc3/defaultq/defaultq45002210/vo_defaultq45002210_010_000.sab",
+   "orig_sha256": "ec4078ed632c889e6330a272e4038c700233a959cfc283947f32bc1d20cf280a",
+   "orig_size": 41696,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.0,
+     0.622
+    ]
+   ],
+   "concepts": [
+    "bastard"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc3/levent/levent45200060/vo_levent45200060_030_000.sab",
+   "orig_sha256": "71f7c8107cc6fc14cbb180c413591ae467f71d8b7878669a57624122f4ea305e",
+   "orig_size": 17120,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.483,
+     1.044
+    ]
+   ],
+   "concepts": [
+    "fuck"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc3/partyq/partyq3463001/vo_partyq3463001_002_000.sab",
+   "orig_sha256": "c8125174e6309045c4172ae9a25454c8b265b6cc24dd3a0c94b96f42b372f53d",
+   "orig_size": 32736,
+   "method": "word_level",
+   "cuts": [
+    [
+     2.073,
+     2.514
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc3/partyq/partyq3467009/vo_partyq3467009_002_000.sab",
+   "orig_sha256": "489ab460253431fbb56deeee5c2747f00cf0721290cc06727d5242a060bdaaa9",
+   "orig_size": 22240,
+   "method": "word_level",
+   "cuts": [
+    [
+     0.884,
+     1.746
+    ]
+   ],
+   "concepts": [
+    "damn"
+   ]
+  },
+  {
+   "path": "sound/voice/dlc3/simpleq/simpleq3600036/vo_simpleq3600036_033_000.sab",
+   "orig_sha256": "51662173fbd5eb1074a761b9c659e138c9da222d82e818da9702f22604fabc1c",
+   "orig_size": 70880,
+   "method": "word_level",
+   "cuts": [
+    [
+     1.103,
+     1.584
+    ]
+   ],
+   "concepts": [
+    "bugger"
+   ]
+  }
+ ],
+ "banks": [
+  {
+   "bank": "sound/voice/battle/vo_pc001.sab",
+   "orig_sha256": "167cbcdb8a2e4b95e56b69608611d6dce1a02877a399d1a34e1e93590cade86c",
+   "orig_size": 1963696,
+   "subsongs": [
+    {
+     "index": 339,
+     "concepts": [
+      "shit"
+     ]
+    }
+   ]
+  },
+  {
+   "bank": "sound/voice/battle/vo_pc003.sab",
+   "orig_sha256": "9dd80ab42fbc30ccac5c00508ee5584d5f9403c098020c00bf8a4f3af2ebca95",
+   "orig_size": 26925984,
+   "subsongs": [
+    {
+     "index": 394,
+     "concepts": [
+      "fuck"
+     ]
+    },
+    {
+     "index": 518,
+     "concepts": [
+      "shit"
+     ]
+    },
+    {
+     "index": 947,
+     "concepts": [
+      "fuck"
+     ]
+    },
+    {
+     "index": 1074,
+     "concepts": [
+      "shit"
+     ]
+    }
+   ]
+  },
+  {
+   "bank": "sound/voice/battle/vo_pt002.sab",
+   "orig_sha256": "b65d1f9470aa483f27bbf93bcb9e81307204b8ff549d5efae7b430acc0da7315",
+   "orig_size": 1328352,
+   "subsongs": [
+    {
+     "index": 83,
+     "concepts": [
+      "shit"
+     ]
+    }
+   ]
+  },
+  {
+   "bank": "sound/voice/battle/vo_pt003.sab",
+   "orig_sha256": "1fc63adf808d81a05da86c368e20fc57661450ab263c841ce85cd09b9b3eafcb",
+   "orig_size": 1168528,
+   "subsongs": [
+    {
+     "index": 84,
+     "concepts": [
+      "fuck"
+     ]
+    }
+   ]
+  },
+  {
+   "bank": "sound/voice/battle/vo_pt006.sab",
+   "orig_sha256": "1b7224aafe68e222848e078d1b82e6b7b52ada4c30acb2a05440ab297e67047f",
+   "orig_size": 2198144,
+   "subsongs": [
+    {
+     "index": 109,
+     "concepts": [
+      "bugger"
+     ]
+    }
+   ]
+  },
+  {
+   "bank": "sound/voice/battle/vo_pt010.sab",
+   "orig_sha256": "25295637865b49f6cbeb892f6442550d2aa966a904809810c6dd298beacc232d",
+   "orig_size": 2803056,
+   "subsongs": [
+    {
+     "index": 81,
+     "concepts": [
+      "sod"
+     ]
+    },
+    {
+     "index": 88,
+     "concepts": [
+      "bollocks"
+     ]
+    }
+   ]
+  },
+  {
+   "bank": "sound/voice/battle/vo_pt013.sab",
+   "orig_sha256": "1681b34a4d23c5b59309e3ea6366e8b85431e3f8a2525b0c4e8cd0f1d619d1ce",
+   "orig_size": 2546784,
+   "subsongs": [
+    {
+     "index": 76,
+     "concepts": [
+      "fuck"
+     ]
+    },
+    {
+     "index": 82,
+     "concepts": [
+      "fuck"
+     ]
+    },
+    {
+     "index": 100,
+     "concepts": [
+      "fuck"
+     ]
+    },
+    {
+     "index": 102,
+     "concepts": [
+      "fuck"
+     ]
+    },
+    {
+     "index": 104,
+     "concepts": [
+      "shit"
+     ]
+    },
+    {
+     "index": 116,
+     "concepts": [
+      "bastard"
+     ]
+    },
+    {
+     "index": 135,
+     "concepts": [
+      "bastard"
+     ]
+    },
+    {
+     "index": 145,
+     "concepts": [
+      "shit"
+     ]
+    },
+    {
+     "index": 146,
+     "concepts": [
+      "fuck"
+     ]
+    }
+   ]
+  },
+  {
+   "bank": "sound/voice/battle/vo_pt014.sab",
+   "orig_sha256": "0c8a348c772e05f7a3dd6f001961691150fd95d8302224d521cd4c8bfa1f921a",
+   "orig_size": 2721344,
+   "subsongs": [
+    {
+     "index": 84,
+     "concepts": [
+      "bastard"
+     ]
+    }
+   ]
+  },
+  {
+   "bank": "sound/voice/battle/vo_pt015.sab",
+   "orig_sha256": "dcaa18c7655bce779331e8ec6084546640c5f2606de3fe731f3cd3192ca45d44",
+   "orig_size": 2136000,
+   "subsongs": [
+    {
+     "index": 79,
+     "concepts": [
+      "fuck"
+     ]
+    },
+    {
+     "index": 81,
+     "concepts": [
+      "bastard"
+     ]
+    },
+    {
+     "index": 87,
+     "concepts": [
+      "shit"
+     ]
+    }
+   ]
+  },
+  {
+   "bank": "sound/voice/battle/vo_zh001_a.sab",
+   "orig_sha256": "e0a634d6c950e71ba2971c0f1cea50c9dee8f9dd9a691940b38f95700e3431a4",
+   "orig_size": 679792,
+   "subsongs": [
+    {
+     "index": 34,
+     "concepts": [
+      "damn"
+     ]
+    }
+   ]
+  },
+  {
+   "bank": "sound/voice/battle/vo_zh001_c.sab",
+   "orig_sha256": "cee3e7de3a5a7a2cd80d4fde4fac5b19025c63f00c3b1c6040ccf57685b1a060",
+   "orig_size": 676624,
+   "subsongs": [
+    {
+     "index": 34,
+     "concepts": [
+      "damn"
+     ]
+    }
+   ]
+  },
+  {
+   "bank": "sound/voice/battle/vo_zh003_a.sab",
+   "orig_sha256": "680067d3d9058871029064674a86f3c4e4bf053a555b3c9e9992eb6212d76fc5",
+   "orig_size": 682640,
+   "subsongs": [
+    {
+     "index": 1,
+     "concepts": [
+      "shit"
+     ]
+    }
+   ]
+  },
+  {
+   "bank": "sound/voice/battle/vo_zh003_f.sab",
+   "orig_sha256": "d1f7851bf2272fa925a7d5266630ed9701717f37045c34d30fadc9568cc9ea8f",
+   "orig_size": 1056672,
+   "subsongs": [
+    {
+     "index": 1,
+     "concepts": [
+      "shit"
+     ]
+    }
+   ]
+  },
+  {
+   "bank": "sound/voice/battle/vo_zh007_a.sab",
+   "orig_sha256": "714a753b54c6e519b264107c50a46c36753580eeec5cac014592d4727ba19191",
+   "orig_size": 826272,
+   "subsongs": [
+    {
+     "index": 15,
+     "concepts": [
+      "shit"
+     ]
+    }
+   ]
+  },
+  {
+   "bank": "sound/voice/battle/vo_zh015_a.sab",
+   "orig_sha256": "ba7bfd51a92467653b1583f0d85174f49caedaec25cddae288bd87d9f7d476a1",
+   "orig_size": 674720,
+   "subsongs": [
+    {
+     "index": 77,
+     "concepts": [
+      "fuck"
+     ]
+    }
+   ]
+  },
+  {
+   "bank": "sound/voice/battle/vo_zh016_c.sab",
+   "orig_sha256": "f8d779414de0a92b9a6308371d059d369b0d048f6301d1e5537574e55519ee1a",
+   "orig_size": 629472,
+   "subsongs": [
+    {
+     "index": 43,
+     "concepts": [
+      "shit"
+     ]
+    }
+   ]
+  },
+  {
+   "bank": "sound/voice/battle/vo_zh028_a.sab",
+   "orig_sha256": "b60649129139317337f9ac144e958e49c7460bcd78d3871c6b9f57f7b64ff82d",
+   "orig_size": 743408,
+   "subsongs": [
+    {
+     "index": 19,
+     "concepts": [
+      "shit"
+     ]
+    }
+   ]
+  },
+  {
+   "bank": "sound/voice/battle/vo_zh033_e.sab",
+   "orig_sha256": "55a5a2c99c35dd8f33eb649916926b091c51301ee82299407b48942ea38516bb",
+   "orig_size": 691792,
+   "subsongs": [
+    {
+     "index": 124,
+     "concepts": [
+      "shit"
+     ]
+    }
+   ]
+  },
+  {
+   "bank": "sound/voice/battle/vo_zh036_e.sab",
+   "orig_sha256": "f54b27ade3ecf66b9c37c23521b8affbca6bea208b2d45d9a0a8c2621e9ac31b",
+   "orig_size": 833040,
+   "subsongs": [
+    {
+     "index": 53,
+     "concepts": [
+      "damn"
+     ]
+    }
+   ]
+  },
+  {
+   "bank": "sound/voice/battle/vo_zt010.sab",
+   "orig_sha256": "c3c9a0d55d54f67961f0026f786d4e0766df8c584a06892f52d83d3d936c4e12",
+   "orig_size": 575712,
+   "subsongs": [
+    {
+     "index": 103,
+     "concepts": [
+      "bastard"
+     ]
+    }
+   ]
+  },
+  {
+   "bank": "sound/voice/battle/vo_zt011.sab",
+   "orig_sha256": "05916a9746b89ccf3402a5fa5cde229a6596a1c5b947cc7268878504092c556a",
+   "orig_size": 627376,
+   "subsongs": [
+    {
+     "index": 46,
+     "concepts": [
+      "damn"
+     ]
+    }
+   ]
+  },
+  {
+   "bank": "sound/voice/battle/vo_zt014.sab",
+   "orig_sha256": "7be7a2e5c83a0c8ceffc0ce0a1b47880e17ddd0bdec3ec90c085c6a17623a277",
+   "orig_size": 552000,
+   "subsongs": [
+    {
+     "index": 44,
+     "concepts": [
+      "shit"
+     ]
+    }
+   ]
+  },
+  {
+   "bank": "sound/voice/battle/vo_zt028.sab",
+   "orig_sha256": "e9222ea0dd4bfd5b8d81b6f5f2661e5bcc4c1aa5c95773b66d419faf1b9c4e5d",
+   "orig_size": 579856,
+   "subsongs": [
+    {
+     "index": 101,
+     "concepts": [
+      "fuck"
+     ]
+    }
+   ]
+  }
+ ]
+}
